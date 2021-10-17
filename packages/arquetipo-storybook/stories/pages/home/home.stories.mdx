@@ -1,0 +1,21 @@
+import { Meta, Story, Canvas } from "@storybook/addon-docs/blocks";
+import { HomeComponent, HomeModule } from "./home";
+
+<Meta title="Páginas/Página Home" />
+
+# PÁGINA DE HOME
+
+Está página se ha construido haciendo uso de los componentes de [Search Input](?path=/docs/componentes-search-input--default-story) y [Customer Information](?path=/docs/componentes-customer-information--default-story).
+
+export const Default = () => ({
+  component: HomeComponent,
+  props: {},
+  moduleMetadata: {
+    imports: [HomeModule],
+    declarations: [],
+  },
+});
+
+<Canvas>
+  <Story name="Default">{Default.bind({})}</Story>
+</Canvas>

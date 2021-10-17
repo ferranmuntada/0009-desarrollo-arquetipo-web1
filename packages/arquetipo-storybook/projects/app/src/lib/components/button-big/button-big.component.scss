@@ -1,0 +1,47 @@
+@import "../../../../assets/theme/variables.scss";
+.mln-icon-button {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 260px;
+    border-radius: 5px;
+    background-color: map-get($colors, white);
+    border: 1px solid map-get($colors, disabled);
+    padding: 1rem;
+    margin: 0 auto;
+    &:focus, &:active {
+        outline: none;
+    }
+    &.active {
+        color: map-get($colors, white);
+        background-color: map-get($colors, buttonBlue);
+    }
+    .left {
+        display: inline-block;
+        width: 35%;
+        .mat-icon {
+            font-size: 40px;
+            color: map-get($colors, white);
+        }
+    }
+    &.disabled {
+        background-color: map-get($colors, white);
+        .left {
+            .mat-icon {
+                color: map-get($colors, disabled);
+            }
+        }
+        .right {
+            color: map-get($colors, disabled);
+        }
+    }
+    >.right {
+        width: 65%;
+        color: map-get($colors, white);
+        .text {
+            font-family: 'RobotoBold';
+            padding: 0 2rem;
+        }
+    }
+}

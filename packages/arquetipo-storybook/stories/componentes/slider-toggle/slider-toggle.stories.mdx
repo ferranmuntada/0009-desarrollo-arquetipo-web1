@@ -1,0 +1,104 @@
+import { Meta, Story, Canvas } from "@storybook/addon-docs/blocks";
+import { MatSlideToggleModule } from "@angular/material/slide-toggle";
+import { MatFormFieldModule } from "@angular/material/form-field";
+import { SliderToggleComponent } from "../../../projects/app/src/lib/components/slider-toggle/slider-toggle.component";
+import { action } from "@storybook/addon-actions";
+
+<Meta title="Componentes/Slider Toggle" />
+
+# COMPONENTE SLIDER TOGGLE
+
+Modulo:
+
+- SliderToggleModule
+
+```js live=true
+import { SliderToggleModule } from "arquetipo-storybook/dist";
+```
+
+Componente:
+
+- Para incorporar el component, el prefijo a utilizar para la etiqueta HTML es:
+
+```html live=true
+<mln-slider-toggle></mln-slider-toggle>
+```
+Componente slider toggle. Acepta los siguiente parámetros de entrada:
+
+- statusText:
+  - first: (string) Texto que figurará a la izquierda del slider.
+  - second: (string) Texto que figurará a la derecha del slider.
+- label: (string) Etiqueta que recibirá el slider.
+
+Emite la señal de cambio en la salida:
+
+- changeToggleAction: (EventEmitter(boolean)>) Devuelve un verdadero o falso.
+
+## Ejemplo de uso
+
+Definición de modelo de datos del componente:
+
+```js
+const statusText: {
+      first: "Gráfico",
+      second: "Detalle",
+    };
+const changeToggleAction = (event: Event | any) => {};
+```
+
+Declaración HTML:
+
+```html
+<mln-slider-toggle [statusText]="statusText" (changeToggleAction)="changeToggleAction($event)"></mln-slider-toggle>
+```
+
+Resultado:
+
+export const Default = () => ({
+  component: SliderToggleComponent,
+  props: {
+    statusText: {
+      first: "Gráfico",
+      second: "Detalle",
+    },
+    changeToggleAction: action("changeToggleAction"),
+  },
+  moduleMetadata: {
+    imports: [MatSlideToggleModule, MatFormFieldModule],
+  },
+});
+
+<Canvas>
+  <Story name="Default">{Default.bind({})}</Story>
+</Canvas>
+
+## SLIDER TOGGLE CHECK
+
+Slider con el paso de una única opción, para elementos de Apagado o encendido. El parámetro que admite es:
+
+```js
+const label: "Activo";
+const changeToggleAction = action("changeToggleAction");
+```
+
+Declaración HTML:
+
+```html
+<mln-slider-toggle [label]="label"></mln-slider-toggle>
+```
+
+Resultado:
+
+export const Check = () => ({
+  component: SliderToggleComponent,
+  props: {
+    label: "Activo",
+  },
+  moduleMetadata: {
+    imports: [MatSlideToggleModule, MatFormFieldModule],
+  },
+});
+
+<Canvas>
+  <Story name="Check">{Check.bind({})}</Story>
+</Canvas>

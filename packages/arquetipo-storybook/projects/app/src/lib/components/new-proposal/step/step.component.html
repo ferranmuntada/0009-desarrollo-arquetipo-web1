@@ -1,0 +1,6 @@
+<div [attr.id]="index" class="mln-tabs-panel" role="tabpanel" [class.mln-tabs-panel--selected]="selected" [attr.aria-hidden]="!selected" [attr.aria-labelledby]="'header-' + index">
+    <ng-content></ng-content>
+    <ng-container *ngIf="contentTemplate && loaded">
+        <ng-container *ngTemplateOutlet="contentTemplate"></ng-container>
+    </ng-container>
+</div>

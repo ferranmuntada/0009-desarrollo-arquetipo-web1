@@ -1,0 +1,120 @@
+import { Meta, Story, Canvas } from "@storybook/addon-docs/blocks";
+import { action } from "@storybook/addon-actions";
+import {
+  NewProposalComponent,
+  NewProposalModule,
+  testObserver,
+} from "./new-proposal";
+
+<Meta title="Componentes/Panels/Stepper" />
+
+# COMPONENTE STEPPER
+
+export const Default = () => ({
+  component: NewProposalComponent,
+  props: {
+    menuItems: [
+      { text: "Titulares 1" },
+      { text: "Titulares 2" },
+      { text: "Titulares 3" },
+      { text: "Titulares 4" },
+      { text: "Titulares 5" },
+      { text: "Titulares 6" },
+    ],
+    linkAmount: {
+      disabled: true,
+      show: true,
+      callback: testObserver,
+    },
+    linkHiring: {
+      disabled: false,
+      show: true,
+      callback: testObserver,
+    },
+    closeAction: action("closeAction"),
+    saveAction: action("saveAction"),
+    selectAction: action("selectAction")
+  },
+  moduleMetadata: {
+    imports: [NewProposalModule],
+  },
+});
+
+<Canvas>
+  <Story name="Default">{Default.bind({})}</Story>
+</Canvas>
+
+
+Modulo:
+
+- StepperModule
+
+```js live=true
+import { StepperModule } from "arquetipo-storybook/dist";
+```
+
+#### Componente lista por pasos, se compone de un parámetro matriz que se puede configurar.
+
+linkAmount(Object) : Butón de la derecha, llamado "Costes"
+
+- disabled: Boolean;
+- show: Boolean;
+- callback: Subject
+
+linkHiring(Object) : Botón de la izquierda, llamado "Contratación"
+
+- disabled: Boolean;
+- show: Boolean;
+- callback: Subject
+
+#### Icorporación del componente:
+
+- Para incorporar el component, el prefijo a utilizar para la etiqueta HTML es:
+
+```html live=true
+<mln-stepper></mln-stepper>
+```
+
+#### Mockup de datos:
+
+```typescript live=true
+const testObserverAmount = new Subject<boolean>();
+const testObserverHiring = new Subject<boolean>();
+const linkAmount = {
+  disabled: true,
+  show: true,
+  callback: testObserverAmount,
+};
+const linkHiring = {
+  disabled: false,
+  show: true,
+  callback: testObserverHiring,
+};
+
+const closeActionEmit = () => {};
+const saveActionEmit = () => {};
+const selectActionEmit = (event: Event) => {};
+
+testObserverAmount.subscribe((value) => console.log(value));
+testObserverHiring.subscribe((value) => console.log(value));
+
+// Lista de datos opcionales, su utilización se debe al contenido a mostrar
+const menuItems = [
+  { text: "Titulares 1" },
+  { text: "Titulares 2" },
+  { text: "Titulares 3" },
+  { text: "Titulares 4" },
+  { text: "Titulares 5" },
+  { text: "Titulares 6" },
+];
+```
+
+- Ejemplo de incorporación con datos incorporados:
+
+```html live=true
+<mln-stepper (selectAction)="selectActionEmit($event)" (closeAction)="closeActionEmit()" (saveAction)="saveActionEmit()" [linkAmount]="linkAmount" [linkHiring]="linkHiring">
+    <mln-step [title]="item.text" descriptionLabel="description" *ngFor="let item of menuItems">
+        <p>Contenido para {{ item.text }}</p>
+    </mln-step>
+</mln-stepper>
+```

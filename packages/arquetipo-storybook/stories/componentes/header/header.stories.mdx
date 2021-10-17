@@ -1,0 +1,114 @@
+import { Meta, Story, Canvas } from "@storybook/addon-docs/blocks";
+import { action } from "@storybook/addon-actions";
+import { HeaderComponent } from "../../../projects/app/src/lib/components/header/header.component";
+import { CommonModule } from "@angular/common";
+
+<Meta title="Componentes/Headers/Header" />
+
+# COMPONENTE CABECERA
+
+Modulo:
+
+- HeaderModule
+
+```js live=true
+import { HeaderModule } from "arquetipo-storybook/dist";
+```
+
+Componente:
+
+- Para incorporar el component, el prefijo a utilizar para la etiqueta HTML es:
+
+```html live=true
+<mln-header></mln-header>
+```
+
+Componente que se utilizará como cabecera de la aplicación y que contiene información sobre el usuario. se compone de un parámetro matriz que se peude configurar.
+
+Datos de entrada:
+
+- user: (Array JSON) Datos del usuario.
+  - name: (String) Nombre del usuario.
+  - lastname: (String) Apellidos del usuario.
+  - amount: (Float) Patrimonio del cliente, que debe tener dos decimales.
+- menuItems : Enlaces en la parte izquierda que serán mostrados al cliente.
+  - text: (String) Texto que figurará en la propuesta.
+  - class: (String) Indica si la prupuesta esta completada o pendiente, acepta los valores 'active' si es el enlace activo.
+  - navigation: (String url) Enlace al que se llevará al cliente en caso de clickar sobre la opción.
+
+Datos de salida:
+
+- backButtonAction: Botón de vuelta aptras situado en la parte izquierda de la cabecera.
+- informationUserAction: Icono en la cabecerá que enviará a un enlace dado.
+
+### Ejemplo de uso:
+
+Definición de modelo de datos del componente:
+
+```js live=true
+let user: {
+  name: 'Name', 
+  lastname: 'Surname1 Surname2', 
+  patrimony: 0.00
+}; 
+let menuItems: [ 
+  { 
+    text: 'Link 1', 
+    class: 'active', 
+    navigation: '#' 
+  }, { 
+    text: 'Link 2', 
+    class: '', 
+    navigation: '#' 
+  }, { 
+    text: 'Link 3', 
+    class: '', 
+    navigation: '#'
+  }, { 
+    text: 'Link 4', 
+    class: '', 
+    navigation: '#' 
+  }, 
+]; 
+let backButtonAction: action('backButtonAction'); 
+let informationUserAction: action('informationUserAction');
+```
+
+Declaración HTML:
+
+```html live=true
+<mln-header
+  [user]="user"
+  [menuItems]="menuItems"
+  [backButtonAction]="backButtonAction"
+  [informationUserAction]="informationUserAction"
+></mln-header>
+```
+
+Resultado:
+
+export const Default = () => ({
+  component: HeaderComponent,
+  props: {
+    user: { name: "Name", lastname: "Surname1 Surname2", patrimony: 0.0 },
+    menuItems: [
+      { text: "Link 1", class: "active", navigation: "#" },
+      { text: "Link 2", class: "", navigation: "#" },
+      { text: "Link 3", class: "", navigation: "#" },
+      { text: "Link 4", class: "", navigation: "#" },
+    ],
+    backButtonAction: action("backButtonAction"),
+    informationUserAction: action("informationUserAction"),
+    navigationAction: action("navigationAction"),
+  },
+  moduleMetadata: {
+    imports: [CommonModule],
+    providers: [],
+  },
+});
+
+<Canvas>
+  <Story name="Default">{Default.bind({})}</Story>
+</Canvas>
+
+_Revisar las entradas y salidas, indicar como le entran los datos al componentes y a donde redirige en caso de pinchar sobre alguna de las partes_

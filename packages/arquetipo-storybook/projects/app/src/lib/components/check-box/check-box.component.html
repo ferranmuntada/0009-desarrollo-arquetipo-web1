@@ -1,0 +1,8 @@
+<label class="container">
+  <input type="checkbox" [checked]="settings?.checked" (change)="changeChk($event.target.checked, settings?.callBack)">
+  <span class="checkmark" [ngStyle]="{'border': ('2px solid ' + settings.color), 'background-color': settings.color}"></span>
+  <!-- <mat-icon class="checkmark" [ngStyle]="{'color': '#2fb8de'}" aria-hidden="false" aria-label="icon" matSufix>
+    check_circle
+  </mat-icon> -->
+  <span class="label">{{ settings?.title }}</span>
+</label>

@@ -1,0 +1,23 @@
+import { Meta, Story, Canvas } from "@storybook/addon-docs/blocks";
+import { action } from "@storybook/addon-actions";
+import { PageProposalModule, PageProposalComponent } from "./proposal";
+
+<Meta title="Páginas/Propuesta de inversión" />
+
+# PÁGINA DE PROPUESTA DE INVERSIÓN
+
+Está página se ha construido haciendo uso de los componentes de [Button](?path=/docs/componentes-button--primary), [Data Table](?path=/docs/componentes-data-table--default-story) Y [Header](?path=/docs/componentes-header--default-story).
+
+export const Default = () => ({
+  component: PageProposalComponent,
+  props: {},
+  moduleMetadata: {
+    imports: [PageProposalModule],
+    declarations: [],
+    providers: [],
+  },
+});
+
+<Canvas>
+  <Story name="Default">{Default.bind({})}</Story>
+</Canvas>

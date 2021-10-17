@@ -1,0 +1,352 @@
+@font-face {
+    font-family: "GillSansItalic";
+    src: url("./GillSans-Italic.eot");
+    src: url("./GillSans-Italic.eot?#iefix") format("embedded-opentype"), url("./GillSans-Italic.woff2") format("woff2"),
+        url("./GillSans-Italic.woff") format("woff"), url("./GillSans-Italic.ttf") format("truetype");
+    //   font-weight: normal;
+    //   font-style: italic;
+}
+
+@font-face {
+    font-family: "GillSansCondensedBold";
+    src: url("./GillSans-CondensedBold.eot");
+    src: url("./GillSans-CondensedBold.eot?#iefix") format("embedded-opentype"),
+        url("./GillSans-CondensedBold.woff2") format("woff2"), url("./GillSans-CondensedBold.woff") format("woff"),
+        url("./GillSans-CondensedBold.ttf") format("truetype");
+    //   font-weight: bold;
+    //   font-style: normal;
+}
+
+@font-face {
+    font-family: "GillSans300Italic";
+    src: url("./GillSans-LightItalic.eot");
+    src: url("./GillSans-LightItalic.eot?#iefix") format("embedded-opentype"),
+        url("./GillSans-LightItalic.woff2") format("woff2"), url("./GillSans-LightItalic.woff") format("woff"),
+        url("./GillSans-LightItalic.ttf") format("truetype");
+    //   font-weight: 300;
+    //   font-style: italic;
+}
+
+@font-face {
+    font-family: "GillSans500Italic";
+    src: url("./GillSans-MediumItalic.eot");
+    src: url("./GillSans-MediumItalic.eot?#iefix") format("embedded-opentype"),
+        url("./GillSans-MediumItalic.woff2") format("woff2"), url("./GillSans-MediumItalic.woff") format("woff"),
+        url("./GillSans-MediumItalic.ttf") format("truetype");
+    //   font-weight: 500;
+    //   font-style: italic;
+}
+
+@font-face {
+    font-family: "GillSans500";
+    src: url("./GillSans-Medium.eot");
+    src: url("./GillSans-Medium.eot?#iefix") format("embedded-opentype"), url("./GillSans-Medium.woff2") format("woff2"),
+        url("./GillSans-Medium.woff") format("woff"), url("./GillSans-Medium.ttf") format("truetype");
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "GillSans300";
+    src: url("./GillSans-Light.eot");
+    src: url("./GillSans-Light.eot?#iefix") format("embedded-opentype"), url("./GillSans-Light.woff2") format("woff2"),
+        url("./GillSans-Light.woff") format("woff"), url("./GillSans-Light.ttf") format("truetype");
+    //   font-weight: 300;
+    //   font-style: normal;
+}
+
+@font-face {
+    font-family: "GillSans";
+    src: url("./GillSans.eot");
+    src: url("./GillSans.eot?#iefix") format("embedded-opentype"), url("./GillSans.woff2") format("woff2"),
+        url("./GillSans.woff") format("woff"), url("./GillSans.ttf") format("truetype");
+    //   font-weight: normal;
+    //   font-style: normal;
+}
+
+@font-face {
+    font-family: "GillSans900";
+    src: url("./GillSans-Heavy.eot");
+    src: url("./GillSans-Heavy.eot?#iefix") format("embedded-opentype"), url("./GillSans-Heavy.woff2") format("woff2"),
+        url("./GillSans-Heavy.woff") format("woff"), url("./GillSans-Heavy.ttf") format("truetype");
+    //   font-weight: 900;
+    //   font-style: normal;
+}
+
+@font-face {
+    font-family: "GillSans900Italic";
+    src: url("./GillSans-HeavyItalic.eot");
+    src: url("./GillSans-HeavyItalic.eot?#iefix") format("embedded-opentype"),
+        url("./GillSans-HeavyItalic.woff2") format("woff2"), url("./GillSans-HeavyItalic.woff") format("woff"),
+        url("./GillSans-HeavyItalic.ttf") format("truetype");
+    //   font-weight: 900;
+    //   font-style: italic;
+}
+
+@font-face {
+    font-family: "GillSansBold";
+    src: url("./GillSans-Bold.eot");
+    src: url("./GillSans-Bold.eot?#iefix") format("embedded-opentype"), url("./GillSans-Bold.woff2") format("woff2"),
+        url("./GillSans-Bold.woff") format("woff"), url("./GillSans-Bold.ttf") format("truetype");
+    //   font-weight: bold;
+    //   font-style: normal;
+}
+
+@font-face {
+    font-family: "GillSansCondensedRegular";
+    src: url("./GillSans-CondensedRegular.eot");
+    src: url("./GillSans-CondensedRegular.eot?#iefix") format("embedded-opentype"),
+        url("./GillSans-CondensedRegular.woff2") format("woff2"), url("./GillSans-CondensedRegular.woff") format("woff"),
+        url("./GillSans-CondensedRegular.ttf") format("truetype");
+    //   font-weight: normal;
+    //   font-style: normal;
+}
+
+@font-face {
+    font-family: "GillSansBoldItalic";
+    src: url("./GillSans-BoldItalic.eot");
+    src: url("./GillSans-BoldItalic.eot?#iefix") format("embedded-opentype"),
+        url("./GillSans-BoldItalic.woff2") format("woff2"), url("./GillSans-BoldItalic.woff") format("woff"),
+        url("./GillSans-BoldItalic.ttf") format("truetype");
+    //   font-weight: bold;
+    //   font-style: italic;
+}
+
+@font-face {
+    font-family: "GillSansItalic";
+    src: url("./GillSans-Italic.eot");
+    src: url("./GillSans-Italic.eot?#iefix") format("embedded-opentype"), url("./GillSans-Italic.woff2") format("woff2"),
+        url("./GillSans-Italic.woff") format("woff"), url("./GillSans-Italic.ttf") format("truetype");
+    //   font-weight: normal;
+    //   font-style: italic;
+}
+
+@font-face {
+    font-family: "GillSansCondensedBold";
+    src: url("./GillSans-CondensedBold.eot");
+    src: url("./GillSans-CondensedBold.eot?#iefix") format("embedded-opentype"),
+        url("./GillSans-CondensedBold.woff2") format("woff2"), url("./GillSans-CondensedBold.woff") format("woff"),
+        url("./GillSans-CondensedBold.ttf") format("truetype");
+    //   font-weight: bold;
+    //   font-style: normal;
+}
+
+@font-face {
+    font-family: "GillSans300Italic";
+    src: url("./GillSans-LightItalic.eot");
+    src: url("./GillSans-LightItalic.eot?#iefix") format("embedded-opentype"),
+        url("./GillSans-LightItalic.woff2") format("woff2"), url("./GillSans-LightItalic.woff") format("woff"),
+        url("./GillSans-LightItalic.ttf") format("truetype");
+    //   font-weight: 300;
+    //   font-style: italic;
+}
+
+@font-face {
+    font-family: "GillSans500Italic";
+    src: url("./GillSans-MediumItalic.eot");
+    src: url("./GillSans-MediumItalic.eot?#iefix") format("embedded-opentype"),
+        url("./GillSans-MediumItalic.woff2") format("woff2"), url("./GillSans-MediumItalic.woff") format("woff"),
+        url("./GillSans-MediumItalic.ttf") format("truetype");
+    //   font-weight: 500;
+    //   font-style: italic;
+}
+
+@font-face {
+    font-family: "GillSans500";
+    src: url("./GillSans-Medium.eot");
+    src: url("./GillSans-Medium.eot?#iefix") format("embedded-opentype"), url("./GillSans-Medium.woff2") format("woff2"),
+        url("./GillSans-Medium.woff") format("woff"), url("./GillSans-Medium.ttf") format("truetype");
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "GillSans300";
+    src: url("./GillSans-Light.eot");
+    src: url("./GillSans-Light.eot?#iefix") format("embedded-opentype"), url("./GillSans-Light.woff2") format("woff2"),
+        url("./GillSans-Light.woff") format("woff"), url("./GillSans-Light.ttf") format("truetype");
+    //   font-weight: 300;
+    //   font-style: normal;
+}
+
+@font-face {
+    font-family: "GillSans";
+    src: url("./GillSans.eot");
+    src: url("./GillSans.eot?#iefix") format("embedded-opentype"), url("./GillSans.woff2") format("woff2"),
+        url("./GillSans.woff") format("woff"), url("./GillSans.ttf") format("truetype");
+    //   font-weight: normal;
+    //   font-style: normal;
+}
+
+@font-face {
+    font-family: "GillSans900";
+    src: url("./GillSans-Heavy.eot");
+    src: url("./GillSans-Heavy.eot?#iefix") format("embedded-opentype"), url("./GillSans-Heavy.woff2") format("woff2"),
+        url("./GillSans-Heavy.woff") format("woff"), url("./GillSans-Heavy.ttf") format("truetype");
+    //   font-weight: 900;
+    //   font-style: normal;
+}
+
+@font-face {
+    font-family: "GillSans900Italic";
+    src: url("./GillSans-HeavyItalic.eot");
+    src: url("./GillSans-HeavyItalic.eot?#iefix") format("embedded-opentype"),
+        url("./GillSans-HeavyItalic.woff2") format("woff2"), url("./GillSans-HeavyItalic.woff") format("woff"),
+        url("./GillSans-HeavyItalic.ttf") format("truetype");
+    //   font-weight: 900;
+    //   font-style: italic;
+}
+
+@font-face {
+    font-family: "GillSansBold";
+    src: url("./GillSans-Bold.eot");
+    src: url("./GillSans-Bold.eot?#iefix") format("embedded-opentype"), url("./GillSans-Bold.woff2") format("woff2"),
+        url("./GillSans-Bold.woff") format("woff"), url("./GillSans-Bold.ttf") format("truetype");
+    //   font-weight: bold;
+    //   font-style: normal;
+}
+
+@font-face {
+    font-family: "GillSansCondensedRegular";
+    src: url("./GillSans-CondensedRegular.eot");
+    src: url("./GillSans-CondensedRegular.eot?#iefix") format("embedded-opentype"),
+        url("./GillSans-CondensedRegular.woff2") format("woff2"), url("./GillSans-CondensedRegular.woff") format("woff"),
+        url("./GillSans-CondensedRegular.ttf") format("truetype");
+    //   font-weight: normal;
+    //   font-style: normal;
+}
+
+@font-face {
+    font-family: "GillSansBoldItalic";
+    src: url("./GillSans-BoldItalic.eot");
+    src: url("./GillSans-BoldItalic.eot?#iefix") format("embedded-opentype"),
+        url("./GillSans-BoldItalic.woff2") format("woff2"), url("./GillSans-BoldItalic.woff") format("woff"),
+        url("./GillSans-BoldItalic.ttf") format("truetype");
+    //   font-weight: bold;
+    //   font-style: italic;
+}
+
+@font-face {
+    font-family: "Roboto300";
+    src: url("./Roboto-Light.eot");
+    src: url("./Roboto-Light.eot?#iefix") format("embedded-opentype"), url("./Roboto-Light.woff2") format("woff2"),
+        url("./Roboto-Light.woff") format("woff"), url("./Roboto-Light.ttf") format("truetype");
+    // font-weight: 300;
+    // font-style: normal;
+    // font-display: swap;
+}
+
+@font-face {
+    font-family: "Roboto900";
+    src: url("./Roboto-Black.eot");
+    src: url("./Roboto-Black.eot?#iefix") format("embedded-opentype"), url("./Roboto-Black.woff2") format("woff2"),
+        url("./Roboto-Black.woff") format("woff"), url("./Roboto-Black.ttf") format("truetype");
+    font-weight: 900;
+    font-style: normal;
+    // font-display: swap;
+}
+
+@font-face {
+    font-family: "Roboto900Italic";
+    src: url("./Roboto-BlackItalic.eot");
+    src: url("./Roboto-BlackItalic.eot?#iefix") format("embedded-opentype"),
+        url("./Roboto-BlackItalic.woff2") format("woff2"), url("./Roboto-BlackItalic.woff") format("woff"),
+        url("./Roboto-BlackItalic.ttf") format("truetype");
+    // font-weight: 900;
+    // font-style: italic;
+    // font-display: swap;
+}
+
+@font-face {
+    font-family: "RobotoBoldItalic";
+    src: url("./Roboto-BoldItalic.eot");
+    src: url("./Roboto-BoldItalic.eot?#iefix") format("embedded-opentype"),
+        url("./Roboto-BoldItalic.woff2") format("woff2"), url("./Roboto-BoldItalic.woff") format("woff"),
+        url("./Roboto-BoldItalic.ttf") format("truetype");
+    // font-weight: bold;
+    // font-style: italic;
+    // font-display: swap;
+}
+
+@font-face {
+    font-family: "RobotoItalic";
+    src: url("./Roboto-Italic.eot");
+    src: url("./Roboto-Italic.eot?#iefix") format("embedded-opentype"), url("./Roboto-Italic.woff2") format("woff2"),
+        url("./Roboto-Italic.woff") format("woff"), url("./Roboto-Italic.ttf") format("truetype");
+    // font-weight: normal;
+    // font-style: italic;
+    // font-display: swap;
+}
+
+@font-face {
+    font-family: "RobotoBold";
+    src: url("./Roboto-Bold.eot");
+    src: url("./Roboto-Bold.eot?#iefix") format("embedded-opentype"), url("./Roboto-Bold.woff2") format("woff2"),
+        url("./Roboto-Bold.woff") format("woff"), url("./Roboto-Bold.ttf") format("truetype");
+    // font-weight: bold;
+    // font-style: normal;
+    // font-display: swap;
+}
+
+@font-face {
+    font-family: "Roboto100";
+    src: url("./Roboto-Thin.eot");
+    src: url("./Roboto-Thin.eot?#iefix") format("embedded-opentype"), url("./Roboto-Thin.woff2") format("woff2"),
+        url("./Roboto-Thin.woff") format("woff"), url("./Roboto-Thin.ttf") format("truetype");
+    // font-weight: 100;
+    // font-style: normal;
+    // font-display: swap;
+}
+
+@font-face {
+    font-family: "Roboto500";
+    src: url("./Roboto-Medium.eot");
+    src: url("./Roboto-Medium.eot?#iefix") format("embedded-opentype"), url("./Roboto-Medium.woff2") format("woff2"),
+        url("./Roboto-Medium.woff") format("woff"), url("./Roboto-Medium.ttf") format("truetype");
+    // font-weight: 500;
+    // font-style: normal;
+    // font-display: swap;
+}
+
+@font-face {
+    font-family: "Roboto300Italic";
+    src: url("./Roboto-LightItalic.eot");
+    src: url("./Roboto-LightItalic.eot?#iefix") format("embedded-opentype"),
+        url("./Roboto-LightItalic.woff2") format("woff2"), url("./Roboto-LightItalic.woff") format("woff"),
+        url("./Roboto-LightItalic.ttf") format("truetype");
+    // font-weight: 300;
+    // font-style: italic;
+    // font-display: swap;
+}
+
+@font-face {
+    font-family: "Roboto100Italic";
+    src: url("./Roboto-ThinItalic.eot");
+    src: url("./Roboto-ThinItalic.eot?#iefix") format("embedded-opentype"),
+        url("./Roboto-ThinItalic.woff2") format("woff2"), url("./Roboto-ThinItalic.woff") format("woff"),
+        url("./Roboto-ThinItalic.ttf") format("truetype");
+    // font-weight: 100;
+    // font-style: italic;
+    // font-display: swap;
+}
+
+@font-face {
+    font-family: "Roboto";
+    src: url("./Roboto-Regular.eot");
+    src: url("./Roboto-Regular.eot?#iefix") format("embedded-opentype"), url("./Roboto-Regular.woff2") format("woff2"),
+        url("./Roboto-Regular.woff") format("woff"), url("./Roboto-Regular.ttf") format("truetype");
+    // font-weight: normal;
+    // font-style: normal;
+    // font-display: swap;
+}
+
+@font-face {
+    font-family: "Roboto500Italic";
+    src: url("./Roboto-MediumItalic.eot");
+    src: url("./Roboto-MediumItalic.eot?#iefix") format("embedded-opentype"),
+        url("./Roboto-MediumItalic.woff2") format("woff2"), url("./Roboto-MediumItalic.woff") format("woff"),
+        url("./Roboto-MediumItalic.ttf") format("truetype");
+    // font-weight: 500;
+    // font-style: italic;
+    // font-display: swap;
+}

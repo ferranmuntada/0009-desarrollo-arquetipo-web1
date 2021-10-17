@@ -1,0 +1,151 @@
+@import '../variables.scss';
+
+/* .c-proposal-table {
+    @include mat-table-columns( ( id: ( width: 10%, ), description: ( width: 14%, ), type: ( width: 14%, ), amount: ( width: 14%, ), date: ( width: 14%, ), status: ( width: 14%, ), options: ( width: 18%, ), ));
+    cursor: default;
+}
+
+@media screen and (max-width: 580px) {
+    @include mat-table-columns( ( id: ( width: 10%, display: none, ), description: ( width: 14%, ), type: ( width: 14%, ), amount: ( width: 14%, ), date: ( width: 14%, display: none, ), status: ( width: 14%, ), options: ( width: 18%, ), ));
+}
+ */
+
+// @media screen and (max-width: 960px) {
+//     .mat-header-row {
+//         display: none;
+//     }
+//     .mat-row {
+//         flex-direction: column;
+//         align-items: start;
+//         padding: 8px 24px;
+//     }
+//     .mat-table {
+//         border: 0;
+//         vertical-align: middle
+//     }
+//     .mat-table caption {
+//         font-size: 1em;
+//     }
+//     .mat-table .mat-row {
+//         border-bottom: 5px solid #ddd;
+//         display: block;
+//         background: rgb(241, 245, 252);
+//     }
+//     .mat-table .mat-cell {
+//         border-bottom: 1px solid #ddd;
+//         display: block;
+//         font-size: 1em;
+//         text-align: right;
+//         font-weight: bold;
+//         height: 30px;
+//         margin-bottom: 4%;
+//     }
+//     .mat-table .mat-cell:before {
+//         content: attr(data-label);
+//         float: left;
+//         text-transform: uppercase;
+//         font-weight: normal;
+//         font-size: .85em;
+//     }
+//     .mat-table .mat-cell:last-child {
+//         border-bottom: 0;
+//     }
+//     .mat-table .mat-cell:first-child {
+//         margin-top: 4%;
+//     }
+// }
+.c-proposal-table {
+    min-width: 960px;
+    overflow: auto;
+    .mat-form-field-wrapper {
+        padding: 10px 0;
+        top: 5px;
+    }
+}
+
+.mat-table {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    .mat-header-row {
+        background-color: map-get($colors, white);
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+    }
+}
+
+.mat-table {
+    border-radius: 0 !important;
+}
+
+.mat-header-row {
+    border-bottom-color: map-get($colors, white) !important;
+    .mat-header-cell {
+        font-size: 13px;
+        color: #4e5c63;
+        font-family: "Roboto";
+        font-weight: bold;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+    }
+}
+
+.mat-row {
+    background-color: #f1f5fc !important;
+    border-bottom-color: map-get($colors, white) !important;
+    .mat-cell {
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        font-family: "Roboto";
+        font-size: 12px;
+        .mat-form-field {
+            text-align: center;
+        }
+    }
+}
+
+.mat-form-field-outline-start, .mat-form-field-outline-gap, .mat-form-field-outline-end {
+    border: 0px solid transparent !important;
+}
+
+.mat-select-arrow {
+    color: #212b65;
+}
+
+.mat-paginator {
+    box-shadow: 0px 6px 18px -5px #cccccc;
+    margin: 0 0 10px;
+    .mat-paginator-container {
+        padding: 2px 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .mat-paginator-page-size-select {
+            width: 35px;
+        }
+        .mat-form-field-wrapper {
+            padding-bottom: 12px;
+            padding-top: 8px;
+        }
+        .mat-paginator-page-size-label {
+            padding-right: 10px;
+        }
+        .mat-paginator-page-size {
+            font-family: "RobotoBold";
+            display: flex;
+            align-items: center;
+        }
+        .mat-form-field-underline {
+            background-color: transparent;
+        }
+        .mat-paginator-navigation-previous, .mat-paginator-navigation-next {
+            margin-top: -3px;
+            width: 25px;
+        }
+        .mat-button-disabled {
+            opacity: .4;
+        }
+    }
+}

@@ -1,0 +1,56 @@
+@import "../../../../../assets/theme/variables.scss";
+@import "../../../../../assets/theme/tools/tools__pixel-to-rem";
+.mln-accordion-panel {
+    &__header {
+        background: #f1f5fc;
+        position: relative;
+        &:hover {
+            background: #edf0f5;
+        }
+    }
+    &__action {
+        padding: rem(16);
+        outline: 0px solid transparent;
+        display: block;
+        cursor: pointer;
+        .toggle-icon {
+            &--hidden {
+                display: none;
+            }
+        }
+        .block-left {
+            margin: 0 2px;
+            vertical-align: middle;
+        }
+        .image-icon {
+            display: contents;
+            &::before {
+                content: var(--image);
+                transform: scale(.5);
+                display: inline-block;
+                vertical-align: middle;
+            }
+        }
+    }
+    &__body {
+        overflow: hidden;
+    }
+    &__content {
+        margin: 0 auto;
+        background: #e2e6ee;
+    }
+    &--disabled {
+        background: #e2e2e22e;
+        .mln-accordion-panel__header {
+            background: inherit;
+        }
+        .mln-accordion-panel {
+            &__action {
+                cursor: default;
+                &:hover, &:focus, &:visited {
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,88 @@
+import { Meta, Story, Canvas } from "@storybook/addon-docs/blocks";
+import { MatButtonModule } from "@angular/material/button";
+import { BigButtonModule, ButtonBigComponent, testObserverBig } from './button-big';
+
+<Meta title="Componentes/Buttons/Button Big" />
+
+# COMPONENTE BOTÓN BIG
+
+## Button Big Active
+
+export const Default = () => ({
+  component: ButtonBigComponent,
+  props: {
+    active: true,
+    icon: "arrow_circle_up",
+    text: "Botón",
+    callback: testObserverBig
+  },
+  moduleMetadata: {
+    imports: [BigButtonModule],
+  },
+});
+
+<Canvas>
+  <Story name="Default">{Default.bind({})}</Story>
+</Canvas>
+
+Modulo:
+
+- BigButtonModule
+
+```js live=true
+import { BigButtonModule } from "arquetipo-storybook/dist";
+```
+
+Todos los tipos de componentes botón aceptarán los siguientes parámetros:
+
+- active: (Boolean) Indica si el botón está activo o no.
+- text: (String) Texto que contendrá el botón.
+- icon: (String) Icono que mostrará el botón, los iconos puede ser uno de los que se encuentran en la siguieten url. (https://material.io/resources/icons/?style=baseline). En caso de no indicar nada el botón mostrará un icono por defecto.
+- callback (Subject) Observable que al que se puede subscribir.
+
+### Ejemplo de uso de propiedades del componente.
+```typescript live=true
+const active = true; 
+const icon = 'arrow_circle_up';
+const text = 'Botón';
+
+// Este callback es un observable al cual nos tenemos que suscribir para recibir para recibir la acción del botón (clic)
+const callback = new Subject<boolean>();
+callback.subscribe(() => console.log('Reacción del botón'));
+```
+
+- Para incorporar el component, el prefijo a utilizar para la etiqueta HTML es:
+
+```html live=true
+<mln-button-big [active]="active" [icon]="icon" [text]="text" [callback]="callback"></mln-button-big>
+```
+
+## Button Big Disabled
+
+export const Disabled = () => ({
+  component: ButtonBigComponent,
+  props: {
+    active: false,
+    text: "Botón Deshabilitado",
+    callback: testObserverBig
+  },
+  moduleMetadata: {
+    imports: [BigButtonModule],
+  },
+});
+
+<Canvas>
+  <Story name="Disabled">{Disabled.bind({})}</Story>
+</Canvas>
+
+
+Botón deshabilitado:
+
+### Ejemplo de uso:
+
+Definición de modelo de datos del componente:
+
+```js live=true
+const active = false; 
+const text = 'Botón Deshabilitado'; 
+```

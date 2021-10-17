@@ -1,0 +1,110 @@
+.divider {
+    border-right: 1px solid #f1f5fc;
+    height: 100%;
+    position: absolute;
+    left: 50%;
+    margin-left: -3px;
+    top: 0;
+    box-shadow: 2px -1px 4px #c8cace;
+}
+
+::ng-deep {
+    .container-step {
+        &-6 {
+            .content {
+                &-costs {
+                    .mat-cell {
+                        display: flex;
+                        justify-content: flex-start;
+                        font-family: "RobotoBold";
+                        font-size: 13px;
+                        color: rgb(78, 92, 99);
+                        padding-left: 0!important;
+
+                        .table-child{
+                            .mat-header-row{
+                                display: none;
+                            }
+                            .mat-cell{
+                                background-color: #e3e7ef;
+                                font-size: 12px;
+                                display: flex;
+                                justify-content: center;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.container-step {
+    padding: 0 0 5rem 0;
+    &-6 {
+        &--lg {
+            margin: 0.1rem 0;
+            padding: 1rem 0;
+        }
+        .content {
+            color: grey;
+            margin: 10px auto;
+            width: 90%;
+            padding: 2rem 0;
+            position: relative;
+            .title {
+                padding: 1rem 0;
+            }
+            p {
+                padding: 1rem 0;
+                font-weight: 600;
+            }
+            &--block {
+                display: inline-block;
+                padding: 0 2rem;
+                vertical-align: top;
+                mln-radio-button-list {
+                    margin-bottom: 1rem;
+                    display: block;
+                }
+            }
+            &--button {
+                display: block;
+                padding: 1rem 0;
+                float: right;
+                padding-bottom: 4rem;
+            }
+            .table {
+                &-header {
+                    display: block;
+                    background: white;
+                    padding: 2rem;
+                    position: relative;
+                }
+                &--content {
+                    margin: 0 auto;
+                    padding: 1.25rem;
+                    background: #e2e6ee;
+                    display: block;
+                    border-bottom: 2px solid white;
+                    position: relative;
+                    &_block {
+                        display: inline-block;
+                        width: 45%;
+                        margin: 0 1rem;
+                    }
+                    &:last-child {
+                        border-bottom: none;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.bottom-text {
+    font-size: 12px;
+    color: #4E5C63;
+    font-family: "Roboto";
+    margin: 30px 0;
+}

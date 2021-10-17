@@ -1,0 +1,6 @@
+.mln-tabs-panel {
+    display: none;
+    &--selected {
+        display: block;
+    }
+}

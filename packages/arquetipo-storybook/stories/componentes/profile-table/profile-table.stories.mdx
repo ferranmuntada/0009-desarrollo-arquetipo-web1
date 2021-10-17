@@ -1,0 +1,109 @@
+import { Meta, Story, Canvas } from "@storybook/addon-docs/blocks";
+import { StorybookComponent, StorybookModule } from './profile-table';
+
+<Meta title="Componentes/Panels/Profile Table" />
+
+# COMPONENTE TABLA DE PERFIL DE CLIENTE
+
+export const Default = () => ({
+  component: StorybookComponent,
+  props: {
+    title: 'Perfil del inversor'
+  },
+  moduleMetadata: {
+    imports: [StorybookModule],
+  },
+});
+
+<Canvas>
+  <Story name="Default">{Default.bind({})}</Story>
+</Canvas>
+
+Modulo:
+
+- HeaderModule
+
+```js live=true
+import { ProfileTableModule } from "arquetipo-storybook/dist";
+```
+
+Componente:
+
+Propiedades:
+- title (string): Título de la caja.
+
+- Para incorporar el component, el prefijo a utilizar para la etiqueta HTML es:
+
+```html live=true
+<mln-profile-table [title]="title">
+  <!--
+  Contenido de la caja:
+    - Aquí se puede añadir una plantilla HTML. 
+   -->
+</mln-profile-table>
+```
+
+### Ejemplo de uso de la plantilla:
+
+```html live=true
+<mln-profile-table [title]="title">
+    <div class="row-table">
+        <div class="row-table-text">
+            Equilibrado
+        </div>
+        <div class="table-wrapper">
+            <table>
+                <th colspan="5">
+                    Familias (1)
+                </th>
+                <tr>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                    <td>4</td>
+                    <td>5</td>
+                </tr>
+                <tr>
+                    <td>
+                        <mat-icon>check</mat-icon>
+                    </td>
+                    <td>
+                        <mat-icon>check</mat-icon>
+                    </td>
+                    <td>
+                        <mat-icon>check</mat-icon>
+                    </td>
+                    <td>
+                        <mat-icon>check</mat-icon>
+                    </td>
+                    <td>
+                        <mat-icon>check</mat-icon>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="separator"></div>
+    <div class="row-info">
+        <div class="col-info">
+            <div>Horizonte temporal</div>
+            <div>Todos</div>
+        </div>
+        <div class="col-info">
+            <div>Horizonte temporal</div>
+            <div>Todos</div>
+        </div>
+    </div>
+    <div class="separator"></div>
+    <div class="row-info">
+        <div class="col-info">
+            <div>Horizonte temporal</div>
+            <div>Todos</div>
+        </div>
+        <div class="col-info">
+            <div>Horizonte temporal</div>
+            <div>Todos</div>
+        </div>
+    </div>
+</mln-profile-table>
+```

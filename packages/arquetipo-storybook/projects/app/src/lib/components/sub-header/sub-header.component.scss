@@ -1,0 +1,40 @@
+@import '../../../../assets/theme/variables.scss';
+.header {
+    border-bottom: 1px solid;
+    color: map-get($colors, disabled);
+    font-family: "GillSansBold";
+    font-size: 24px;
+    &-title {
+        padding: 0 0 1rem 1rem;
+        display: block;
+        &--left {
+            color: #202967;
+            width: 50%;
+            display: inline-block;
+        }
+        &--right {
+            width: 50%;
+            display: inline-block;
+            font-size: 14px;
+            vertical-align: middle;
+            span {
+                float: right
+            }
+        }
+        &--sufix {
+            font-size: 14px;
+            color: map-get($colors, gray);
+        }
+    }
+    &-right {
+        display: flex;
+        justify-content: flex-end;
+    }
+    @media only screen and (max-width: 720px) {
+        flex-wrap: wrap;
+        justify-content: center;
+        &-title {
+            margin: 10px 0;
+        }
+    }
+}

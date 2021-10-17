@@ -1,0 +1,213 @@
+@import "../../../../assets/theme/variables.scss";
+.header-proposal {
+    width: 100%;
+    -webkit-box-shadow: 0px 10px 18px -5px rgba(204, 204, 204, 1);
+    -moz-box-shadow: 0px 10px 18px -5px rgba(204, 204, 204, 1);
+    box-shadow: 0px 10px 18px -5px rgba(204, 204, 204, 1);
+    position: relative;
+    background: map-get($colors, white);
+    z-index: 99;
+    .np-title {
+        font-size: 30px;
+        color: map-get($colors, darkBlue);
+        text-align: center;
+        font-family: "GillSans500";
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        @media only screen and (max-width: 1040px) {
+            height: 80px;
+            align-items: flex-end;
+            margin-bottom: 10px;
+        }
+    }
+    .np-links {
+        position: absolute;
+        right: 10px;
+        top: 22px;
+        display: flex;
+        align-items: center;
+        .np-link {
+            padding-right: 6px;
+            font-family: "GillSansCondensedBold";
+            color: map-get($colors, blueIcon);
+            display: flex;
+            align-items: center;
+            font-size: 16px;
+            cursor: pointer;
+            &.disabled {
+                cursor: initial;
+                opacity: 0.3;
+            }
+            .icon {
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: contain;
+                margin-right: 5px;
+                padding: 10px;
+                color: map-get($colors, blueIcon);
+                &.costes {
+                    background-image: url("/assets/img/costes.png");
+                }
+                &.contratacion {
+                    background-image: url("/assets/img/contratacion.png");
+                }
+            }
+        }
+    }
+    .np-bar-wrapper {
+        width: 90%;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        box-sizing: border-box;
+        flex-wrap: wrap;
+        .np-bar {
+            flex: 1 1 0;
+            padding: 5px;
+            height: 50px;
+            @media only screen and (max-width: 980px) {
+                flex: initial;
+                width: 30%;
+            }
+            @media only screen and (max-width: 540px) {
+                flex: initial;
+                width: 45%;
+            }
+            cursor: pointer;
+            .np-block {
+                height: 12px;
+            }
+            .np-text {
+                text-align: center;
+                margin: 0 auto;
+                display: flex;
+                justify-content: center;
+                padding-left: 2px;
+                align-items: center;
+                font-family: 'RobotoBold';
+                color: gray;
+                .icon {
+                    width: 15px;
+                    height: 15px;
+                    margin-right: 5px;
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    &.tick-ok {
+                        background-image: url("/assets/img/tick-ok.png");
+                    }
+                    &.tick-ko {
+                        background-image: url("/assets/img/tick-ko.png");
+                    }
+                    &.tick-warning {
+                        background-image: url("/assets/img/tick-warning.png");
+                    }
+                    &.none {
+                        display: none;
+                    }
+                }
+            }
+            &.done {
+                .np-block {
+                    background-color: map-get($colors, blueIcon);
+                }
+                .np-text {
+                    color: map-get($colors, gray);
+                }
+            }
+            &.active {
+                .np-block {
+                    background-color: map-get($colors, blueIcon);
+                }
+                .np-text {
+                    color: map-get($colors, blueLink);
+                }
+            }
+            &.pending {
+                .np-block {
+                    background-color: #bedef0;
+                }
+                .np-text {
+                    color: map-get($colors, disabled);
+                }
+            }
+            &:first-child {
+                .np-block {
+                    border-top-left-radius: 5px;
+                    border-bottom-left-radius: 5px;
+                }
+            }
+            &:last-child {
+                .np-block {
+                    border-top-right-radius: 5px;
+                    border-bottom-right-radius: 5px;
+                }
+            }
+        }
+    }
+}
+
+.footer-proposal {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 99;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+    height: 50px;
+    padding: 0 20px;
+    box-sizing: border-box;
+    border-top: 1px solid gray;
+    background: map-get($colors, white);
+    .footer-action {
+        color: black;
+        font-family: "GillSans500";
+        padding: 0 30px;
+        cursor: pointer;
+        border: none;
+        background: none;
+        &:focus {
+            outline: none;
+            box-shadow: none;
+        }
+    }
+    .back {
+        font: inherit;
+        font-family: "GillSans500";
+    }
+    .footer-link {
+        color: #2f9ad3;
+        font-family: 'GillSans500';
+        text-decoration: underline;
+        cursor: pointer;
+    }
+    .mln-button {
+        padding: 0 30px;
+        font-weight: bold;
+        border-radius: 20px;
+        margin: 0 auto;
+        border-width: 2px;
+        height: 40px;
+        font-family: 'Roboto';
+        &.primary {
+            color: map-get($colors, buttonBlue);
+            border-color: map-get($colors, buttonBlue);
+            background-color: map-get($colors, white);
+        }
+        &.disabled {
+            color: map-get($colors, disabled);
+            border-color: map-get($colors, disabled);
+            background-color: map-get($colors, white);
+        }
+    }
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 2rem;
+}

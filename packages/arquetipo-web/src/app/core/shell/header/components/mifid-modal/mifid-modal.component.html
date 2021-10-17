@@ -1,0 +1,163 @@
+<section>
+    <div class="popup-title">
+        <h3>MiFID</h3>
+        <span class="close-icon"></span>
+    </div>
+    <div class="flex-column">
+        <div class="sub-header">
+            <div class="button-person">
+                <mln-button text="Jose Manuel Pérez" classButton="secondary" icon="person_outline"></mln-button>
+            </div>
+            <div class="button-person">
+                <mln-button text="Julio Pérez" classButton="primary" icon="person_outline"></mln-button>
+            </div>
+        </div>
+
+        <div class="mifid-container-table">
+            <div class="mifid-block">
+                <mln-profile-table title="Perfil del inversor">
+                    <div class="row-table">
+                        <div class="row-table-text">
+                            Equilibrado
+                        </div>
+                        <div class="table-wrapper">
+                            <table>
+                                <th colspan="5">
+                                    Familias (1)
+                                </th>
+                                <tr>
+                                    <td>1</td>
+                                    <td>2</td>
+                                    <td>3</td>
+                                    <td>4</td>
+                                    <td>5</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <mat-icon>check</mat-icon>
+                                    </td>
+                                    <td>
+                                        <mat-icon>check</mat-icon>
+                                    </td>
+                                    <td>
+                                        <mat-icon>check</mat-icon>
+                                    </td>
+                                    <td>
+                                        <mat-icon>check</mat-icon>
+                                    </td>
+                                    <td>
+                                        <mat-icon>check</mat-icon>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="separator"></div>
+                    <div class="row-info">
+                        <div class="col-info">
+                            <div>Horizonte temporal</div>
+                            <div>Todos</div>
+                        </div>
+                        <div class="col-info">
+                            <div>Horizonte temporal</div>
+                            <div>Todos</div>
+                        </div>
+                    </div>
+                    <div class="separator"></div>
+                    <div class="row-info">
+                        <div class="col-info">
+                            <div>Horizonte temporal</div>
+                            <div>Todos</div>
+                        </div>
+                        <div class="col-info">
+                            <div>Horizonte temporal</div>
+                            <div>Todos</div>
+                        </div>
+                    </div>
+                </mln-profile-table>
+            </div>
+            <div class="mifid-block">
+                <p class="mifid-block-title">Gráfico del nivel de riesgo</p>
+                <div class="apexchart" *ngIf="chartOptions && chartOptions.series && chartOptions.series.length">
+                    <mln-chart-bar [chartOptions]="chartOptions"></mln-chart-bar>
+                    <div class="apexchart__bottom">
+                        <span class="apexchart__bottom--flex">ALTO RIESGO</span>
+                        <span class="apexchart__bottom--flex">MEDIO RIESGO</span>
+                        <span class="apexchart__bottom--flex">BAJO RIESGO</span>
+                    </div>
+                </div>
+                <div class="legend">
+                    <!-- <div class="legend__block">
+                        <span class="legend--circle"></span>
+                        <span>Patrimonio en Banco Mediolanum</span>
+                    </div> -->
+                    <div class="legend__block">
+                        <span class="legend--circle"></span>
+                        <span>Máximo disponible en relación al Perfil Inversor</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mifid-container-accordion">
+            <div class="mifid-block">
+                <p class="mifid-block-title">Distribución Patrimonial TOTAL ANTES de la recomendación</p>
+                <mln-accordion [multi]="true">
+                    <mln-accordion-tab [active]="true">
+                        <mln-accordion-header>
+                            <div class="table--content_block table--content_block-01">% en prod. líquidos</div>
+                            <div class="table--content_block table--content_block-02">Peso en %</div>
+                            <div class="table--content_block table--content_block-03">Nivel de riesgo s/patrimonio Total</div>
+                        </mln-accordion-header>
+                        <mln-accordion-content class="table--content">
+                            <div class="accordion-row">
+                                <div class="accordion-col accordion-col-01">
+                                    <span>31.1</span>
+                                </div>
+                                <div class="accordion-col accordion-col-02">
+                                    <div>51.1</div>
+                                    <div>31.8</div>
+                                    <div>17.1</div>
+                                </div>
+                                <div class="accordion-col accordion-col-03">
+                                    <div>Bajo</div>
+                                    <div>Medio</div>
+                                    <div>Alto</div>
+                                </div>
+                            </div>
+                        </mln-accordion-content>
+                    </mln-accordion-tab>
+                </mln-accordion>
+            </div>
+            <div class="mifid-block">
+                <p class="mifid-block-title">Distribución Patrimonial con la Recomendación</p>
+                <mln-accordion [multi]="true">
+                    <mln-accordion-tab [active]="true">
+                        <mln-accordion-header>
+                            <div class="table--content_block table--content_block-01">% en prod. líquidos</div>
+                            <div class="table--content_block table--content_block-02">Peso en %</div>
+                            <div class="table--content_block table--content_block-03">Nivel de riesgo s/patrimonio Total</div>
+                        </mln-accordion-header>
+                        <mln-accordion-content class="table--content">
+
+                            <div class="accordion-row">
+                                <div class="accordion-col accordion-col-01">
+                                    <span>31.1</span>
+                                </div>
+                                <div class="accordion-col accordion-col-02">
+                                    <div>51.1</div>
+                                    <div>31.8</div>
+                                    <div>17.1</div>
+                                </div>
+                                <div class="accordion-col accordion-col-03">
+                                    <div>Bajo</div>
+                                    <div>Medio</div>
+                                    <div>Alto</div>
+                                </div>
+                            </div>
+                        </mln-accordion-content>
+                    </mln-accordion-tab>
+                </mln-accordion>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,9 @@
+<button class="mln-icon-button primary" [ngClass]="active == true ? 'active' : 'disabled'" (click)="onClick($event)" [class.active]="active" [attr.disabled]="!active ? true : null">
+    <!-- <i class="icon" [ngStyle]="{'background-image': 'url(' + classIcon + ')'}"> </i> -->
+    <div class="left">
+        <mat-icon class="icon">{{ icon }}</mat-icon>
+    </div>
+    <div class="right">
+        <div class="text">{{ text }}</div>
+    </div>
+</button>

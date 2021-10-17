@@ -1,0 +1,5 @@
+<mln-stepper (selectAction)="selectActionEmit($event)" (closeAction)="closeActionEmit()" (saveAction)="saveActionEmit()" [linkAmount]="linkAmount" [linkHiring]="linkHiring">
+    <mln-step [title]="item.text" descriptionLabel="description" *ngFor="let item of menuItems">
+        <p>Contenido para {{ item.text }}</p>
+    </mln-step>
+</mln-stepper>

@@ -1,0 +1,123 @@
+@import "../../../../assets/theme/variables.scss";
+.customer-wrapper {
+    width: 100%;
+    margin: 10px 0;
+    box-sizing: border-box;
+    -webkit-box-shadow: 0px 0px 7px 0px rgba(0, 0, 0, 0.25);
+    -moz-box-shadow: 0px 0px 7px 0px rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 0px 7px 0px rgba(0, 0, 0, 0.25);
+
+
+    .customer-head {
+        background-color: map-get($colors, 'white');
+        display: flex;
+        justify-content: space-between;
+        min-height: 45px;
+        padding: 5px 20px;
+        @media only screen and (max-width: 720px) {
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .customer-left {
+            display: flex;
+            align-items: center;
+            .customer-initial {
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                background-color: #f1f5fc;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: #5cafdd;
+                text-transform: uppercase;
+                font-family: "Roboto";
+                font-size: 16px;
+            }
+            .customer-name {
+                color: map-get($colors, darkBlue);
+                font-family: "GillSansBold";
+                font-size: 16px;
+                padding-left: 20px;
+            }
+            .customer-nif {
+                color: map-get($colors, darkBlue);
+                font-family: "GillSansBold";
+                font-size: 16px;
+                padding-left: 20px;
+            }
+        }
+        .customer-right {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            .customer-state {
+                border-right: 2px solid lightgray;
+                padding-right: 20px;
+                margin-right: 20px;
+                color: map-get($colors, 'darkBlue');
+                font-family: "RobotoBold";
+            }
+            .customer-icon {
+                font-family: "Roboto";
+                padding-right: 10px;
+                display: inline-block;
+                background-image: url("/assets/img/cliente-real.png");
+                background-repeat: no-repeat;
+                background-size: contain;
+                width: 30px;
+                height: 28px;
+            }
+        }
+    }
+    .customer-footer {
+        @media only screen and (max-width: 720px) {
+            flex-wrap: wrap;
+            flex-direction: row-reverse;
+        }
+        
+        background-color: #f1f5fc;
+        padding: 5px 20px;
+        display: flex;
+        min-height: 45px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .customer-right {
+            .customer-go {
+                display: flex;
+                align-items: center;
+                cursor: pointer;
+                font-family: 'Roboto';
+                .disabled {
+                    color: map-get($colors, 'disabled');
+                }
+            }
+        }
+        .customer-left {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            @media only screen and (max-width: 720px) {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .customer-amount {
+                color: #4e5c63;
+                font-family: "RobotoBold";
+                font-size: 14px;
+                padding-right: 20px;
+                display: contents;
+                .opaque {
+                    color: rgba(0, 0, 0, 0.38);
+                }
+                span {
+                    padding-right: 10px;
+                }
+                > :first-child {
+                    padding-right: 10px;
+                }
+            }
+        }
+    }
+}

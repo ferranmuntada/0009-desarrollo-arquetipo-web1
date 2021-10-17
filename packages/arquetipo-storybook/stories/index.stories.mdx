@@ -1,0 +1,75 @@
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+
+<Meta title="Bienvenida"/>
+
+# BIENVENIDO ARQUETIPO BANCO MEDIOLANUM
+
+> Proyecto de arquetipos y guia de componentes para Banco Mediolanum
+
+![Arquitectura Banco Mediolanum Diagrama](/assets/img/ArqBMED.png)
+
+## Prerequisitos
+
+- npm >=6.13.4
+- node >=12.15.0
+
+## Instalación
+
+Para la correcta instalación de BMED - Archetype el desarrollador debe seguir los siguientes pasos.
+
+Clonar, instalar y construir el proyecto, para ello debe realizar los siguientes pasos.
+
+```sh
+git clone https://git.atsistemas.com/scm/bmed/0009-desarrollo-arquetipo-web.git
+cd 0009-desarrollo-arquetipo-web\
+npm run build-bmed
+```
+Con la aplicación instalada y construida solo habrá que levantar las aplicaciones, para ello se deberán ejecutar los siguientes comandos:
+
+Storybook
+
+```sh
+npm run storybook 
+```
+
+Angular
+
+```sh
+npm run angular-start
+```
+
+### IMPORTANTE: Instalación del arquetipo en una APP de angular.
+En angular.json es de ogligada implementación los assets del arquetipo.
+"projects.[name_project].architect.build.options.assets"
+```json
+{
+    "assets": [
+        "src/favicon.ico",
+        "src/assets",
+        {
+            "glob": "**/*",
+            "input": "./node_modules/arquetipo-storybook/dist/assets",
+            "output": "./assets/"
+        }
+    ]
+}
+```
+Además es necesario incorporar los estilos del arquetipo en "styles.scss".
+```scss
+@import './node_modules/arquetipo-storybook/dist/assets/styles.scss';
+```
+
+#### Creación de componentes y modulos
+Para la creación de un módulo se ha de ejecutar el siguiente comando:
+```sh
+ng g m components/[name_module] --project arquetipo-storybook
+```
+Para la creación de un componente se ha de ejecutar el siguiente comando:
+```sh
+ng g c components/[name_component] --project arquetipo-storybook
+```
+- Aparte de lo anterior, es necesario la creación de una carpeta y un archivo [nombre].stories.mdx para poder visualizar el componente en el storybook.
+
+## Author
+
+👤 **ATSISTEMAS**

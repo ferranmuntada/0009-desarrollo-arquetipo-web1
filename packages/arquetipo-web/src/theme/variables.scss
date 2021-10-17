@@ -1,0 +1,18 @@
+$colors: ( primary: #507cf3, gray: #9b9b9b, gray-01: #e3e3e3, light: #ececec, dark: #000000, yellow: #fce300, green: #73b55b, white: #ffffff, semiWhite: #F8FAFD, not-available: #ff006a, available: #69fea0, out: #f5a623, text: #333333, lightText: #999999, darkText: #191919, contactText: #bb162b, textInput: #ff7121, blueGreen: #2699d6);
+
+/* FONT SIZES */
+
+$xxxxl: 200px;
+$xxxl: 120px;
+$xxl: 52px;
+$xl: 48px;
+$l: 24px;
+$m: 18px;
+$s: 14px;
+$xs: 12px;
+
+/* MEDIA QUERIES */
+
+$extramobile-size: "only screen and (max-width: 480px)";
+$mobile-size: "only screen and (max-width: 767px)";
+$tablet-size: "only screen and (max-width: 992px)";

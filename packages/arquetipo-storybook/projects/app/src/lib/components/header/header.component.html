@@ -1,0 +1,29 @@
+<header class="header-wrapper">
+    <div class="header-info">
+        <div class="header-search" (click)="goBackAction()">
+            <i class="header-icon-back"></i>
+            <span>Buscador</span>
+        </div>
+        <div class="header-user">
+            <div class="header-initial">{{initials}}</div>
+            <div class="header-user-info">
+                <div class="header-user-name">{{user.name}} {{user.lastname}}</div>
+                <div class="header-user-icon" (click)="informationUser()">
+                    <span></span>
+                    <span>MiFid</span>
+                </div>
+            </div>
+        </div>
+        <div class="header-amount">
+            <div class="header-amount-number">
+                <span>{{amountInt}}</span><span class="decimal">,{{amountDec}} €</span>
+            </div>
+            <div class="header-amount-text">PATRIMONIO</div>
+        </div>
+    </div>
+    <ul class="header-menu">
+        <li class="header-item" *ngFor="let item of menuItems;" [class.active]="navigationActive(item)" [ngClass]="{ disabled: item.disabled }" (click)="navigationMenu(item)">
+            {{ item.text }}
+        </li>
+    </ul>
+</header>

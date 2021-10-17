@@ -1,0 +1,32 @@
+@import "../../../../assets/theme/variables.scss";
+.mln-button {
+    padding: 0 30px;
+    font-weight: bold;
+    border-radius: 20px;
+    margin: 0 auto;
+    border-width: 2px;
+    height: 40px;
+    font-family: 'Roboto';
+    &.square {
+        border-radius: 3px;
+        font-weight: normal;
+    }
+    &.primary {
+        color: map-get($colors, buttonBlue);
+        border-color: map-get($colors, buttonBlue);
+        background-color: map-get($colors, white);
+    }
+    &.secondary {
+        color: map-get($colors, white);
+        background-color: map-get($colors, buttonBlue);
+    }
+    &.disabled {
+        color: map-get($colors, disabled);
+        border-color: map-get($colors, disabled);
+        background-color: map-get($colors, white);
+    }
+    &--icon {
+        border: none;
+        color: #2a9fd8;
+    }
+}

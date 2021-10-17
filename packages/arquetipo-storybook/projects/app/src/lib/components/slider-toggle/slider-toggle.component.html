@@ -1,0 +1,6 @@
+<div class="sliderToggle">
+    <mat-label [style.fontWeight]="!toggle.checked ? '700' : '' " *ngIf="statusText">{{ statusText?.first }}</mat-label>
+    <mat-slide-toggle #toggle class="mat-slide-toggle" (change)="changeToggle($event.checked)">{{ label }}
+    </mat-slide-toggle>
+    <mat-label [style.fontWeight]="toggle.checked ? '700' : '' " *ngIf="statusText"> {{ statusText?.second }}</mat-label>
+</div>

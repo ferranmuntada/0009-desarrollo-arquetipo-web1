@@ -1,0 +1,83 @@
+import { Meta, Story, Canvas } from "@storybook/addon-docs/blocks";
+import { action } from "@storybook/addon-actions";
+import { AccordionStorybookComponent, AccordionStorybookModule } from './accordion';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+<Meta title="Componentes/Panels/Accordion" />
+
+# COMPONENTE ACCORDION
+export const Default = () => ({
+  component: AccordionStorybookComponent,
+  props: {},
+  moduleMetadata: {
+    imports: [BrowserAnimationsModule, AccordionStorybookModule],
+  },
+});
+
+<Canvas>
+  <Story name="Default">{Default.bind({})}</Story>
+</Canvas>
+
+Modulo:
+
+- AccordionModule
+
+```js live=true
+import { AccordionModule } from "arquetipo-storybook/dist";
+```
+
+Componente:
+
+Entrada de datos:
+Acordeón:
+- multi (boolean): Se puede expandir todos los tabs sin que los demás se oculten al abrir uno nuevo.
+- closeAction (EventEmitter): Emite un evento al cerrar un tab.
+- openAction (EventEmitter): Emite un evento al abrir un tab.
+
+Acordeón Tab:
+- imageIconUrl (string): url de imagen para cargar en la cabecera.
+- hideToggle (boolean): No mostrar icono de toggle.
+- title (string): Título de cabecera.
+- active (boolean): Acordeón activo. Caso contrario se queda bloqueado.
+- disabled (boolean): Si esta deshabilitado.
+- hide (boolean): Si esta en "true" se oculta el tab.
+
+- Para incorporar el component, el prefijo a utilizar para la etiqueta HTML es:
+
+```html live=true
+<mln-accordion class="" [multi]="false" (openAction)="onOpen($event)" (closeAction)="onClose($event)">
+    <mln-accordion-tab [active]="true" title="Best Brands L" imageIconUrl="/assets/img/cliente-real.png">
+        <mln-accordion-content>
+            1 - "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+            dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+        </mln-accordion-content>
+    </mln-accordion-tab>
+    <mln-accordion-tab>
+        <mln-accordion-header>
+            Best Brands S
+        </mln-accordion-header>
+        <mln-accordion-content>
+            2 - "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+            dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+        </mln-accordion-content>
+    </mln-accordion-tab>
+    <mln-accordion-tab [disabled]="true">
+        <mln-accordion-header>
+            Header 3
+        </mln-accordion-header>
+        <mln-accordion-content>
+            3 - "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+            dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+        </mln-accordion-content>
+    </mln-accordion-tab>
+    <mln-accordion-tab [hide]="true">
+        <mln-accordion-header>
+            Header 4
+        </mln-accordion-header>
+        <mln-accordion-content>
+            4 - "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+            dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+        </mln-accordion-content>
+    </mln-accordion-tab>
+</mln-accordion>
+```

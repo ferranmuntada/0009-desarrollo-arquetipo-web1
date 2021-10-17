@@ -1,0 +1,26 @@
+<div class="pb-wrapper">
+    <div class="pb-type">
+        <mat-icon class="pb-img material-icons-outlined">{{icon}}</mat-icon>
+        <div>
+            <div class="pb-deadline">
+                {{ deadline }}
+            </div>
+            <div class="pb-time">
+                {{ time }}
+            </div>
+        </div>
+    </div>
+    <div class="pb-bar-info-wrapper">
+        <div class="pb-bar-info-item" *ngFor="let progress of progressInfo">
+            <div class="pb-bar">
+                <mat-progress-bar mode="determinate" value="{{ progress.amount }}"></mat-progress-bar>
+            </div>
+            <div class="pb-info">
+                <div class="pb-amount">{{ progress.amount }} %</div>
+                <div class="pb-text">
+                    {{ progress.text }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

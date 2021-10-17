@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="container-md">
+        <div class="bg">
+            <ng-template #loadTemplate>
+                <mat-spinner></mat-spinner>
+            </ng-template>
+            <ng-container *ngIf="!loading; else loadTemplate">
+                <!-- header -->
+                <div class="header-proposal">
+                    <!-- title -->
+                    <div class="title" translate="proposal.header.title">
+                        <span class="text"> {{ datasources?.length }} {{ 'proposal.header.prefix' | translate }}</span>
+                    </div>
+                    <!-- button create proposal -->
+                    <div>
+                        <mln-button [text]="'proposal.header.button_create' | translate" classButton="primary" [isSquare]="false" [isDisabled]="!canCreate" [callback]="callbackButtonCreate"></mln-button>
+                    </div>
+                </div>
+                <!-- table proposals -->
+                <div *ngIf="datacolumns?.length">
+                    <mln-datatable [datasources]="datasources" [datacolumns]="datacolumns" (actionChangeOptions)="onActionChange($event)"></mln-datatable>
+                </div>
+            </ng-container>
+        </div>
+    </div>
+</div>

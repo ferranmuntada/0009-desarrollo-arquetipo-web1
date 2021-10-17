@@ -1,0 +1,93 @@
+@use '~@angular/material' as mat;
+@import "../variables.scss";
+// Import library functions for theme creation.
+@import "~@angular/material/theming";
+// @import '~material-icons/iconfont/material-icons.css';
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+@import url("https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp");
+// Include non-theme styles for core.
+@include mat.core();
+// Define your application's custom theme.
+$primary: mat.define-palette(mat.$blue-palette);
+$accent: mat.define-palette(mat.$blue-palette, A200, A100, A400);
+$warn: mat.define-palette(mat.$red-palette);
+$theme: mat.define-light-theme($primary, $accent, $warn);
+// Include theme styles for Angular Material components.
+@include mat.all-component-themes($theme);
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.form-search {
+  .mat-form-field-flex {
+    height: 40px;
+    background-color: white;
+    border-radius: 5px;
+  }
+}
+
+.custome-select {
+  border-bottom: 1px solid #d3d3d3;
+  .mat-form-field-wrapper {
+    padding: inherit !important;
+    padding-bottom: inherit !important;
+  }
+  .mat-form-field-infix {
+    padding: 0.5em 0 !important;
+  }
+  .mat-select-arrow-wrapper {
+    display: inherit !important;
+  }
+  .mat-form-field {
+    text-align: center;
+  }
+}
+
+.proposal {
+  &-description {
+    text-align: center !important;
+  }
+  &-table {
+    &__options {
+      .mat-form-field-flex {
+        text-align: center;
+      }
+    }
+  }
+}
+
+.mat-select-panel {
+  max-height: 310px !important;
+}
+
+.mat-option-text {
+  border-bottom: 1px solid #c5cbd1;
+  height: 40px;
+}
+
+.mat-spinner {
+  margin: 0 auto;
+  margin-top: 20rem;
+}
+
+.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+  border-width: 1px !important;
+  border-color: rgba(101, 101, 101, 0.54) !important;
+}
+
+.mat-radio-outer-circle {
+  border-width: 1px !important;
+  border-color: rgb(101 101 101 / 54%) !important;
+}
+
+.mat-row,
+.mat-footer-row {
+  min-height: 48px;
+}
+
+mat-row {
+  &.element-row.expandable-element {
+    padding: 7px 25px;
+  }
+}

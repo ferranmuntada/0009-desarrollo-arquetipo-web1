@@ -1,0 +1,40 @@
+@import '../../../theme/variables.scss';
+.bg {
+    background-color: #F8FAFD;
+    height: 100vh;
+}
+
+.header-proposal {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin: 30px;
+    border-bottom: 1px solid;
+    padding-bottom: 20px;
+    color: #afbfc6;
+    .title {
+        color: #202967;
+        font-family: "GillSansBold";
+        font-size: 20px;
+    }
+    .text {
+        font-size: 14px;
+        color: #4e5c63;
+    }
+    @media only screen and (max-width: 720px) {
+        flex-wrap: wrap;
+        justify-content: center;
+        .title {
+            margin: 10px 0;
+        }
+    }
+}
+
+.table-wrapper {
+    margin: 30px;
+    box-sizing: border-box;
+    .status {
+        color: map-get($colors, 'blueGreen');
+        text-align: center;
+    }
+}

@@ -1,0 +1,186 @@
+@import "../../../../assets/theme/variables.scss";
+@import "../../../../assets/theme/tools/tools__pixel-to-rem";
+.overflow-table {
+    overflow-y: auto;
+}
+
+.hidden-paginator {
+    display: none;
+}
+
+.bg {
+    background-color: #F8FAFD;
+    height: 100vh;
+}
+
+.header-proposal {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin: 30px;
+    border-bottom: 1px solid;
+    padding-bottom: 20px;
+    color: #afbfc6;
+    .title {
+        color: #202967;
+        font-family: "GillSansBold";
+        font-size: 20px;
+    }
+    .text {
+        font-size: 14px;
+        color: #4e5c63;
+    }
+    @media only screen and (max-width: 720px) {
+        flex-wrap: wrap;
+        justify-content: center;
+        .title {
+            margin: 10px 0;
+        }
+    }
+}
+
+.table-wrapper {
+    box-sizing: border-box;
+    .status {
+        color: map-get($colors, 'blueGreen');
+        text-align: center;
+    }
+    .proposal-table__options {
+        text-align: center;
+    }
+    .example-element-detail {
+        overflow: hidden;
+         ::ng-deep mln-datatable {
+            mat-table thead {
+                display: table-header-group;
+            }
+        }
+    }
+    .img-accordion {
+        cursor: pointer;
+        padding: rem(5);
+        &--up {
+            transform: rotate(180deg);
+        }
+    }
+}
+
+.table-paginator {
+    font-family: 'Roboto';
+    .mat-paginator-page-size {
+        color: red;
+    }
+}
+
+.detail-row {
+    height: 0;
+    min-height: 0;
+}
+
+.element-row:not(.expanded-row):hover {
+    background: whitesmoke;
+}
+
+.element-row:not(.expanded-row):active {
+    background: #efefef;
+}
+
+.element-row {
+    background: rgb(241, 245, 252);
+}
+
+.element-row td {
+    border-bottom-width: 0;
+}
+
+.element-detail {
+    overflow: hidden;
+    display: flex;
+    width: 100%;
+}
+
+.element-diagram {
+    min-width: 80px;
+    border: 2px solid black;
+    padding: 8px;
+    font-weight: lighter;
+    margin: 8px 0;
+    height: 104px;
+}
+
+.element-symbol {
+    font-weight: bold;
+    font-size: 40px;
+    line-height: normal;
+}
+
+.element-description {
+    padding: 16px;
+}
+
+.element-description-attribution {
+    opacity: 0.5;
+}
+
+.mat-column-expandedDetail {
+    border-bottom-style: none;
+}
+
+.block-left {
+    margin: 0 2px;
+    vertical-align: middle;
+}
+
+.Table {
+    display: table;
+    border: 1px solid rgba($color: #000000, $alpha: 0.1);
+}
+
+.Title {
+    display: table-caption;
+    text-align: center;
+    font-weight: bold;
+    font-size: larger;
+}
+
+.Heading {
+    display: table-row;
+    font-weight: bold;
+    text-align: center;
+    background-color: white;
+    .Cell {
+        color: #4E5C63;
+        font-family: "Roboto";
+        font-size: 12px;
+    }
+}
+
+.Row {
+    display: table-row;
+}
+
+.Cell {
+    display: table-cell;
+    border: solid;
+    border-width: thin;
+    padding-left: 15px;
+    padding-right: 15px;
+    vertical-align: middle;
+    border-color: rgba($color: white, $alpha: 0.6);
+    padding-top: 15px;
+    padding-bottom: 15px;
+    color: #4E5C63;
+    font-family: "Roboto";
+    font-size: 12px;
+}
+
+.table-child {
+    width: 100%;
+    margin-top: 20px;
+}
+
+@media screen and (max-width: 580px) {
+    .table-child, .element-row.expandable-element .mat-cell::before, .buttonExpanded {
+        display: none;
+    }
+}

@@ -1,0 +1,22 @@
+@import "../../../../assets/theme/variables.scss";
+@import "../../../../assets//theme/tools/tools__pixel-to-rem";
+.profile-table {
+    box-sizing: border-box;
+    padding: rem(25);
+    background-color: #ebeff2;
+    border: rem(1) solid #c2ced3;
+    border-radius: rem(5);
+    .separator {
+        border-bottom: rem(2) solid #8080803b;
+        margin: rem(6) 0;
+        padding: rem(5) 0;
+    }
+    .table-title {
+        padding-left: rem(5);
+        font-family: "RobotoBold";
+        color: map-get($colors, darkBlue);
+    }
+    .content {
+        padding: rem(16);
+    }
+}

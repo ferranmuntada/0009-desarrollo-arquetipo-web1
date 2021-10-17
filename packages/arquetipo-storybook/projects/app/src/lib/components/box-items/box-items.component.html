@@ -1,0 +1,22 @@
+<div class="mln-box-items">
+    <div class="header-wrapper">
+        <div class="header-amount" [innerHTML]="settings?.title"></div>
+        <div class="header-text">
+            <span>{{ settings?.subTitle }}</span>
+            <i class="icon-info"></i>
+        </div>
+    </div>
+
+    <div class="items-wrapper">
+        <ul>
+            <li *ngFor="let item of settings.listItems">
+                <span class="tick"></span><span class="item-text">{{ item }}</span>
+            </li>
+        </ul>
+    </div>
+
+    <div class="footer-wrapper" (click)="editFilterAction($event)">
+        <i class="icon pencil"></i>
+        <span class="footer-text">{{ settings?.footerText }}</span>
+    </div>
+</div>

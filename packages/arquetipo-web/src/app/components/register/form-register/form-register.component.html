@@ -1,0 +1,50 @@
+<form [formGroup]="formRegisterFg" (ngSubmit)="onSubmit()">
+    <div>
+        <mat-form-field class="example-full-width">
+            <mat-label [translate]="'register.form.name'"></mat-label>
+            <input matInput formControlName="name" />
+            <mat-icon matSuffix>person</mat-icon>
+            <mat-error *ngIf="registerForm.name.hasError('required')">
+                {{ 'form_error_required' | translate }}
+            </mat-error>
+            <mat-error *ngIf="registerForm.name.hasError('minlength')">
+                {{ 'form_error_minlength' | translate }}
+            </mat-error>
+        </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field class="example-full-width">
+            <mat-label [translate]="'register.form.email'"></mat-label>
+            <input matInput formControlName="email" />
+            <mat-icon matSuffix>email</mat-icon>
+            <mat-error *ngIf="registerForm.email.hasError('required')">
+                {{ 'form_error_required' | translate }}
+            </mat-error>
+            <mat-error *ngIf="registerForm.email.hasError('minlength')">
+                {{ 'form_error_minlength' | translate }}
+            </mat-error>
+        </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field class="example-full-width">
+            <mat-label [translate]="'register.form.password'"></mat-label>
+            <input type="password" matInput formControlName="password" autocomplete="on" />
+            <mat-icon matSuffix>vpn_key</mat-icon>
+            <mat-error *ngIf="registerForm.password.hasError('required')">
+                {{ 'form_error_required' | translate }}
+            </mat-error>
+            <mat-error *ngIf="registerForm.password.hasError('minlength')">
+                {{ 'form_error_minlength' | translate }}
+            </mat-error>
+        </mat-form-field>
+    </div>
+
+    <p>
+        <a [routerLink]="['/login']" routerLinkActive="router-link-active">{{ 'login' | translate }}</a>
+    </p>
+    <div class="button__wrapper">
+        <button color="primary" mat-button type="submit">
+            {{ 'register.form.create' | translate }}
+        </button>
+    </div>
+</form>

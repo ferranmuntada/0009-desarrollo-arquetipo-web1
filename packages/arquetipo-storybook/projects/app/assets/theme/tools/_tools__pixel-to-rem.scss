@@ -1,0 +1,5 @@
+//__<<ngThemingMigrationEscapedComment0>>__
+$wf__base-font-size: 16;
+@function rem($pixels, $context: $wf__base-font-size) {
+    @return #{$pixels/$context}rem
+}

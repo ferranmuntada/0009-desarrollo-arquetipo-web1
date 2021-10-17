@@ -1,0 +1,39 @@
+.apex-wrapper {
+    display: flex;
+    @media only screen and (max-width: 980px) {
+        flex-wrap: wrap;
+        flex-direction: column-reverse;
+    }
+    .main-wrapper {
+        width: 74%;
+        background-color: white;
+        margin: 20px;
+        border: 1px solid rgba(143, 143, 143, 0.295);
+        @media only screen and (max-width: 980px) {
+            width: 100%;
+            margin: 20px 0;
+        }
+    }
+    .context-wrapper {
+        width: 24%;
+        margin: 20px 0;
+        margin-left: 3%;
+        @media only screen and (max-width: 980px) {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            margin: 0;
+            >* {
+                margin-left: 20px;
+            }
+        }
+        .title {
+            color: #70838b;
+            font-size: 14px;
+            padding: 10px 0;
+        }
+        ul {
+            list-style: none;
+        }
+    }
+}

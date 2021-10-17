@@ -1,0 +1,133 @@
+.divider {
+    border-right: 1px solid #f1f5fc;
+    height: 100%;
+    position: absolute;
+    left: 50%;
+    margin-left: -3px;
+    top: 0;
+    box-shadow: 2px -1px 4px #c8cace;
+    @media screen and (max-width: 720px) {
+        display: none;
+       }
+}
+
+.container-step {
+    padding: 0 0 5rem 0;
+    &-5 {
+        padding-bottom: 4rem;
+        .analytics5d {
+            background-color: #F1F5FC;
+            &__head {
+                margin: 0 auto;
+                text-align: center;
+                padding-top: 20px;
+                ul li {
+                    display: inline-block;
+                    padding: 0.5rem;
+                }
+            }
+            &__body {
+                display: flex;
+                width: 100%;
+                @media only screen and (max-width: 540px) {
+                    flex-wrap: wrap;
+                    flex-direction: column-reverse;
+                }
+                &--left {
+                    width: 70%;
+                    padding: 0 0 0 20px;
+                    @media only screen and (max-width: 720px) {
+                        width: 60%;
+                    }
+                    @media only screen and (max-width: 540px) {
+                        width: 100%;
+                        padding: 0 20px;
+                    }
+                    box-sizing: border-box;
+                    .progressbar {
+                        margin-bottom: 10px;
+                    }
+                }
+                &--right {
+                    width: 30%;
+                    @media only screen and (max-width: 720px) {
+                        width: 40%;
+                    }
+                    @media only screen and (max-width: 540px) {
+                        width: 100%;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+                    }
+                    padding: 0 20px;
+                    box-sizing: border-box;
+                    .top {
+                        margin-bottom: 30px;
+                        .title {
+                            color: #70838B;
+                            font-family: 'RobotoBold';
+                            font-size: 14px;
+                            padding-top: 3px;
+                            padding-left: 2px;
+                            @media only screen and (max-width: 540px) {
+                                text-align: center;
+                            }
+                        }
+                        .check {
+                            padding-left: 2px;
+                            font-size: 14px;
+                        }
+                    }
+                    .center {
+                        margin-bottom: 30px;
+                    }
+                    .bottom {
+                        .title {
+                            font-family: "RobotoBold";
+                            font-size: 15px;
+                            color: #4e5c63;
+                        }
+                        .text {
+                            font-family: "Roboto";
+                            font-size: 12px;
+                            a {
+                                color: #4aa7d9;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .configuration {
+            margin-top: 3rem;
+            &-container {
+                .header {
+                    display: block;
+                    background: white;
+                    padding: 1rem;
+                }
+                .content {
+                    margin: 0 auto;
+                    padding: 1.25rem;
+                    background: #e2e6ee;
+                    display: block;
+                    border-bottom: 2px solid white;
+                    position: relative;
+                    &:last-child {
+                        border-bottom: none;
+                    }
+                }
+                .divider {
+                    border-right: 1px solid #f1f5fc;
+                    height: 100%;
+                    position: absolute;
+                    left: 50%;
+                    margin-left: -3px;
+                    top: 0;
+                    box-shadow: 2px -1px 4px #c8cace;
+                }
+            }
+        }
+    }
+}

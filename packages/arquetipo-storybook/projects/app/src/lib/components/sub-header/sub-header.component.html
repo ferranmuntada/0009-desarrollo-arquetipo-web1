@@ -1,0 +1,17 @@
+<div class="header" *ngIf="settingsSubHeader">
+    <!-- button -->
+    <div class="header-right" *ngIf="settingsSubHeader.buttonSettings">
+        <mln-button [text]="settingsSubHeader.buttonSettings?.text" [classButton]="settingsSubHeader.buttonSettings?.class" [isSquare]="settingsSubHeader.buttonSettings?.isSquare" [isDisabled]="settingsSubHeader.buttonSettings?.isDisabled" [callback]="settingsSubHeader.buttonSettings?.callback"
+            [type]="settingsSubHeader.buttonSettings?.type"></mln-button>
+    </div>
+    <!-- title -->
+    <div class="header-title">
+        <div class="header-title--left">
+            {{ settingsSubHeader.title }}
+            <span class="header-title--sufix" *ngIf="settingsSubHeader.sufix"> {{ settingsSubHeader.sufix.amount }} {{ settingsSubHeader.sufix.text }}</span>
+        </div>
+        <div class="header-title--right">
+            <span class="">{{ settingsSubHeader.rightTitle }}</span>
+        </div>
+    </div>
+</div>

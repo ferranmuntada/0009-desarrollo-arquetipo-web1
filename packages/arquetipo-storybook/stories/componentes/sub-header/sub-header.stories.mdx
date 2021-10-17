@@ -1,0 +1,127 @@
+import { Meta, Story, Canvas } from "@storybook/addon-docs/blocks";
+import { action } from "@storybook/addon-actions";
+import { CommonModule } from "@angular/common";
+import { SubHeaderComponent, SubHeaderModule, testObserver } from './sub-header';
+
+<Meta title="Componentes/Headers/Sub Header" />
+
+# COMPONENTE SUB. CABECERA
+## Con Botón
+export const withButton = () => ({
+  component: SubHeaderComponent,
+  props: {
+    settingsSubHeader: {
+        title: 'Titulares de la propuesta',
+        rightTitle: 'Actualizado el 29/09/2018 a las 18:07',
+        sufix: {
+            amount: 5,
+            text: 'propuestas'
+        },
+        buttonSettings: {
+            text: 'CREAR PROPUESTA',
+            class: 'primary',
+            callback: testObserver,
+        }
+    }
+  },
+  moduleMetadata: {
+    imports: [CommonModule, SubHeaderModule],
+    providers: [],
+  },
+});
+
+<Canvas>
+  <Story name="Con Botón">{withButton.bind({})}</Story>
+</Canvas>
+
+Modulo:
+
+- SubHeaderModule
+
+```js live=true
+import { SubHeaderModule } from "arquetipo-storybook/dist";
+```
+
+Componente:
+
+- Para incorporar el component, el prefijo a utilizar para la etiqueta HTML es:
+
+```html live=true
+<mln-sub-header></mln-sub-header>
+```
+
+Componente que se utilizará como sub. cabecera.
+
+Ejemplo de uso HTML:
+
+```html live=true
+<mln-sub-header [settingsSubHeader]="settingsSubHeader"></mln-sub-header>
+```
+
+#### Definición de datos
+settingsSubHeader:
+- title (string): Texto para el título de la cabecera.
+- rightTitle (string): Texto a la derecha.
+- sufix (Object):
+    - amount (number): Cantidad a mostrar.
+    - text (string): Texto a mostrar a la derecha del título.
+- buttonSettings (Object): Componente botón [Primary](?path=/docs/componentes-button--primary#button)
+
+
+Ejemplo de datos:
+```json live=true
+{
+      "settingsSubHeader": {
+        "title": "Titulares de la propuesta",
+        "rightTitle": "Actualizado el 29/09/2018 a las 18:07",
+        "sufix": {
+            "amount": 5,
+            "text": "propuestas"
+        },
+        "buttonSettings": {
+            "text": "CREAR PROPUESTA",
+            "class": "primary",
+            "callback": null, // Observable
+        }
+    }
+}
+```
+## Sin botón
+export const withoutButton = () => ({
+  component: SubHeaderComponent,
+  props: {
+    settingsSubHeader: {
+        title: 'Titulares de la propuesta',
+        sufix: {
+            amount: 5,
+            text: 'propuestas'
+        }
+    }
+  },
+  moduleMetadata: {
+    imports: [CommonModule, SubHeaderModule],
+    providers: [],
+  },
+});
+
+<Canvas>
+  <Story name="Sin Botón">{withoutButton.bind({})}</Story>
+</Canvas>
+
+## Sin sub. título
+export const withoutSufix = () => ({
+  component: SubHeaderComponent,
+  props: {
+    settingsSubHeader: {
+        title: 'Titulares de la propuesta',
+    }
+  },
+  moduleMetadata: {
+    imports: [CommonModule, SubHeaderModule],
+    providers: [],
+  },
+});
+
+<Canvas>
+  <Story name="Sin sub. título">{withoutSufix.bind({})}</Story>
+</Canvas>

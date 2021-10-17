@@ -1,0 +1,15 @@
+<div class="mln-accordion-panel" [ngClass]="{'mln-accordion-panel--disabled': disabled, 'mln-accordion-panel--active': active}" [hidden]="hide">
+    <div class="mln-accordion-panel__header" (click)="disabled ? null : iconToggle">
+        <div class="mln-accordion-panel__action" [attr.tabindex]="disabled ? -1 : 0" [attr.id]="'header-accordion-tab-' + id" [attr.aria-controls]="'content-accordion-tab-' + id" role="tab" [attr.aria-expanded]="active" (click)="toggleCollapse($event)" (keydown.space)="toggleCollapse($event)">
+            <mat-icon class="block-left" [class.toggle-icon--hidden]="hideToggle">{{iconToggle ? 'keyboard_arrow_down' : 'keyboard_arrow_up' }}</mat-icon>
+            <span *ngIf="imageIconUrl || title" class="image-icon block-left" [ngStyle]="{'background-image': 'url(' + imageIconUrl + ')'}"></span>
+            <span>{{ title }}</span>
+            <ng-content select="mln-accordion-header"></ng-content>
+        </div>
+    </div>
+    <div class="mln-accordion-panel__body" [attr.id]="'content-accordion-tab-' + id" [@accordionTabContent]="active ? 'visible' : 'hidden'" (@accordionTabContent.done)="onCollapseDone()" role="region" [attr.aria-hidden]="!active" [attr.aria-labelledby]="'content-accordion-tab-' + id">
+        <div class="mln-accordion-panel__content">
+            <ng-content select="mln-accordion-content"></ng-content>
+        </div>
+    </div>
+</div>

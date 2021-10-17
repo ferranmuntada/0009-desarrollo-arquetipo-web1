@@ -1,0 +1,80 @@
+import { Meta, Story, Canvas } from "@storybook/addon-docs/blocks";
+import { action } from "@storybook/addon-actions";
+import { BoxItemsComponent } from "../../../projects/app/src/lib/components/box-items/box-items.component";
+import { MatButtonModule } from "@angular/material/button";
+
+<Meta title="Componentes/Panels/Box" />
+
+# COMPONENTE BOX
+
+Modulo:
+
+- BoxItemsModule
+
+```js live=true
+import { BoxItemsModule } from "arquetipo-storybook/dist";
+```
+
+Componente:
+
+- Para incorporar el component, el prefijo a utilizar para la etiqueta HTML es:
+
+```html live=true
+<mln-box-items></mln-box-items>
+```
+
+Caja de texto con valores customizables, los valores a pasar son:
+- settings:
+  - title: Título de la caja, puede ser un trozo de plantilla HTML en string.
+  - subTitle: Texto al pie de los números.
+  - listItems: Lista de elementos que aparecerán en el cuerpo de la caja, deben ir separados por , para separar cada texto y ponerlo en una línea diferente.
+  - footerText: Texto del pie de la caja.
+
+### Ejemplo de uso:
+
+Definición de modelo de datos del componente:
+
+```js live=true
+const settings = {
+  title: '<span>900.217</span><span class='decimal'>,00 €</span>',
+  subTitle: 'IMPORTE ANALIZADO',
+  listItems: [
+    "Servicios Bancarios",
+    "Inversiones en forma de Seguro de Vida",
+    "Inversiones Bancarias",
+  ],
+  footerText: 'Editar filtros',
+}
+```
+
+Declaración HTML:
+
+```html live=true
+<mln-box-items [settings]="settings"></mln-box-items>
+```
+
+Resultado:
+
+export const Default = () => ({
+  component: BoxItemsComponent,
+  props: {
+    settings: {
+      title: "<span>900.217</span><span class='decimal'>,00 €</span>",
+      subTitle: "IMPORTE ANALIZADO",
+      listItems: [
+        "Servicios Bancarios",
+        "Inversiones en forma de Seguro de Vida",
+        "Inversiones Bancarias",
+      ],
+      footerText: "Editar filtros",
+    },
+    actionEdit: action("actionEdit"),
+  },
+  moduleMetadata: {
+    imports: [MatButtonModule],
+  },
+});
+
+<Canvas>
+  <Story name="Default">{Default.bind({})}</Story>
+</Canvas>

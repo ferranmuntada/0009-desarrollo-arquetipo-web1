@@ -1,0 +1,19 @@
+@import "../../../../assets/theme/variables.scss";
+.radio-group {
+    &--vertical {
+        display: flex;
+        flex-direction: column;
+    }
+    margin: 15px 0;
+}
+
+.radio-button {
+    margin: 5px;
+}
+
+.radio-group-label {
+    font-weight: 600;
+    color: map-get($colors, darkText);
+    width: 100%;
+    display: block;
+}

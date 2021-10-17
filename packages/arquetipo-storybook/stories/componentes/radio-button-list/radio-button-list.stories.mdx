@@ -1,0 +1,109 @@
+import { Meta, Story, Canvas } from "@storybook/addon-docs/blocks";
+import { action } from "@storybook/addon-actions";
+import { RadioButtonListComponent, RadioButtonListModule } from './radio-button-list';
+
+<Meta title="Componentes/Radio Button" />
+
+# COMPONENTE RADIO BUTTON LIST
+export const Default = () => ({
+  component: RadioButtonListComponent,
+  props: {
+        vertical: true,
+        textLabel: 'Texto',
+        list: [
+            { text: 'texto 1', checked: true },
+            { text: 'texto 2' },
+            { text: 'texto 3' },
+            { text: 'texto 4' },
+        ],
+        actionRadioButton: action("actionRadioButton"),
+  },
+  moduleMetadata: {
+    imports: [RadioButtonListModule],
+  },
+});
+
+<Canvas>
+  <Story name="Default">{Default.bind({})}</Story>
+</Canvas>
+
+Modulo:
+
+- RadioButtonListModule
+
+```js live=true
+import { RadioButtonListModule } from "arquetipo-storybook/dist";
+```
+
+Componente:
+- list (Array):
+```typescript live=true
+const list = [
+    { text: 'texto 1', checked: true },
+    { text: 'texto 2' },
+    { text: 'texto 3' },
+    { text: 'texto 4' },
+];
+```
+- actionRadioButton (output):
+```typescript live=true
+const actionRadioButton = (event: Event) => {}
+```
+- textLabel (string): Texto que aparece en la parte superior del radio button.
+- vertical (boolean): Radio button en horizontal o vertical
+- Para incorporar el component, el prefijo a utilizar para la etiqueta HTML es:
+```html live=true
+<mln-radio-button-list [list]="list" (actionRadioButton)="actionRadioButton($event)" textLabel="texto"></mln-radio-button-list>
+```
+
+# COMPONENTE RADIO BUTTON LIST HORIZONTAL
+
+- Se cambia el campo "vertical" a "false".
+
+export const Horizontal = () => ({
+  component: RadioButtonListComponent,
+  props: {
+        vertical: false,
+        textLabel: 'Texto',
+        list: [
+            { text: 'texto 1', checked: true },
+            { text: 'texto 2' },
+            { text: 'texto 3' },
+            { text: 'texto 4' },
+        ],
+        actionRadioButton: action("actionRadioButton"),
+  },
+  moduleMetadata: {
+    imports: [RadioButtonListModule],
+  },
+});
+
+<Canvas>
+  <Story name="Horizontal">{Horizontal.bind({})}</Story>
+</Canvas>
+
+
+# COMPONENTE RADIO BUTTON LIST SIN TÍTULO
+
+- Se elimina el campo "textLabel".
+- Se elimina el campo "vertical".
+
+export const whithoutTitle = () => ({
+  component: RadioButtonListComponent,
+  props: {
+        list: [
+            { text: 'texto 1', checked: true },
+            { text: 'texto 2' },
+            { text: 'texto 3' },
+            { text: 'texto 4' },
+        ],
+        actionRadioButton: action("actionRadioButton"),
+  },
+  moduleMetadata: {
+    imports: [RadioButtonListModule],
+  },
+});
+
+<Canvas>
+  <Story name="Sin Título">{whithoutTitle.bind({})}</Story>
+</Canvas>

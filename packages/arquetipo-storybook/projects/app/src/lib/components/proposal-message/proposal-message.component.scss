@@ -1,0 +1,28 @@
+@import "../../../../assets/theme/variables.scss";
+.proposal-msg {
+    width: 100%;
+    text-align: center;
+    margin: 40px 10px;
+    .icon {
+        width: 45px;
+        height: 45px;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: auto;
+        display: inline-block;
+        /*background-image: url('/assets/img/actividad-profesional.png');*/
+        font-size: 30px;
+        font-size: 40px;
+        color: map-get($colors, lightgray);
+    }
+    .title {
+        color: map-get($colors, darkBlue);
+        font-size: 20px;
+        font-family: "GillSansBold";
+    }
+    .date {
+        color: map-get($colors, gray);
+        font-size: 15px;
+        font-family: "Roboto";
+    }
+}

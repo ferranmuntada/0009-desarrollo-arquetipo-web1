@@ -1,0 +1,94 @@
+.container-step {
+    padding: 0 0 5rem 0;
+    .container-table {
+        padding-bottom: 4rem;
+        .content {
+            background: white;
+            padding: 30px;
+            h5 {
+                box-sizing: border-box;
+                margin: 30px;
+                color: grey;
+            }
+        }
+        .content-others {
+            padding: 30px;
+        }
+        .content-step2 {
+            padding: 30px;
+            &_lg--md {
+                display: inline-block;
+                width: 30%;
+                padding: 0 1rem;
+            }
+            &_block {
+                padding: 2rem 0;
+                &--text {
+                    display: block;
+                    margin: 1rem 0;
+                }
+                &--hidden {
+                    visibility: hidden;
+                }
+            }
+        }
+    }
+    &-4 {
+        .content {
+            margin: 30px 0;
+            &--block {
+                display: flex;
+                flex-wrap: wrap;
+                .big-button {
+                    flex: 1 1 auto;
+                    margin: 5px 3rem;
+                }
+            }
+            h5 {
+                box-sizing: border-box;
+                margin: 30px;
+                color: grey;
+            }
+            .box {
+                display: block;
+                &--title {
+                    border-bottom: 1px solid grey;
+                    display: block;
+                    padding: 0.5rem;
+                    color: grey;
+                }
+                &--filter {
+                    background: white;
+                    padding: 2rem 4rem;
+                    display: flex;
+                    flex-wrap: wrap;
+                    .selector {
+                        flex: 1 1 auto;
+                        margin: 20px 4rem;
+                        &__container {
+                            display: flex;
+                            flex-direction: column;
+                            span {
+                                margin: 1rem 0;
+                            }
+                        }
+                    }
+                    .search-button {
+                        margin: 0 auto;
+                        padding: 4rem;
+                    }
+                }
+            }
+            .search {
+                margin: 2rem 0;
+            }
+            .table {
+                margin: 3rem 0;
+                .button-add {
+                    padding: 3rem;
+                    text-align: center;
+                }
+            }
+        }
+    }
+}

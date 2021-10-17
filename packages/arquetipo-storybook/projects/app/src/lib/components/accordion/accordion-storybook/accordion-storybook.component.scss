@@ -1,0 +1,10 @@
+@import "../../../../../assets/theme/variables.scss";
+@import "../../../../../assets/theme/tools/tools__pixel-to-rem";
+.example {
+    display: block;
+    padding: rem(20);
+    color: #4E5C63;
+    font-size: 14px;
+    font-weight: 700;
+    font-family: "Roboto"
+}

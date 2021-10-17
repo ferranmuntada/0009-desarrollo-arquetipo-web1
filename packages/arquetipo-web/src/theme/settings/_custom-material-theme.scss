@@ -1,0 +1,87 @@
+@import './theme/variables.scss';
+// Import library functions for theme creation.
+@import '~@angular/material/theming';
+// Include non-theme styles for core.
+@include mat-core();
+// Define your application's custom theme.
+$primary: mat-palette($mat-blue);
+$accent: mat-palette($mat-blue, A200, A100, A400);
+$warn: mat-palette($mat-red);
+$theme: mat-light-theme($primary, $accent, $warn);
+// Include theme styles for Angular Material components.
+@include angular-material-theme($theme);
+* {
+    margin: 0;
+    padding: 0;
+}
+
+@media screen and (max-width: 960px) {
+    .mat-table {
+        border: 0;
+        vertical-align: middle;
+    }
+    .mat-table caption {
+        font-size: 1em;
+    }
+    .mat-table .mat-row {
+        border-bottom: 5px solid #ddd;
+        display: block;
+    }
+    .mat-table .mat-cell {
+        border-bottom: 1px solid #ddd;
+        display: block;
+        font-size: 1em;
+        text-align: right;
+        font-weight: bold;
+        height: 30px;
+        margin-bottom: 4%;
+    }
+    .mat-table .mat-cell:before {
+        content: attr(data-label);
+        float: left;
+        text-transform: uppercase;
+        font-weight: normal;
+        font-size: 0.85em;
+    }
+    .mat-table .mat-cell:last-child {
+        border-bottom: 0;
+    }
+    .mat-table .mat-cell:first-child {
+        margin-top: 4%;
+    }
+}
+
+.home-search {
+    .mat-form-field-flex {
+        height: 40px;
+        background-color: white;
+        border-radius: 5px;
+    }
+}
+
+.proposal {
+    &-description {
+        text-align: center !important;
+    }
+    &-table {
+        &__options {
+            .mat-form-field-flex {
+                text-align: center;
+            }
+        }
+    }
+}
+
+.mat-select-panel {
+    max-height: 310px !important;
+}
+
+.mat-option-text {
+    border-bottom: 1px solid #c5cbd1;
+    height: 40px;
+}
+
+.mat-spinner {
+    margin: 0 auto;
+    margin-top: 20rem;
+}

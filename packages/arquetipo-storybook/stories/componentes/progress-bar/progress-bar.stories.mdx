@@ -1,0 +1,117 @@
+import { Meta, Story, Canvas } from "@storybook/addon-docs/blocks";
+import { MatProgressBarModule } from "@angular/material/progress-bar";
+import { MatButtonModule } from "@angular/material/button";
+import { ProgressBarComponent, ProgressBarModule } from "./progress-bar";
+
+<Meta title="Componentes/Miscellaneous/Progress Bar" />
+
+# COMPONENTE BARRA DE PROGRESO
+
+Modulo:
+
+- ProgressBarModule
+
+```js live=true
+import { ProgressBarModule } from "arquetipo-storybook/dist";
+```
+
+Componente:
+
+- Para incorporar el component, el prefijo a utilizar para la etiqueta HTML es:
+
+```html live=true
+<mln-progress-bar></mln-progress-bar>
+```
+
+Componente para indicar el avance de un procesos. Acepta los siguiente parámetros:
+
+- icon: (string) Icono, los iconos puede ser uno de los que se encuentran en la siguieten url. (https://material.io/resources/icons/?style=baseline)
+- progressInfo: Array que acepta repetición de elementos. Por defecto al menos debe venir un elemento.
+  - text: (String) Texto que quiere que figure en la barra de avance.
+  - amount: (String) Texto con el valor numérico de la cantidad.
+- deadline: (String) Indica la temporalidad de la finalización de la barra de avance.
+- time: (String) Indica el tiempo en texto de la barra de avance.
+
+## BARRA DE PROGRESO SIMPLE
+
+### Ejemplo de uso:
+
+Definición de modelo de datos del componente:
+
+```js live=true
+let icon = "image";
+let progressInfo = [{ text: "Patrimonio", amount: "38.8" }];
+let deadline = "Corto Plazo";
+let time = "Entre 3 y 10 años";
+```
+
+Declaración HTML:
+
+```html live=true
+<mln-progress-bar [icon]="icon" [progressInfo]="progressInfo" [deadline]="deadline" [time]="time"></mln-progress-bar>
+```
+
+Resultado:
+
+
+export const Default = () => ({
+  component: ProgressBarComponent,
+  props: {
+    icon: 'image',
+    progressInfo: [{ text: "Patrimonio", amount: "38.8" }],
+    deadline: "Corto Plazo",
+    time: "Entre 3 y 10 años",
+  },
+  moduleMetadata: {
+    imports: [MatButtonModule, MatProgressBarModule, ProgressBarModule],
+  },
+});
+
+<Canvas>
+  <Story name="Default">{Default.bind({})}</Story>
+</Canvas>
+
+## BARRA DE PROGRESO DOBLE
+
+En esta barra se duplican los elementos de progressInfo en la entrada y se pinta una doble barra, esto puede repetirse tantas veces como barras se quiera mostrar.
+
+Definición de modelo de datos del componente:
+
+```js live=true
+let icon = 'image';
+let progressInfo = [
+  { text: "Patrimonio", amount: "38.8" },
+  { text: "Propuesta", amount: "80.8" },
+];
+let deadline = "Corto Plazo";
+let time = "Entre 3 y 10 años";
+```
+
+Declaración HTML:
+
+```html live=true
+<mln-progress-bar [icon]="icon" [progressInfo]="progressInfo" [deadline]="deadline" [time]="time"></mln-progress-bar>
+```
+
+Resultado:
+
+
+export const DoubleProgress = () => ({
+  component: ProgressBarComponent,
+  props: {
+    icon: 'image',
+    progressInfo: [
+      { text: "Patrimonio", amount: "38.8" },
+      { text: "Propuesta", amount: "80.8" },
+    ],
+    deadline: "Corto Plazo",
+    time: "Entre 3 y 10 años",
+  },
+  moduleMetadata: {
+    imports: [MatButtonModule, MatProgressBarModule, ProgressBarModule],
+  },
+});
+
+<Canvas>
+  <Story name="Double Progress Bar">{DoubleProgress.bind({})}</Story>
+</Canvas>

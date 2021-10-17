@@ -1,0 +1,19 @@
+.c-proposal-table {
+    @include mat-table-columns( ( id: ( width: 10%, ), description: ( width: 14%, ), type: ( width: 14%, ), amount: ( width: 14%, ), date: ( width: 14%, ), status: ( width: 14%, ), options: ( width: 18%, ), ));
+    cursor: default;
+}
+
+@media screen and (max-width: 580px) {
+    @include mat-table-columns( ( id: ( width: 10%, display: none, ), description: ( width: 14%, ), type: ( width: 14%, ), amount: ( width: 14%, ), date: ( width: 14%, display: none, ), status: ( width: 14%, ), options: ( width: 18%, ), ));
+}
+
+.mat-table {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    .mat-header-row {
+        background-color: map-get($colors, 'white');
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+    }
+}

@@ -1,0 +1,21 @@
+<div class="">
+    <mln-header #customHeader [user]="user" [menuItems]="menuItems"></mln-header>
+</div>
+<div class="bg">
+    <!-- header -->
+    <div class="header-proposal">
+        <!-- title -->
+        <div class="title">
+            Propuestas de inversión
+            <span class="text"> {{ datasources?.length }} prefix</span>
+        </div>
+        <!-- button create proposal -->
+        <div>
+            <mln-button #customButton text="CREAR PROPUESTA" classButton="primary" [isDisabled]="false"></mln-button>
+        </div>
+    </div>
+    <!-- table proposals -->
+    <div>
+        <mln-datatable #customTable [datasources]="datasources" [datacolumns]="datacolumns"></mln-datatable>
+    </div>
+</div>

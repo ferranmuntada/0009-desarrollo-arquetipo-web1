@@ -1,0 +1,21 @@
+<div class="apex-wrapper">
+    <div class="main-wrapper-2">
+        <mln-chart-circle #customChart title="Patrimonio Mediolanum" subText="Los filtros se aplicarán al análisis de las 5Ds" [settingsChart]="settingsChart" [settingsButton]="settingsButton"></mln-chart-circle>
+    </div>
+    <div class="context-wrapper">
+        <div>
+            <p class="title">Visualización</p>
+            <div>
+                <mln-slider-toggle #toggle [statusText]="statusTextToggleSettings"></mln-slider-toggle>
+            </div>
+        </div>
+        <div>
+            <p class="title">Patrimonio</p>
+            <ul>
+                <li *ngFor="let item of settingsCheckBoxRight">
+                    <mln-check-box #checkbox [settings]="item"></mln-check-box>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

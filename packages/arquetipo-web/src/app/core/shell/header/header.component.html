@@ -1,0 +1,4 @@
+<div>
+    <app-button-logout class="logoutButton" (logout)="logout()"></app-button-logout>
+    <mln-header [user]="headerModel?.getUserSettings()" [menuItems]="menuItems" *ngIf="isHeaderVisible" (backButtonAction)="backButtonAction()" (navigationAction)="navigationAction($event)" (informationUserAction)="informationUserAction()"></mln-header>
+</div>

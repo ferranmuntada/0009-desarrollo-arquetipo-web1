@@ -1,0 +1,33 @@
+<div class="customer-wrapper">
+    <div class="customer-head">
+        <div class="customer-left">
+            <div class="customer-initial">{{initials}}</div>
+            <div class="customer-name">{{ user?.name }} {{ user?.lastname }}</div>
+            <div class="customer-nif"> {{user?.nif }} </div>
+        </div>
+        <div class="customer-right">
+            <div class="customer-state">{{ user?.type }}</div>
+            <div [ngClass]="user.available ? 'customer-icon' : 'customer-icon'"></div>
+        </div>
+    </div>
+    <div class="customer-footer">
+        <div class="customer-left">
+            <div class="customer-amount" fxLayout="row">
+                <mat-icon matPrefix color="primary">check_circle</mat-icon>
+                <div *ngIf="user?.patrimony">
+                    <span>{{ textRow }}</span>
+                    <span class="opaque">{{ currency.format(user?.patrimony) }}</span>
+                </div>
+            </div>
+            <div class="" *ngIf="settingsSelect">
+                <mln-select #customSelect [settings]="settingsSelect" [listItem]="settingsSelect?.listItemSelect" (actionSelected)="proposalSelected = $event.name"></mln-select>
+            </div>
+        </div>
+        <div class="customer-right">
+            <div class="customer-go" (click)="goToUserProposal()">
+                <span [class.disabled]="!user.available">{{ rightButtonSettings?.text }}</span>
+                <mat-icon matSufix [class.disabled]="!user.available">navigate_next</mat-icon>
+            </div>
+        </div>
+    </div>
+</div>

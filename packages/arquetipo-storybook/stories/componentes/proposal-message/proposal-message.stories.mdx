@@ -1,0 +1,63 @@
+import { Meta, Story, Canvas } from "@storybook/addon-docs/blocks";
+import { ProposalMessageComponent, ProposalMessageModule} from './proposal-mesage';
+
+
+<Meta title="Componentes/Miscellaneous/Message Alert" />
+
+# COMPONENTE PROPOSAL MESSAGE
+
+Modulo:
+
+- ProposalMessageModule
+
+```js live=true
+import { ProposalMessageModule } from "arquetipo-storybook/dist";
+```
+
+Componente:
+
+- Para incorporar el component, el prefijo a utilizar para la etiqueta HTML es:
+
+```html live=true
+<mln-proposal-message></mln-proposal-message>
+```
+
+Componente para la visualización de un mensaje en pantalla con información de la propuesta. . Acepta los siguiente parámetros:
+
+- matIcon: (string) Icono, los iconos puede ser uno de los que se encuentran en la siguieten url. (https://material.io/resources/icons/?style=baseline)
+- textUp: (string) Texto con el titular del mensaje, aparecerá en negrita
+- textDonw: (string) Texto con el subtitulo aparecerá atenuado
+
+### Ejemplo de uso:
+
+Definición de modelo de datos del componente:
+
+```js live=true
+const icon = 'warning';
+const textUp = 'La propuesta creada será remitida al cliente el próximo';
+const textDonw = '23 de Noviembre de 2018';
+```
+
+Declaración HTML:
+
+```html live=true
+<mln-proposal-message [icon]="icon" [textUp]="textUp" [textDonw]="textDonw"></mln-proposal-message>
+```
+
+Resultado:
+
+export const Default = () => ({
+  component: ProposalMessageComponent,
+  props: {
+    icon: 'warning', 
+    textUp: 'La propuesta creada será remitida al cliente el próximo', 
+    textDonw: '23 de Noviembre de 2020', 
+  },
+  moduleMetadata: {
+    imports: [ProposalMessageModule],
+  },
+});
+
+<Canvas>
+  <Story name="Default">{Default.bind({})}</Story>
+</Canvas>

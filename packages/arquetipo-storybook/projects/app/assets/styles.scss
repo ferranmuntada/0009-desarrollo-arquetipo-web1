@@ -1,0 +1,80 @@
+// Variables
+@import './theme/variables.scss';
+// Fonts
+@import './fonts/font-face.scss';
+// Material
+@import './theme/settings/custom-material-theme';
+// Apexchart
+@import './theme/apexchart.scss';
+// Tools
+@import './theme/tools/custom-material';
+// Components
+@import './theme/component/table';
+@import './theme/component/progress-bar';
+@import './theme/component/forms';
+@import './theme/component/slide-toggle';
+@import './theme/component/box-items';
+html {
+    font-family: 'GillSans';
+    font-weight: normal;
+    font-style: normal;
+}
+
+ul {
+    list-style-type: none;
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+}
+
+ul li a {
+    text-decoration: none;
+}
+
+body {
+    background-color: map-get($colors, semiWhite);
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.mln-accordion-panel__action{
+    color: #4E5C63;
+    line-height: 1.9;
+    font-size: 13px;
+    font-weight: 700;
+    padding: 12px 14px!important;
+    font-family: "Roboto"
+}
+.mln-accordion-panel__content{
+
+
+    padding: 20px 40px 20px 60px;
+    color: #4E5C63;
+    line-height: 1.4;
+    font-size: 12px;
+    font-weight: 700;
+    font-family: "Roboto"
+
+}
+
+.mifid-block {
+
+    .mln-accordion-panel__content{
+        padding: 0 14px!important;
+    }
+
+    .mln-accordion-panel__action .mat-icon {
+        position: absolute;
+        left: 5px;
+    }
+}

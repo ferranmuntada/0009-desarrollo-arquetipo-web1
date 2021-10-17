@@ -1,0 +1,139 @@
+<div class="container-origins">
+    <mln-sub-header [settingsSubHeader]="{  title: 'Origen de fondos', rightTitle: 'Actualizado el ' + (date | date: 'dd/MM/yyyy') + ' a las ' + (date | date: 'HH:mm') + '' }"></mln-sub-header>
+    <!-- LIQUIDACIÓN -->
+    <div class="container-origins--content">
+        <div>
+            <div class="container-origins--header">
+                <span>LIQUIDACIÓN FINANCIACIÓN Y OTROS</span>
+            </div>
+            <mln-accordion [multi]="true">
+                <mln-accordion-tab [active]="true">
+                    <mln-accordion-header>
+                        <div class="container-origins--header_block">Cuentas corrientes y depósitos</div>
+                        <div class="divider"></div>
+                        <div class="container-origins--header_block">
+                            <span>Total LOQUIDEZ</span>
+                            <span>53.15 €</span>
+                        </div>
+                    </mln-accordion-header>
+                    <mln-accordion-content class="content">
+                        <div class="container-origins--header_block">Cuenta corriente ES64.9876.1987.12.1234567890</div>
+                        <div class="container-origins--header_block">
+                            <span></span>
+                            <span>53.15 €</span>
+                        </div>
+                    </mln-accordion-content>
+                </mln-accordion-tab>
+                <mln-accordion-tab [active]="true">
+                    <mln-accordion-header>
+                        <div class="container-origins--header_block">Cuentas corrientes y depósitos</div>
+                        <div class="divider"></div>
+                        <div class="container-origins--header_block">
+                            <span>Total LOQUIDEZ</span>
+                            <span>11.382,89 €</span>
+                        </div>
+                    </mln-accordion-header>
+                    <mln-accordion-content class="content">
+                        <div class="container-origins--header_block">Cuenta corriente PIC (Best Brand) ES64.9876.0987.12.1234567890</div>
+                        <div class="container-origins--header_block">
+                            <span></span>
+                            <span>7.730,82 €</span>
+                        </div>
+                    </mln-accordion-content>
+                    <mln-accordion-content class="content">
+                        <div class="container-origins--header_block">Cuenta corriente PIC (Best Brand) ES64.9876.0987.12.1234567890</div>
+                        <div class="container-origins--header_block">
+                            <span></span>
+                            <span>3.652,04 €</span>
+                        </div>
+                    </mln-accordion-content>
+                </mln-accordion-tab>
+            </mln-accordion>
+        </div>
+    </div>
+
+    <!-- CORTO/MEDIO PLAZO -->
+    <div class="container-origins--content">
+        <div>
+            <div class="container-origins--header">
+                <span>CORTO/MEDIO PLAZO</span>
+            </div>
+            <mln-accordion [multi]="true">
+                <mln-accordion-tab [active]="true">
+                    <mln-accordion-header>
+                        <div class="container-origins--header_block">Fondos de Inversión</div>
+                        <div class="divider"></div>
+                    </mln-accordion-header>
+                    <mln-accordion-content class="content">
+                        <div class="container-origins--header_block">Best Brand</div>
+                        <div class="divider"></div>
+                    </mln-accordion-content>
+                    <mln-accordion-content class="content">
+                        <div class="container-origins--header_block">Best Brands Big Chance Evoluation L</div>
+                        <div class="divider"></div>
+                    </mln-accordion-content>
+                    <mln-accordion-content class="content">
+                        <div class="container-origins--header_block">Best Brands Dynamic Collection L</div>
+                        <div class="container-origins--header_block">
+                            <span></span>
+                            <span>5.000,00 €</span>
+                            <!-- Input -->
+                        </div>
+                    </mln-accordion-content>
+                </mln-accordion-tab>
+                <mln-accordion-tab [active]="true">
+                    <mln-accordion-header>
+                        <div class="container-origins--header_block">Cuentas corrientes y depósitos</div>
+                        <div class="divider"></div>
+                        <div class="container-origins--header_block">
+                            <span>Total LOQUIDEZ</span>
+                            <span>11.382,89 €</span>
+                        </div>
+                    </mln-accordion-header>
+                    <mln-accordion-content class="content">
+                        <div class="container-origins--header_block">Cuenta corriente PIC (Best Brand) ES64.9876.0987.12.1234567890</div>
+                        <div class="container-origins--header_block">
+                            <span></span>
+                            <span>7.730,82 €</span>
+                        </div>
+                    </mln-accordion-content>
+                    <mln-accordion-content class="content">
+                        <div class="container-origins--header_block">Cuenta corriente PIC (Best Brand) ES64.9876.0987.12.1234567890</div>
+                        <div class="container-origins--header_block">
+                            <span></span>
+                            <span>3.652,04 €</span>
+                        </div>
+                    </mln-accordion-content>
+                </mln-accordion-tab>
+            </mln-accordion>
+        </div>
+    </div>
+
+    <!-- JUBILACIÓN -->
+    <div class="container-origins--content">
+        <div>
+            <div class="container-origins--header">
+                <span>JUBILACIÓN</span>
+            </div>
+            <mln-accordion [multi]="true">
+                <mln-accordion-tab [active]="true">
+                    <mln-accordion-header>
+                        <div class="container-origins--header_block">Jubilación en otras entidades</div>
+                        <div class="divider"></div>
+                    </mln-accordion-header>
+                    <mln-accordion-content class="content">
+                        <div class="container-origins--header_block">Productos para jubilación</div>
+                        <div class="container-origins--header_block">
+                            <span></span>
+                            <span>150.000,00 €</span>
+                        </div>
+                    </mln-accordion-content>
+                </mln-accordion-tab>
+            </mln-accordion>
+        </div>
+    </div>
+
+    <div class="footer-total">
+        <span>TOTAL de fondos: 7.000,00 €</span>
+    </div>
+</div>

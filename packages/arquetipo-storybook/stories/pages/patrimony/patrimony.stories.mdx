@@ -1,0 +1,22 @@
+import { Meta, Story, Canvas } from "@storybook/addon-docs/blocks";
+import { PatrimonyComponent, PatrimonyModule } from "./patrimony";
+
+<Meta title="Páginas/Página Patrimonio" />
+
+# PÁGINA DE PATRIMONIO
+
+Está página se ha construido haciendo uso de los componentes de [Header](?path=/docs/componentes-header--default-story), [Chart](?path=/docs/componentes-chart--default-story), [Slider Toggle](?path=/docs/componentes-slider-toggle--default-story) y [Check Box](?path=/docs/componentes-check-box--default-story).
+
+export const Default = () => ({
+  component: PatrimonyComponent,
+  props: {},
+  moduleMetadata: {
+    imports: [PatrimonyModule],
+    providers: [],
+    declarations: [],
+  },
+});
+
+<Canvas>
+  <Story name="Default">{Default.bind({})}</Story>
+</Canvas>

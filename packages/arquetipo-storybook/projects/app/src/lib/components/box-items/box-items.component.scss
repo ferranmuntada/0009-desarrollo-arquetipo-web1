@@ -1,0 +1,95 @@
+@import "../../../../assets/theme/variables.scss";
+@import "../../../../assets/theme/tools/tools__pixel-to-rem";
+.mln-box-items {
+    border-radius: 3px;
+    background-color: white;
+    border: 1px solid #b3c2c9;
+    max-width: 300px;
+    min-width: 170px;
+    .header-wrapper {
+        margin: 0 auto;
+        padding: 20px 0 16px 0;
+        text-align: center;
+        width: 85%;
+        border-bottom: 1px solid #b3c2c9;
+        .header-amount {
+            margin-bottom: 4px;
+            color: map-get($colors, blueText);
+            font-family: "RobotoBold";
+            font-size: 28px;
+        }
+        .header-text {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: "Roboto";
+            .icon-info {
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: contain;
+                width: 20px;
+                height: 18px;
+                margin-left: 10px;
+                background-image: url("/assets/img/info.png");
+            }
+        }
+    }
+    .items-wrapper {
+        width: 100%;
+        margin: 0 auto;
+        padding: 5px 0 10px 0;
+        ul {
+            list-style: none;
+            li {
+                margin: 8px 0;
+                display: flex;
+            }
+            .tick:before {
+                content: " ";
+                padding-right: 5px;
+                position: relative;
+                display: inline-block;
+                width: 19px;
+                height: 26px;
+                top: -4px;
+                background-image: url("/assets/img/success.png");
+                background-repeat: no-repeat;
+                background-size: contain;
+            }
+            .item-text {
+                padding-right: 25px;
+                font-family: 'Roboto';
+                font-size: 14px;
+            }
+        }
+    }
+    .footer-wrapper {
+        border-top: 1px solid #b3c2c9;
+        margin: 0 auto;
+        text-align: center;
+        min-height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        cursor: pointer;
+        .icon {
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
+            margin-right: 8px;
+            padding: 10px;
+            &.pencil {
+                background-image: url("/assets/img/pencil.svg");
+            }
+        }
+        .footer-text {
+            font-family: 'RobotoBold';
+            font-weight: bold;
+            color: map-get($colors, gray);
+        }
+        &:hover {
+            background-color: #b3c2c924;
+        }
+    }
+}

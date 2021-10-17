@@ -1,0 +1,50 @@
+<form [formGroup]="formGroupProposal" (ngSubmit)="onSubmit()" class="modal-form">
+    <div class="popup-title">
+        <h3>{{ isEditable ? 'Editar' : 'Consultar'}}</h3>
+        <span class="close-icon" (click)="cancel()"></span>
+    </div>
+    <div class="grid">
+        <mat-form-field class="" appearance="fill">
+            <mat-label translate="proposal.modal_forms.description"></mat-label>
+            <input name="description" matInput formControlName="description" [placeholder]="'proposal.modal_forms.description' | translate" />
+            <mat-icon matSuffix>description</mat-icon>
+        </mat-form-field>
+
+        <mat-form-field class="" appearance="fill">
+            <mat-label translate="proposal.modal_forms.type"></mat-label>
+            <input name="type" matInput formControlName="type" [placeholder]="'proposal.modal_forms.type' | translate" required />
+            <mat-icon matSuffix>work</mat-icon>
+            <mat-error *ngIf="(formGroupProposal.get('type')?.touched || formGroupProposal.get('type')?.dirty) && formGroupProposal.get('type')?.invalid">
+                *Este campo es requerido
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="" appearance="fill">
+            <mat-label translate="proposal.modal_forms.amount"></mat-label>
+            <input type="number" name="amount" matInput formControlName="amount" [placeholder]="'proposal.modal_forms.amount' | translate" required />
+            <mat-icon matSuffix>money</mat-icon>
+            <mat-error *ngIf="(formGroupProposal.get('amount')?.touched || formGroupProposal.get('amount')?.dirty) && formGroupProposal.get('amount')?.invalid">
+                *Este campo es requerido
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="" appearance="fill">
+            <mat-label translate="proposal.modal_forms.date"></mat-label>
+            <input name="date" matInput formControlName="date" [placeholder]="'proposal.modal_forms.date' | translate" [matDatepicker]="picker" [disabled]="true">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker [disabled]="false"></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field class="" appearance="fill">
+            <mat-label translate="proposal.modal_forms.options"></mat-label>
+            <mat-select formControlName="status" [placeholder]="'proposal.modal_forms.options' | translate">
+                <mat-option *ngFor="let status of [1, 2]" [value]="status">
+                    {{ status }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+    <div class="right">
+        <mln-button [text]="('proposal.modal_forms.' + (data.isToCreate ? 'create' : 'update')) | translate" classButton="primary" type="submit" type="submit" [isDisabled]="!formGroupProposal.valid || !isEditable"></mln-button>
+    </div>
+</form>

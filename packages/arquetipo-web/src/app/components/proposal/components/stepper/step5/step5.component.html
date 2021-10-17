@@ -1,0 +1,89 @@
+<div class="container-step-5">
+    <div class="analytics">
+        <mln-sub-header [settingsSubHeader]="{  title: 'Comparativa 5D' }"></mln-sub-header>
+        <div class="analytics5d">
+            <!-- Head Buttons -->
+            <div class="analytics5d__head">
+                <ul>
+                    <li *ngFor="let buttonSetting of settingsButton">
+                        <mln-button [text]="buttonSetting.text" [classButton]="buttonSetting.classButton" [isSquare]="buttonSetting.isSquare"></mln-button>
+                    </li>
+                </ul>
+            </div>
+            <!-- BODY -->
+            <div class="analytics5d__body">
+                <!-- Body left -->
+                <div class="analytics5d__body--left">
+                    <ul>
+                        <li *ngFor="let item of settingsProgress" class="progressbar">
+                            <mln-progress-bar icon="image" [deadline]="item.deadline" [time]="item.time" [progressInfo]="item.progressInfo"></mln-progress-bar>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Body right -->
+                <div class="analytics5d__body--right">
+                    <div class="top">
+                        <p class="title">Visualización</p>
+                        <div class="check">
+                            <mln-slider-toggle [statusText]="statusTextToggleSettings"></mln-slider-toggle>
+                        </div>
+                    </div>
+                    <div class="center">
+                        <mln-box-items [settings]="settingsBoxd"></mln-box-items>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="configuration">
+        <mln-sub-header [settingsSubHeader]="{  title: 'Configuración de productos' }"></mln-sub-header>
+        <div class="configuration-container">
+            <div class="header">
+                <span>LIQUIDACIÓN FINANCIACIÓN Y OTROS</span>
+            </div>
+            <mln-accordion [multi]="true">
+                <mln-accordion-tab [active]="true">
+                    <mln-accordion-header>
+                        <div class="container-origins--header_block">Cuentas corrientes y depósitos</div>
+                        <div class="divider"></div>
+                        <div class="container-origins--header_block">
+                            <span>Total LOQUIDEZ</span>
+                            <span>53.15 €</span>
+                        </div>
+                    </mln-accordion-header>
+                    <mln-accordion-content class="content">
+                        <div class="container-origins--header_block">Cuenta corriente ES64.9876.1987.12.1234567890</div>
+                        <div class="container-origins--header_block">
+                            <span></span>
+                            <span>53.15 €</span>
+                        </div>
+                    </mln-accordion-content>
+                </mln-accordion-tab>
+                <mln-accordion-tab [active]="true">
+                    <mln-accordion-header>
+                        <div class="container-origins--header_block">Cuentas corrientes y depósitos</div>
+                        <div class="divider"></div>
+                        <div class="container-origins--header_block">
+                            <span>Total LOQUIDEZ</span>
+                            <span>11.382,89 €</span>
+                        </div>
+                    </mln-accordion-header>
+                    <mln-accordion-content class="content">
+                        <div class="container-origins--header_block">Cuenta corriente PIC (Best Brand) ES64.9876.0987.12.1234567890</div>
+                        <div class="container-origins--header_block">
+                            <span></span>
+                            <span>7.730,82 €</span>
+                        </div>
+                    </mln-accordion-content>
+                    <mln-accordion-content class="content">
+                        <div class="container-origins--header_block">Cuenta corriente PIC (Best Brand) ES64.9876.0987.12.1234567890</div>
+                        <div class="container-origins--header_block">
+                            <span></span>
+                            <span>3.652,04 €</span>
+                        </div>
+                    </mln-accordion-content>
+                </mln-accordion-tab>
+            </mln-accordion>
+        </div>
+    </div>
+</div>

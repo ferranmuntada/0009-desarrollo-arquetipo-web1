@@ -1,0 +1,24 @@
+@import 'src/theme/variables.scss';
+
+.table__wrapper {
+    margin-top: 32px;
+    margin-bottom: 32px;
+
+    .buttons__wrapper {
+        margin-top: 32px;
+        display: flex;
+        justify-content: flex-end;
+        button {
+            margin-right: 16px;
+            @media #{$mobile-size} {
+                width: 100%;
+            }
+            &:first-child {
+                @media #{$mobile-size} {
+                    margin-right: 0;
+                    margin-bottom: 10px;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,67 @@
+@import "../../../../../assets/theme/variables.scss";
+@import "../../../../../assets/theme/tools/tools__pixel-to-rem";
+.separator {
+    border-bottom: rem(2) solid #8080803b;
+    margin: rem(6) 0;
+    padding: rem(5) 0;
+}
+
+.row-table {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    .row-table-text {
+        font-family: "RobotoBold";
+        color: map-get($colors, darkBlue);
+        font-size: rem(16);
+    }
+    .table-wrapper {
+        overflow-x: auto;
+    }
+    table {
+        background-color: map-get($colors, white);
+        border-collapse: collapse;
+        min-width: rem(300);
+        margin: rem(20) 0;
+        th {
+            font-family: "RobotoBold";
+            color: map-get($colors, gray);
+            font-weight: bold;
+            font-style: normal;
+        }
+        th, td {
+            text-align: center;
+            height: rem(30);
+            align-items: center;
+            vertical-align: middle;
+            font-family: "Roboto";
+        }
+    }
+    table, th, td {
+        border: rem(1) solid #b9c7cd;
+        mat-icon {
+            color: #2e98d0;
+        }
+    }
+}
+
+.row-info {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: rem(24) 0;
+    .col-info {
+        display: flex;
+        align-content: space-between;
+        flex-direction: column;
+        justify-content: space-between;
+        >div:nth-child(2) {
+            font-family: "RobotoBold";
+            color: map-get($colors, darkBlue);
+            font-size: rem(16);
+            margin: rem(16) 0;
+        }
+    }
+}

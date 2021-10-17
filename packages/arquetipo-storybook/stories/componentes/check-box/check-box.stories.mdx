@@ -1,0 +1,76 @@
+import { Meta, Story, Canvas } from "@storybook/addon-docs/blocks";
+import { action } from "@storybook/addon-actions";
+import { CheckBoxComponent, CheckBoxModule } from './checkbox';
+import { testObserver } from "./checkbox.ts";
+
+<Meta title="Componentes/Check Box" />
+
+# COMPONENTE CHECK BOX
+
+export const Default = () => ({
+  component: CheckBoxComponent,
+  props: {
+    settings: {
+      title: "Texto de prueba",
+      checked: true,
+      id: "id",
+      callBack: testObserver,
+    },
+    changeChkAction: action("changeChkAction"),
+  },
+  moduleMetadata: {
+    imports: [CheckBoxModule],
+  },
+});
+
+<Canvas>
+  <Story name="Default">{Default.bind({})}</Story>
+</Canvas>
+
+Modulo:
+
+- CheckBoxModule
+
+```js live=true
+import { CheckBoxModule } from "arquetipo-storybook/dist";
+```
+
+El elemento checkbox. Acepta los siguientes parámetros:
+
+- settings:
+  - title: (String) Texto que figura en el elemento.
+  - checked: (Boolean) Estado del elemento.
+  - id: (String) Id recibe el elemento para en caso de haber varios poderlo identificar de manera unívoca.
+  - callBack: (Subject)
+
+Como salida el elemento checkbox emitirá el evento en el siguiente canal:
+
+- changeChkAction: (Action) Función a la que se quiere llamar una vez se haga check sobre el elemento
+
+### Ejemplo de uso:
+
+Componente:
+
+- Para incorporar el component, el prefijo a utilizar para la etiqueta HTML es:
+
+```html live=true
+<mln-checkbox
+  [settings]="settings"
+  [changeChkAction]="changeChkAction"
+></mln-checkbox>
+```
+
+Definición de modelo de datos del componente:
+
+```js live=true
+const callback = new Subject<any>();
+callback.subscribe((value) => console.log(value));
+
+let settings = { 
+  title: 'Texto de prueba', 
+  checked: true, 
+  id: 'id', 
+  callBack: callback 
+}; 
+let changeChkAction = action('changeChkAction');
+```

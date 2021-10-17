@@ -1,0 +1,11 @@
+::ng-deep {
+    .app-login__wrapper {
+        .mat-form-field {
+            width: 100%;
+        }
+        .button__wrapper {
+            margin-top: 40px;
+            text-align: center;
+        }
+    }
+}

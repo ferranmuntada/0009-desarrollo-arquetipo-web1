@@ -1,0 +1,351 @@
+import { Meta, Story, Canvas } from "@storybook/addon-docs/blocks";
+import { ButtonComponent, ButtonModule, testObserver } from "./button";
+
+<Meta title="Componentes/Buttons/Button" />
+
+# COMPONENTE BOTÓN
+
+Modulo:
+
+- ButtonModule
+
+```js live=true
+import { ButtonModule } from "arquetipo-storybook/dist";
+```
+
+Componente:
+
+- Para incorporar el component, el prefijo a utilizar para la etiqueta HTML es:
+
+```html live=true
+<mln-button></mln-button>
+```
+
+Elemento botón con todas sus variantes. Estas son:
+
+- Button
+- Button Primary
+- Button Secondary
+- Button Is Square Primary
+- Button Is Square Secondary
+- Button Disabled
+
+Todos los tipos de componentes botón aceptarán los siguientes parámetros:
+
+- text: (String) texto que figurará en el botón.
+- classButton: (String) clase que definirá el tipo de botón.
+- isSquare: (Boolean) Indica si el botón tendrá o nó el borde redondeado.
+- isDisabled: (Boolean) Indica si el botón está deshabilitado o nó.
+- type: (String) tipo de botón, por defecto 'submit'
+- callback (Subject) Observable que al que se puede subscribir.
+```typescript live=true
+const callbackObserver = new Subject<boolean>();
+callbackObserver.subscribe((d) => console.log(d));
+
+const propsButton = {
+    text: "Botón",
+    classButton: "primary",
+    callback: callbackObserver, // Este callback es un observable al cual nos tenemos que suscribir para recibir para recibir la acción del botón (clic)
+};
+```
+- icon: (string) botón con icono a la derecha - https://material.io/resources/icons/?style=baseline.
+- outline: (boolean) El icono con fondo vacío.
+
+Estos parámetros se pueden omitir o añadir en función del botón que se quiera generar
+
+## Button
+
+Botón por defecto que acepta las propiedades:
+
+### Ejemplo de uso:
+
+Definición de modelo de datos del componente:
+
+```js live=true
+let text = 'Botón'; 
+let classButton = 'primary'; 
+let type = 'submit';
+let icon = 'delete';
+```
+
+Declaración HTML:
+
+```html live=true
+<mln-button
+  [text]="text"
+  [classButton]="classButton"
+  [type]="type"
+></mln-button>
+```
+
+Resultado:
+
+export const Button = () => ({
+  component: ButtonComponent,
+  props: {
+    text: "Botón",
+    classButton: "primary",
+    callback: testObserver,
+  },
+  moduleMetadata: {
+    imports: [ButtonModule],
+  },
+});
+
+<Canvas>
+  <Story name="Primary">{Button.bind({})}</Story>
+</Canvas>
+
+## Button Secondary
+
+Botón secundario, acepta las propiedades:
+
+### Ejemplo de uso:
+
+Definición de modelo de datos del componente:
+
+```js live=true
+let text = 'CERRAR'; 
+let classButton = 'secondary';
+```
+
+Declaración HTML:
+
+```html live=true
+<mln-button [text]="text" [classButton]="classButton"></mln-button>
+```
+
+Resultado:
+
+export const Secondary = () => ({
+  component: ButtonComponent,
+  props: {
+    text: "CERRAR",
+    classButton: "secondary",
+  },
+  moduleMetadata: {
+    imports: [ButtonModule],
+  },
+});
+
+<Canvas>
+  <Story name="Secondary">{Secondary.bind({})}</Story>
+</Canvas>
+
+## Button Is Square Primary
+
+Botón con borde cuadrado primario, acepta las propiedades:
+
+### Ejemplo de uso:
+
+Definición de modelo de datos del componente:
+
+```js live=true
+let text = '1D Temporal'; 
+let classButton = 'primary'; 
+let isSquare = true;
+```
+
+Declaración HTML:
+
+```html live=true
+<mln-button
+  [text]="text"
+  [classButton]="classButton"
+  [isSquare]="isSquare"
+></mln-button>
+```
+
+Resultado:
+
+export const Squareprimary = () => ({
+  component: ButtonComponent,
+  props: {
+    text: "1D Temporal",
+    classButton: "primary",
+    isSquare: true,
+  },
+  moduleMetadata: {
+    imports: [ButtonModule],
+  },
+});
+
+<Canvas>
+  <Story name="Square Primary">{Squareprimary.bind({})}</Story>
+</Canvas>
+
+## Button Is Square Secondary
+
+Botón con borde cuadrado secundario, acepta las propiedades:
+
+### Ejemplo de uso:
+
+Definición de modelo de datos del componente:
+
+```js live=true
+let text = '2D Tipología de título'; 
+let classButton = 'secondary'; 
+let isSquare = true;
+```
+
+Declaración HTML:
+
+```html live=true
+<mln-button
+  [text]="text"
+  [classButton]="classButton"
+  [isSquare]="isSquare"
+></mln-button>
+```
+
+Resultado:
+
+export const Squaresecondary = () => ({
+  component: ButtonComponent,
+  props: {
+    text: "2D Tipología de título",
+    classButton: "secondary",
+    isSquare: true,
+  },
+  moduleMetadata: {
+    imports: [ButtonModule],
+  },
+});
+
+<Canvas>
+  <Story name="Square Secondary">{Squaresecondary.bind({})}</Story>
+</Canvas>
+
+## Button Disabled
+
+Botón deshabilitado, acepta las propiedades:
+
+### Ejemplo de uso:
+
+Definición de modelo de datos del componente:
+
+```js live=true
+let text = '2D Tipología de título'; 
+let classButton = 'secondary'; 
+let isDisabled = true;
+```
+
+Declaración HTML:
+
+```html live=true
+<mln-button
+  [text]="text"
+  [classButton]="classButton"
+  [isDisabled]="isDisabled"
+></mln-button>
+```
+
+Resultado:
+
+export const Disabled = () => ({
+  component: ButtonComponent,
+  props: {
+    text: "2D Tipología de título",
+    classButton: "secondary",
+    isDisabled: true,
+  },
+  moduleMetadata: {
+    imports: [ButtonModule],
+  },
+});
+
+<Canvas>
+  <Story name="Disabled">{Disabled.bind({})}</Story>
+</Canvas>
+
+## Button Square Disabled
+
+Botón deshabilitado sin borde redondeado, acepta las propiedades:
+
+### Ejemplo de uso:
+
+Definición de modelo de datos del componente:
+
+```js live=true
+let text = '2D Tipología de título'; 
+let classButton = 'secondary'; 
+let isSquare = true; 
+let isDisabled = true;
+```
+
+Declaración HTML:
+
+```html live=true
+<mln-button
+  [text]="text"
+  [classButton]="classButton"
+  [isSquare]="isSquare"
+  [isDisabled]="isDisabled"
+></mln-button>
+```
+
+Resultado:
+
+export const Disabledsquare = () => ({
+  component: ButtonComponent,
+  props: {
+    text: "2D Tipología de título",
+    classButton: "secondary",
+    isSquare: true,
+    isDisabled: true,
+  },
+  moduleMetadata: {
+    imports: [ButtonModule],
+  },
+});
+
+<Canvas>
+  <Story name="Disabled Square">{Disabledsquare.bind({})}</Story>
+</Canvas>
+
+
+## Button With Icon
+
+Botón con icono
+
+### Ejemplo de uso:
+
+Definición de modelo de datos del componente:
+
+```js live=true
+let icon = 'delete';
+let outline = false;
+```
+
+Declaración HTML:
+
+```html live=true
+<mln-button
+  [text]="text"
+  [classButton]="classButton"
+  [isSquare]="isSquare"
+  [isDisabled]="isDisabled"
+  [icon]="icon"
+></mln-button>
+```
+
+Resultado:
+
+export const ButtonIcon = () => ({
+  component: ButtonComponent,
+  props: {
+    icon: 'delete',
+    text: '',
+    classButton: "",
+    isSquare: false,
+    isDisabled: false,
+    outline: false,
+  },
+  moduleMetadata: {
+    imports: [ButtonModule],
+  },
+});
+
+<Canvas>
+  <Story name="Button with Icon">{ButtonIcon.bind({})}</Story>
+</Canvas>

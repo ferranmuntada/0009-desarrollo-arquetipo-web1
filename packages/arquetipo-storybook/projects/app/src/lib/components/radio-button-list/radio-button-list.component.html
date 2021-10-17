@@ -1,0 +1,6 @@
+<label id="radio-group-label" class="radio-group-label" *ngIf="textLabel">{{ textLabel }}</label>
+<mat-radio-group *ngIf="list && list.length" aria-labelledby="radio-group-label" class="radio-group" [ngClass]="vertical ? 'radio-group--vertical' : ''" (change)="changeDetectionRadio($event)">
+    <mat-radio-button class="radio-button" *ngFor="let item of list; let i = index" [value]="i" [checked]="item.checked">
+        {{ item.text }}
+    </mat-radio-button>
+</mat-radio-group>

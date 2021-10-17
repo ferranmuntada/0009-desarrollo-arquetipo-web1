@@ -1,0 +1,72 @@
+import { Meta, Story, Canvas } from "@storybook/addon-docs/blocks";
+import { AlertModule, AlertComponent } from "./alert";
+
+<Meta title="Componentes/Miscellaneous/Alert" />
+
+# COMPONENTE ALERT
+
+export const Default = () => ({
+  component: AlertComponent,
+  props: {
+    message: {
+      matIcon: "warning",
+      textStart:
+        "Tienes pendiente de asignar un representante legal a la propuesta. Accede al paso de ",
+      textEnd: " para solventarlo.",
+      link: {
+        text: "Titulares",
+        href: "#",
+        target: '__blank'
+      },
+    },
+  },
+  moduleMetadata: {
+    imports: [AlertModule],
+  },
+});
+
+<Canvas>
+  <Story name="Default">{Default.bind({})}</Story>
+</Canvas>
+
+Modulo:
+
+- AlertModule
+
+```js live=true
+import { AlertModule } from "arquetipo-storybook/dist";
+```
+
+Parámetros del componente:
+
+- message: (json)
+  - matIcon: (String) Icono, los iconos puede ser uno de los que se encuentran en la siguieten url. (https://material.io/resources/icons/?style=baseline)
+  - textStart: (String) Texto que figura previo al enlace al que se quiera redirigir al cliente.
+  - textEnd: (String) Texto que figura depues del enlace al que se quiera redirigir al cliente
+  - link: (json)
+    - text: (String) Texto que figurará en el enlace.
+    - href: (String) Url de enlace a donde se quiera redirigir al cliente .
+    - target: (String) Abrir una nueva ventana de navegación o abrir en el mismo servidor web.
+
+### Ejemplo de uso:
+
+- Para incorporar el component, el prefijo a utilizar para la etiqueta HTML es:
+
+```html live=true
+<mln-alert [message]="message"></mln-alert>
+```
+
+- Definición de modelo de datos del componente:
+
+```js
+const message = { 
+  matIcon: 'warning', 
+  textStart: 'Tienes pendiente de asignar un representante legal a la propuesta. Accede al paso de ', 
+  textEnd: ' para solventarlo.', 
+  link: { 
+    text: 'Titulares', 
+    href: '#',
+    target: '__blank'
+  }
+}
+```

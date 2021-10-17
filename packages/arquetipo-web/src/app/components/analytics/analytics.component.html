@@ -1,0 +1,44 @@
+<div class="container">
+    <div class="container-md">
+        <div class="analytics5d">
+            <!-- Head Buttons -->
+            <div class="analytics5d__head">
+                <ul>
+                    <li *ngFor="let buttonSetting of settingsButton">
+                        <mln-button [text]="buttonSetting.text" [classButton]="buttonSetting.classButton" [isSquare]="buttonSetting.isSquare"></mln-button>
+                    </li>
+                </ul>
+            </div>
+            <!-- BODY -->
+            <div class="analytics5d__body">
+                <!-- Body left -->
+                <div class="analytics5d__body--left">
+                    <ul>
+                        <li *ngFor="let item of settingsProgress" class="progressbar">
+                            <mln-progress-bar icon="image" [deadline]="item.deadline" [time]="item.time" [progressInfo]="item.progressInfo"></mln-progress-bar>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Body right -->
+                <div class="analytics5d__body--right">
+                    <div class="top">
+                        <p class="title">Visualización</p>
+                        <div class="check">
+                            <mln-slider-toggle [statusText]="statusTextToggleSettings"></mln-slider-toggle>
+                        </div>
+                    </div>
+                    <div class="center">
+                        <mln-box-items [settings]="settingsBoxd"></mln-box-items>
+                    </div>
+                    <div class="bottom">
+                        <h3 class="title">¿Qué son las 5D?</h3>
+                        <p class="text">
+                            La diversificación es clave para proporcionar al cliente la mayor seguridad y estabiliad en el proceso de ahorro e inversión.
+                            <br/> <br/> <a href="#">Mostrar más</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

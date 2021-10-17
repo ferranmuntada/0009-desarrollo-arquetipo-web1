@@ -1,0 +1,36 @@
+{
+    "private": true,
+    "name": "bmed",
+    "version": "1.0.0",
+    "description": "Projects generate using Lerna, both projects are using angular v10",
+    "author": "ATSISTEMAS",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "git+https://git.atsistemas.com/projects/BMED/repos/0009-desarrollo-arquetipo-web/browse/README.md"
+    },
+    "engines": {
+        "npm": ">=6.13.4",
+        "node": ">=12.15.0"
+    },
+    "scripts": {
+        "build": "lerna run build --parallel",
+        "deploy": "lerna run deploy",
+        "build-bmed": "npm i && lerna bootstrap && cd packages && cd arquetipo-storybook && npm run build",
+        "postinstall": "lerna bootstrap",
+        "storybook": "lerna run storybook",
+        "start-angular": "cd packages && cd arquetipo-web && npm run start",
+        "start-angular-proxy": "cd packages && cd arquetipo-web && npm run start-proxy",
+        "build-storybook": "lerna run build-storybook"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.10.3",
+        "@sanity/cli": "^1.149.13",
+        "@storybook/addon-actions": "^5.3.19",
+        "@storybook/addon-links": "^5.3.19",
+        "@storybook/addons": "^5.3.19",
+        "@storybook/react": "^5.3.19",
+        "babel-loader": "^8.1.0",
+        "lerna": "^3.13.1"
+    }
+}

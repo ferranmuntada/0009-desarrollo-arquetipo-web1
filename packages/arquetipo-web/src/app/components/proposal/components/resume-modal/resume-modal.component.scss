@@ -1,0 +1,38 @@
+.popup-title {
+    color: #4e5c63;
+    font-family: "RobotoBold";
+    font-size: 20px;
+    width: 100%;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #979797;
+    margin-bottom: 40px;
+    position: relative;
+    line-height: 1.5;
+    .close-icon {
+        position: absolute;
+        right: 2px;
+        top: 0;
+        cursor: pointer;
+        background-image: url("/assets/img/cross-dark.svg");
+        background-size: contain;
+        background-repeat: no-repeat;
+        width: 12px;
+        height: 12px;
+        display: inline-block;
+        padding-right: 5px;
+    }
+}
+
+.grid {
+    // display: grid;
+    >* {
+        width: 90%;
+        margin: 0 auto;
+    }
+}
+
+.right {
+    text-align: right;
+    margin-top: 40px!important;
+    margin-bottom: 20px!important;
+}

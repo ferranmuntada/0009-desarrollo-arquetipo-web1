@@ -1,0 +1,169 @@
+import { Meta, Story, Canvas } from "@storybook/addon-docs/blocks";
+import { action } from "@storybook/addon-actions";
+import { CommonModule } from "@angular/common";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { CustomerInfoComponent, CustomerInfoModule } from './customer-info';
+
+<Meta title="Componentes/Panels/Customer Information" />
+
+# COMPONENTE CUSTOMER INFORMATION
+Está componente se ha construido haciendo uso de otros componentes tales como: [Select Menu](?path=/story/componentes-select-menu--select)
+
+export const Default = () => ({
+  component: CustomerInfoComponent,
+  props: {
+    user: { name: 'Jose', lastname: 'Manuel Perez', nif: '23456789-L', type: 'equilibrado', available: true, patrimony: 52416362 },
+    settingsSelect: {
+      firstOption: 'Ninguna',
+      title: 'Propuestas',
+      listItemSelect: [
+          {
+            id: 0,
+            name: 'Propuesta 1',
+          },
+          {
+            id: 1,
+            name: 'Propuesta 2',
+          },
+          {
+            id: 2,
+            name: 'Propuesta 3',
+          },
+          {
+            id: 3,
+            name: 'Propuesta 4',
+          },
+          {
+            id: 4,
+            name: 'Propuesta 5',
+          },
+        ]
+    },
+    textRow: 'Patromonio',
+    rightButtonSettings: { text: 'Ver' },
+    userProposal: action('userProposal'),
+  },
+  moduleMetadata: {
+    imports: [CommonModule, BrowserAnimationsModule, CustomerInfoModule],
+  },
+});
+
+<Canvas>
+  <Story name="Default">{Default.bind({})}</Story>
+</Canvas>
+
+Modulo:
+
+- CustomerInfoModule
+
+```js live=true
+import { CustomerInfoModule } from "arquetipo-storybook/dist";
+```
+
+Componente de lista con la información del cliente. Acepta los siguientes parámetros:
+- settingsSelect (Object): Extiende de [Select Menu](?path=/docs/componentes-select-menu--select#componente-select-menu)
+  - firstOption.
+  - title.
+  - listItemSelect.
+    - id.
+    - name.
+```typescript live=true
+const settingsSelect = {
+  firstOption: 'Ninguna',
+  title: 'Propuestas',
+  listItemSelect: [
+      {
+        id: 0,
+        name: 'Propuesta 1',
+      },
+      {
+        id: 1,
+        name: 'Propuesta 2',
+      },
+      {
+        id: 2,
+        name: 'Propuesta 3',
+      },
+      {
+        id: 3,
+        name: 'Propuesta 4',
+      },
+      {
+        id: 4,
+        name: 'Propuesta 5',
+      },
+    ]
+};
+```
+- user (json): Json con el modelo de datos que contiene la información del cliente.
+  - name (string): Nombre del cliente.
+  - lastname (string): Apellidos del cliente.
+  - type (string): Tipo de propuesta.
+  - available (boolean): Indica la disponibilidad o no de la propuesta.
+  - patrimony (float): Número con el patrimonio del cliente.
+  - nif (string): Número de documento de identidad del usuario. 
+- textRow (string): Nombre que aparecerá al lado izquierdo de la cantidad de dinero a mostrar. 
+- rightButtonSettings (Object):
+  - text (string): Texto del boton que aparecerá a la derecha.
+- userProposal (EventEmitter): Al hacer un clic derecho en el boton "Ver" Se emite un evento que devuelve el usuario y la propuesta seleccionada (Siempre que haya una propuesta seleccionada). Ejemplo:
+```typescript live=true
+const userProposal = ({ proposal, user }) =>  {
+  console.log(proposal, user);
+};
+```
+
+### Ejemplo de uso:
+
+Componente:
+
+- Para incorporar el component, el prefijo a utilizar para la etiqueta HTML es:
+
+```html live=true
+<mln-customer-info [settingsSelect]="settingsSelect" [user]="user" textRow="Patrimonio" [rightButtonSettings]="rightButtonSettings" (userProposal)="userProposal($event)"></mln-customer-info>
+```
+
+Definición de modelo de datos del componente:
+
+```js live=true
+const user = { 
+  name: 'Jose', 
+  lastname: 'Manuel Perez', 
+  type: 'equilibrado', 
+  available: true, 
+  patrimony: 52416362 
+};
+const textRow = 'Patromonio';
+const rightButtonSettings = {
+  text: 'Ver',
+}
+```
+
+# COMPONENTE CUSTOMER INFORMATION DESHABILITADO
+
+- Cada elemento de este componente recibe una propiedad "available" que es se tipo "boolean". Si este campo es "false" se deshabilita el botón "Ver". Ejemplo:
+```js live=true
+const user = { 
+  name: 'Jose', 
+  lastname: 'Manuel Perez', 
+  type: 'equilibrado', 
+  available: false, // DESHABILITADO
+  patrimony: 52416362 
+};
+```
+
+export const disabled = () => ({
+  component: CustomerInfoComponent,
+  props: {
+    user: { name: 'Jose', lastname: 'Manuel Perez', nif: '23456789-L', type: 'equilibrado', available: false, patrimony: 52416362 },
+    textRow: 'Patromonio',
+    rightButtonSettings: { text: 'Ver' },
+    userProposal: action('userProposal'),
+  },
+  moduleMetadata: {
+    imports: [CommonModule, BrowserAnimationsModule, CustomerInfoModule],
+  },
+});
+
+<Canvas>
+  <Story name="Deshabilitado">{disabled.bind({})}</Story>
+</Canvas>

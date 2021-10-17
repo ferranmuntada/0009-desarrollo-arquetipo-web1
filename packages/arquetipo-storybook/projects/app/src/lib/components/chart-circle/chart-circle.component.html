@@ -1,0 +1,31 @@
+<section>
+    <div>
+        <div class="title-wrapper">
+            <h3 class="title">{{ title }}</h3>
+            <span class="amount">{{ this.heritageModel.currency.format(total) }}</span>
+        </div>
+    </div>
+    <div class="chart-wrapper">
+        <div class="left-space"></div>
+        <div class="chart">
+            <apx-chart #chart [legend]="chartOptions.legend" [dataLabels]="chartOptions.dataLabels" [plotOptions]="chartOptions.plotOptions" [stroke]="chartOptions.stroke" [tooltip]="chartOptions.tooltip" [colors]="chartOptions.colors" [series]="chartOptions.series"
+                [labels]="chartOptions.labels" [chart]="chartOptions.chart">
+            </apx-chart>
+        </div>
+        <div class="legend">
+            <ul class="legend-ul">
+                <li *ngFor="let item of settingsCheckBox">
+                    <mln-check-box #customChk [settings]="item"></mln-check-box>
+                </li>
+            </ul>
+            <div>
+                <div class="button-wrapper">
+                    <mln-button #customButton [text]="settingsButton.text" [classButton]="settingsButton.classButton" [isDisabled]="settingsButton.isDisabled"></mln-button>
+                </div>
+                <div class="filter-msg">
+                    {{ subText }}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

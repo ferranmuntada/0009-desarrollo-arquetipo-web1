@@ -1,0 +1,48 @@
+@import "../../../../assets/theme/variables.scss";
+.mln-icon-button {
+    &:focus, &:active {
+        outline: none;
+    }
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 260px;
+    height: 70px;
+    margin: 0 auto;
+    border-radius: 5px;
+    color: map-get($colors, buttonBlue);
+    background-color: map-get($colors, white);
+    border: 0px;
+    -webkit-box-shadow: 0px 0px 7px 0px rgba(0, 0, 0, 0.25);
+    -moz-box-shadow: 0px 0px 7px 0px rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 0px 7px 0px rgba(0, 0, 0, 0.25);
+    >.initial {
+        width: 30%;
+        height: 85%;
+        vertical-align: middle;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-right: 2px solid map-get($colors, disabled);
+        font-weight: bold;
+        font-size: 20px;
+    }
+    &.disabled {}
+    >.text {
+        width: 70%;
+        font-size: 14px;
+        padding: 0 4px;
+        font-family: 'RobotoBold';
+    }
+    &.active {
+        color: white;
+        background-color: map-get($colors, buttonBlue);
+        -webkit-box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0);
+        -moz-box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0);
+        box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0);
+        >.initial {
+            border-right: 2px solid map-get($colors, white);
+        }
+    }
+}

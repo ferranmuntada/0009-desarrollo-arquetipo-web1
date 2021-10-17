@@ -1,0 +1,10 @@
+<form [formGroup]="formGroupSearch" class="form-search">
+    <mat-form-field class="example-full-width">
+        <mat-label>{{ settings?.textInputDefault }}</mat-label>
+        <mat-icon matPrefix class="mr-2">{{ settings?.icon }}</mat-icon>
+        <input matInput formControlName="search" type="text" [placeholder]="settings?.textInputDefault">
+        <mat-hint *ngIf="amount">
+            {{ amount }} resultados para <i>{{ formGroupSearch?.get('search')?.value }}</i>
+        </mat-hint>
+    </mat-form-field>
+</form>

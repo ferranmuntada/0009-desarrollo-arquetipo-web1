@@ -1,0 +1,680 @@
+import { Meta, Story, Canvas } from "@storybook/addon-docs/blocks";
+import { action } from "@storybook/addon-actions";
+import { CommonModule } from "@angular/common";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { DataTableModule, DatatableComponent } from "./data-table";
+import {
+  datatableActionsMock,
+  datasourcesAccordion,
+  datacolumnsAccordion,
+} from "./data-table";
+
+<Meta title="Componentes/Table" />
+
+# COMPONENTE DATA TABLE
+
+export const Table = () => ({
+  component: DatatableComponent,
+  props: {
+    datasources: [
+      {
+        id: 1,
+        description: "Redistribución",
+        type: "Apple Inc.",
+        amount: 43567.34,
+        date: new Date(),
+        status: 1,
+      },
+      {
+        id: 2,
+        description: "Redistribución",
+        type: "Google",
+        amount: 42567.34,
+        date: new Date(),
+        status: 2,
+      },
+      {
+        id: 3,
+        description: "Devolución",
+        type: "Microsoft",
+        amount: 33667.6,
+        date: new Date(),
+        status: 1,
+      },
+      {
+        id: 4,
+        description: "Redistribución",
+        type: "Normon",
+        amount: 56633.89,
+        date: new Date(),
+        status: 2,
+      },
+    ],
+    datacolumns: [
+      {
+        key: "id",
+        name: "ID propuesta",
+        types: { type: "text" },
+      },
+      {
+        key: "description",
+        name: "Descripción",
+        types: { type: "text" },
+      },
+      {
+        key: "type",
+        name: "Tipo",
+        types: { type: "text" },
+      },
+      {
+        key: "amount",
+        name: "Importe",
+        types: { type: "money" },
+      },
+      {
+        key: "date",
+        name: "Fecha",
+        types: { type: "date", settings: { format: "dd/MM/yyyy" } },
+      },
+      {
+        key: "status",
+        name: "Estado",
+        class: "status",
+        types: { type: "text" },
+      },
+      {
+        key: "options",
+        name: "Opciones",
+        types: {
+          type: "select",
+          settings: {
+            select: {
+              class: "proposal-table__options",
+              firstOption: "Ninguna",
+              title: "Ver opciones",
+            },
+            listItem: datatableActionsMock,
+          },
+        },
+      },
+    ],
+    actionChangeOptions: action("actionChangeOptions"),
+  },
+  moduleMetadata: {
+    imports: [CommonModule, BrowserAnimationsModule, DataTableModule],
+  },
+});
+
+<Canvas>
+  <Story name="Básico">{Table.bind({})}</Story>
+</Canvas>
+
+Modulo:
+
+- DataTableModule
+
+```js live=true
+import { DataTableModule } from "arquetipo-storybook/dist";
+```
+
+Componente:
+
+- Para incorporar el componente, el prefijo a utilizar para la etiqueta HTML es:
+
+```html live=true
+<mln-datatable></mln-datatable>
+```
+
+Componente de tabla de datos, recibe los siguientes parámetros:
+
+- datasources: Son los elementos que de datos que contendrá la tabla, son dependientes de un data source.
+  - url: Obligatorio si el tipo de columna es 'link'.
+
+```typescript live=true
+const datasources = [
+  { id: 1, description: 'Redistribución', type: 'Apple Inc.', amount: 43567.34, date: new Date(), status: 1, },
+  { id: 2, description: 'Redistribución', type: 'Google', amount: 42567,34 date: new Date(), status: 2, },
+  { id: 3, description: 'Devolución', type: 'Microsoft', amount: 33667.6, date: new Date(), status: 1, url: 'https://www.google.es' },
+  { id: 4, description: 'Redistribución', type: 'Normon', amount: 56633.89, date: new Date(), status: 2, } ];
+```
+
+- datacolumns: Datos para cada columna de la tabla.
+
+```typescript live=true
+type Types = "text" | "money" | "date" | "select" | "link" | string;
+
+const datacolumns = {
+  key: "options", // identificador de la columna
+  name: "Opciones", // Nombre que aparecerá en la columna
+  types: {
+    // tipado de datos de la columna
+    type: "select", // Types - obligatorio
+    settings: {
+      // opcional - datos para el objeto (select, date, etc...) si fuera necesario.
+      settings: { format: "dd/MM/yyyy" }, // opcional - formato de la fecha si el tipo es 'date'.
+      select: null, // opcional - Objeto para el desplegable, si el tipo es 'select'.
+      listItem: null, // opcional - Lista de datos para el desplegable, si el tipo es 'select'.
+    },
+  },
+};
+
+// Botón extiende del componente "Button"
+const types: {
+  // tipado de datos de la columna
+  type: "button"; // Types - obligatorio
+  settings: {
+    // opcional - datos para el objeto (select, date, etc...) si fuera necesario.
+    callback: null;
+    classButton: "";
+    icon: "";
+    isSquare: false;
+    isDisabled: false;
+  };
+};
+
+const types: {
+  type: "date";
+  settings: {
+    format: ""; // yyyy/MM/dd
+  };
+};
+```
+
+### Ejemplo de uso:
+
+Definición de modelo de datos del componente:
+
+```js live=true
+const datasources = [
+  { id: 1, description: 'Redistribución', type: 'Apple Inc.', amount: 43567.34, date: new Date(), status: 1, },
+  { id: 2, description: 'Redistribución', type: 'Google', amount: 42567,34 date: new Date(), status: 2, },
+  { id: 3, description: 'Devolución', type: 'Microsoft', amount: 33667.6, date: new Date(), status: 1, },
+  { id: 4, description: 'Redistribución', type: 'Normon', amount: 56633.89, date: new Date(), status: 2, } ];
+const datacolumns = [
+  {
+    key: 'id',
+    name: 'ID propuesta',
+    types: { type: 'text' },
+  },
+  {
+    key: 'description',
+    name: 'Descripción',
+    types: { type: 'text' },
+  },
+  {
+    key: 'type',
+    name: 'Tipo',
+    types: { type: 'text' },
+  },
+  {
+    key: 'amount',
+    name: 'Importe',
+    types: { type: 'money' },
+  },
+  {
+    key: 'date',
+    name: 'Fecha',
+    types: { type: 'date', settings: { format: 'dd/MM/yyyy' } },
+  },
+  {
+    key: 'status',
+    name: 'Estado',
+    class: 'status',
+    types: { type: 'text' },
+  },
+  {
+    key: 'options',
+    name: 'Opciones',
+    types: { type: 'select', settings: {
+        select: {
+          class: "proposal-table__options",
+          firstOption: "Ninguna",
+          title: "Ver opciones",
+        },
+        listItem: [
+          { id: OPTION_EDIT, name: 'Editar', icon: 'edit' },
+          { id: OPTION_CONSULT, name: 'Consultar', icon: 'search' },
+          { id: OPTION_COPY, name: 'Copiar', icon: 'content_copy' },
+          { id: OPTION_CANCEL, name: 'Anular', icon: 'delete', disabled: true }
+        ],
+      }
+    },
+  }
+];
+```
+
+Declaración HTML:
+
+```html live=true
+<mln-datatable
+  [datasources]="datasources"
+  [datacolumns]="datacolumns"
+></mln-datatable>
+```
+
+## Paginación
+
+```typescript live=true
+const paginatorSettings: {
+  items: 5;
+  perPage: [5, 10, 15];
+};
+```
+
+```html live=true
+<mln-datatable
+  [datasources]="datasources"
+  [paginatorSettings]="paginatorSettings"
+  [datacolumns]="datacolumns"
+></mln-datatable>
+```
+
+export const Pagination = () => ({
+  component: DatatableComponent,
+  props: {
+    datasources: [
+      {
+        id: 1,
+        description: "Redistribución",
+        type: "Apple Inc.",
+        amount: 43567.34,
+        date: new Date(),
+        status: 1,
+      },
+      {
+        id: 2,
+        description: "Redistribución",
+        type: "Google",
+        amount: 42567.34,
+        date: new Date(),
+        status: 2,
+      },
+      {
+        id: 3,
+        description: "Devolución",
+        type: "Microsoft",
+        amount: 33667.6,
+        date: new Date(),
+        status: 1,
+      },
+      {
+        id: 4,
+        description: "Redistribución",
+        type: "Normon",
+        amount: 56633.89,
+        date: new Date(),
+        status: 2,
+      },
+      {
+        id: 5,
+        description: "Redistribución",
+        type: "Normon",
+        amount: 56633.89,
+        date: new Date(),
+        status: 2,
+      },
+      {
+        id: 6,
+        description: "Redistribución",
+        type: "Normon",
+        amount: 56633.89,
+        date: new Date(),
+        status: 2,
+      },
+      {
+        id: 7,
+        description: "Redistribución",
+        type: "Normon",
+        amount: 56633.89,
+        date: new Date(),
+        status: 2,
+      },
+    ],
+    datacolumns: [
+      {
+        key: "id",
+        name: "ID propuesta",
+        types: { type: "text" },
+      },
+      {
+        key: "description",
+        name: "Descripción",
+        types: { type: "text" },
+      },
+      {
+        key: "type",
+        name: "Tipo",
+        types: { type: "text" },
+      },
+      {
+        key: "amount",
+        name: "Importe",
+        types: { type: "money" },
+      },
+      {
+        key: "date",
+        name: "Fecha",
+        types: { type: "date", settings: { format: "dd/MM/yyyy" } },
+      },
+      {
+        key: "status",
+        name: "Estado",
+        class: "status",
+        types: { type: "text" },
+      },
+      {
+        key: "options",
+        name: "Opciones",
+        types: {
+          type: "select",
+          settings: {
+            select: {
+              class: "proposal-table__options",
+              firstOption: "Ninguna",
+              title: "Ver opciones",
+            },
+            listItem: datatableActionsMock,
+          },
+        },
+      },
+    ],
+    paginatorSettings: {
+      items: 5,
+      perPage: [5, 10, 15],
+    },
+    actionChangeOptions: action("actionChangeOptions"),
+  },
+  moduleMetadata: {
+    imports: [CommonModule, BrowserAnimationsModule, DataTableModule],
+  },
+});
+
+<Canvas>
+  <Story name="Paginación">{Pagination.bind({})}</Story>
+</Canvas>
+
+## TABLA ACORDEÓN
+
+```typescript live=true
+const datasourcesAccordion = [
+  {
+    origin: "Cuenta corriente ES64.98.76.0987.12.1234567890",
+    destiny: "Challenge Cyclical Equity L.",
+    available: 50000000,
+    proposed: 50000000,
+    operation: "Realizar traspaso/Transferencia Acción directa del cliente",
+    status: "Pendiente de iniciarse",
+  },
+  {
+    origin: "Cuenta corriente ES64.98.76.0987.12.1234567890",
+    destiny: "Challenge Cyclical Equity L.",
+    available: 50000000,
+    proposed: 50000000,
+    operation: "Realizar traspaso/Transferencia Acción directa del cliente",
+    status: "Pendiente de iniciarse",
+  },
+];
+const datacolumnsAccordion = [
+  {
+    key: "origin",
+    name: "Origen",
+    types: { type: "text" },
+  },
+  {
+    key: "destiny",
+    name: "Destino",
+    types: { type: "text" },
+  },
+  {
+    key: "available",
+    name: "Disponible",
+    types: { type: "money" },
+  },
+  {
+    key: "proposed",
+    name: "Propuesto",
+    types: { type: "money" },
+  },
+  {
+    key: "multichanel",
+    name: "Multicanalidad",
+    types: {
+      type: "toggle",
+      settings: {
+        label: "Si",
+      },
+    },
+  },
+  {
+    key: "operation",
+    name: "Operación",
+    types: { type: "text" },
+  },
+  {
+    key: "status",
+    name: "Estado",
+    types: { type: "text" },
+  },
+  {
+    key: "documentation",
+    name: "Documentación",
+    types: {
+      type: "button",
+      settings: {
+        icon: "insert_drive_file",
+        callback: new Subject(),
+      },
+    },
+  },
+];
+const datasources = [
+  {
+    id: 1,
+    description: "Redistribución",
+    type: "Apple Inc.",
+    amount: 43567.34,
+    date: new Date(),
+    status: 1,
+    accordion: {
+      datasources: datasourcesAccordion,
+      datacolumns: datacolumnsAccordion,
+    },
+  },
+  {
+    id: 2,
+    description: "Redistribución",
+    type: "Google",
+    amount: 42567.34,
+    date: new Date(),
+    status: 2,
+    accordion: {
+      datasources: datasourcesAccordion,
+      datacolumns: datacolumnsAccordion,
+    },
+  },
+  {
+    id: 3,
+    description: "Devolución",
+    type: "Microsoft",
+    amount: 33667.6,
+    date: new Date(),
+    status: 1,
+    accordion: {
+      datasources: datasourcesAccordion,
+      datacolumns: datacolumnsAccordion,
+    },
+  },
+  {
+    id: 4,
+    description: "Redistribución",
+    type: "Normon",
+    amount: 56633.89,
+    date: new Date(),
+    status: 2,
+    accordion: {
+      datasources: datasourcesAccordion,
+      datacolumns: datacolumnsAccordion,
+    },
+  },
+];
+const datacolumns = [
+  {
+    key: "id",
+    name: "ID propuesta",
+    types: { type: "text" },
+  },
+  {
+    key: "description",
+    name: "Descripción",
+    types: { type: "text" },
+  },
+  {
+    key: "type",
+    name: "Tipo",
+    types: { type: "text" },
+  },
+  {
+    key: "amount",
+    name: "Importe",
+    types: { type: "money" },
+  },
+  {
+    key: "date",
+    name: "Fecha",
+    types: { type: "date", settings: { format: "dd/MM/yyyy" } },
+  },
+  {
+    key: "status",
+    name: "Estado",
+    class: "status",
+    types: { type: "text" },
+  },
+  {
+    key: "options",
+    name: "Opciones",
+    types: {
+      type: "select",
+      settings: {
+        select: {
+          class: "proposal-table__options",
+          firstOption: "Ninguna",
+          title: "Ver opciones",
+        },
+        listItem: datatableActionsMock,
+      },
+    },
+  },
+];
+```
+
+export const TableAccordion = () => ({
+  component: DatatableComponent,
+  props: {
+    datasources: [
+      {
+        id: 1,
+        description: "Redistribución",
+        type: "Apple Inc.",
+        amount: 43567.34,
+        date: new Date(),
+        status: 1,
+        accordion: {
+          datasources: datasourcesAccordion,
+          datacolumns: datacolumnsAccordion,
+        },
+      },
+      {
+        id: 2,
+        description: "Redistribución",
+        type: "Google",
+        amount: 42567.34,
+        date: new Date(),
+        status: 2,
+        accordion: {
+          datasources: datasourcesAccordion,
+          datacolumns: datacolumnsAccordion,
+        },
+      },
+      {
+        id: 3,
+        description: "Devolución",
+        type: "Microsoft",
+        amount: 33667.6,
+        date: new Date(),
+        status: 1,
+        accordion: {
+          datasources: datasourcesAccordion,
+          datacolumns: datacolumnsAccordion,
+        },
+      },
+      {
+        id: 4,
+        description: "Redistribución",
+        type: "Normon",
+        amount: 56633.89,
+        date: new Date(),
+        status: 2,
+        accordion: {
+          datasources: datasourcesAccordion,
+          datacolumns: datacolumnsAccordion,
+        },
+      },
+    ],
+    datacolumns: [
+      {
+        key: "id",
+        name: "ID propuesta",
+        types: { type: "text" },
+      },
+      {
+        key: "description",
+        name: "Descripción",
+        types: { type: "text" },
+      },
+      {
+        key: "type",
+        name: "Tipo",
+        types: { type: "text" },
+      },
+      {
+        key: "amount",
+        name: "Importe",
+        types: { type: "money" },
+      },
+      {
+        key: "date",
+        name: "Fecha",
+        types: { type: "date", settings: { format: "dd/MM/yyyy" } },
+      },
+      {
+        key: "status",
+        name: "Estado",
+        class: "status",
+        types: { type: "text" },
+      },
+      {
+        key: "options",
+        name: "Opciones",
+        types: {
+          type: "select",
+          settings: {
+            select: {
+              class: "proposal-table__options",
+              firstOption: "Ninguna",
+              title: "Ver opciones",
+            },
+            listItem: datatableActionsMock,
+          },
+        },
+      },
+    ],
+    actionChangeOptions: action("actionChangeOptions"),
+  },
+  moduleMetadata: {
+    imports: [CommonModule, BrowserAnimationsModule, DataTableModule],
+  },
+});
+
+<Canvas>
+  <Story name="Tabla acordeón">{TableAccordion.bind({})}</Story>
+</Canvas>

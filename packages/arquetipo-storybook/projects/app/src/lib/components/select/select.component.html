@@ -1,0 +1,12 @@
+<mat-form-field class="custome-select" appearance="outline">
+    <mat-label *ngIf="settings?.title">{{ settings?.title }}</mat-label>
+    <mat-select (selectionChange)="onActionChange($event.value)" #options>
+        <mat-option *ngIf="settings?.firstOption">{{ settings?.firstOption }}</mat-option>
+        <mat-select-trigger>
+            {{listItem[options.value]?.name}}
+        </mat-select-trigger>
+        <mat-option *ngFor="let action of listItem; let i = index" [value]="i" [disabled]="action.disabled" [attr.data-index]="i">
+            <mat-icon *ngIf="action.icon">{{action?.icon}}</mat-icon> {{ action.name }}
+        </mat-option>
+    </mat-select>
+</mat-form-field>

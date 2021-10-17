@@ -1,0 +1,190 @@
+@import "../../../../assets/theme/variables.scss";
+$menu-height: 80px;
+.header-wrapper {
+    min-height: $menu-height;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 3px;
+    -webkit-box-shadow: 0px 10px 18px -5px rgba(204, 204, 204, 1);
+    -moz-box-shadow: 0px 10px 18px -5px rgba(204, 204, 204, 1);
+    box-shadow: 0px 10px 18px -5px rgba(204, 204, 204, 1);
+    top: 0;
+    left: 0;
+    background: map-get($colors, white);
+    z-index: 99;
+    padding: 8px 0;
+    .header-info {
+        display: flex;
+        .header-search {
+            cursor: pointer;
+            color: map-get($colors, black);
+            font-family: "GillSans";
+            font-weight: 400;
+            padding-left: 20px;
+            display: flex;
+            align-items: center;
+            .header-icon-back {
+                background-image: url("/assets/img/arrow-back.png");
+                background-size: contain;
+                background-repeat: no-repeat;
+                width: 12px;
+                height: 12px;
+                display: inline-block;
+                padding-right: 5px;
+            }
+        }
+        .header-user {
+            display: flex;
+            margin: 0 20px;
+            margin-left: 10px;
+            @media only screen and (max-width: 540px) {
+                margin: 20px 0 10px;
+                justify-content: center;
+                text-align: center;
+                width: 100%;
+            }
+            .header-initial {
+                width: 50px;
+                min-width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                background-color: #f1f5fc;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: map-get($colors, blueIcon);
+                text-transform: uppercase;
+                font-family: 'Roboto900';
+                font-size: 20px;
+            }
+            .header-user-info {
+                margin-left: 10px;
+                @media only screen and (max-width: 540px) {
+                    flex-wrap: wrap;
+                }
+                .header-user-name {
+                    color: map-get($colors, darkBlue);
+                    font-family: "GillSansBold";
+                    font-size: 20px;
+                }
+                .header-user-icon {
+                    cursor: pointer;
+                    padding-top: 5px;
+                    display: flex;
+                    align-items: center;
+                    >span:first-child {
+                        font-family: "GillSans";
+                        padding-right: 10px;
+                        border-right: 2px solid lightgray;
+                        display: inline-block;
+                        background-image: url("/assets/img/cliente-real.png");
+                        background-repeat: no-repeat;
+                        background-size: contain;
+                        width: 30px;
+                        height: 28px;
+                    }
+                    >span:last-child {
+                        display: flex;
+                        align-items: center;
+                        font-family: 'Roboto';
+                        &:before {
+                            content: " ";
+                            padding-right: 5px;
+                            position: relative;
+                            display: inline-block;
+                            width: 19px;
+                            height: 26px;
+                            top: 0px;
+                            background-image: url("/assets/img/success.png");
+                            background-repeat: no-repeat;
+                            background-size: contain;
+                        }
+                        padding-left: 10px;
+                    }
+                }
+            }
+        }
+        .header-amount {
+            margin-left: 20px;
+            .header-amount-number {
+                color: map-get($colors, blueIcon);
+                font-family: "RobotoBold";
+                font-size: 24px;
+                padding-bottom: 3px;
+                white-space: nowrap;
+                .decimal {
+                    font-size: 18px;
+                }
+            }
+            .header-amount-text {
+                display: flex;
+                justify-content: left;
+                align-items: center;
+                font-family: "Roboto";
+                padding-bottom: 3px;
+            }
+            @media only screen and (max-width: 540px) {
+                text-align: center;
+                width: 100%;
+                .header-amount-number, .header-amount-text {
+                    text-align: center;
+                    justify-content: center;
+                }
+            }
+        }
+    }
+    .header-menu {
+        list-style: none;
+        padding: 0;
+        display: flex;
+        min-height: $menu-height;
+        align-items: center;
+        margin: 0;
+        .header-item {
+            margin-right: 20px;
+            cursor: pointer;
+            display: flex;
+            min-height: $menu-height;
+            align-items: center;
+            box-sizing: border-box;
+            border-bottom: 4px solid transparent;
+            font-family: "GillSans500";
+            outline: none;
+            text-align: center;
+            &.active {
+                border-bottom: 4px solid map-get($colors, darkBlue);
+                outline: none;
+            }
+            &.disabled {
+                color: #9999;
+                pointer-events: none;
+            }
+            &:focus {
+                outline: none;
+            }
+        }
+    }
+    @media only screen and (max-width: 980px) {
+        flex-wrap: wrap;
+        justify-content: space-between;
+        .header-info {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 10px;
+            padding-right: 10px;
+            @media only screen and (max-width: 540px) {
+                flex-wrap: wrap;
+            }
+        }
+        .header-menu {
+            justify-content: center;
+            display: flex;
+            width: 100%;
+            margin: 0;
+        }
+    }
+}

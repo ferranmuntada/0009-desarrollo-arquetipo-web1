@@ -1,0 +1,53 @@
+<section>
+    <header class="header-proposal">
+        <div class="np-title">
+            Nueva Propuesta
+        </div>
+        <div class="np-links">
+            <div class="np-link" [class.disabled]="linkHiring.disabled" *ngIf="linkHiring.show" (click)="changeHiring(linkHiring)">
+                <i class="icon contratacion"></i>
+                <span>Contratación</span>
+            </div>
+            <div class="np-link" [class.disabled]="linkAmount.disabled" *ngIf="linkAmount.show" (click)="changeAmount(linkAmount)">
+                <i class="icon costes"></i>
+                <span>Costes</span>
+            </div>
+        </div>
+
+        <div>
+            <ul class="np-bar-wrapper">
+                <li class="np-bar" [attr.title]="panel.descriptionLabel" [attr.id]="'header-' + panel.index" [attr.aria-selected]="panel.selected" [attr.aria-controls]="panel.index" [ngClass]="(selectedIndex >= i && !panel.disabled) ? 'done' : 'pending'" *ngFor="let panel of panels; let i = index"
+                    role="presentation" (click)="selectTab($event, panel, i)">
+                    <div class="np-block"></div>
+                    <div class="np-text" role="tab">
+                        <i class="icon" [class.tick-ok]="selectedIndex > i"></i>
+                        <span>{{panel.title}}</span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </header>
+
+    <footer class="footer-proposal">
+        <div>
+            <span class="footer-action" (click)="close()">
+                X CERRAR
+            </span>
+        </div>
+        <div>
+            <span class="footer-link" (click)="save()">Guardar Borrador</span>
+        </div>
+        <div>
+            <button class="footer-action back" (click)="back($event)">
+                &#60; VOLVER
+            </button>
+            <button mat-stroked-button class="mln-button primary" (click)="next($event)">
+                Continuar
+            </button>
+        </div>
+    </footer>
+</section>
+
+<div class="container">
+    <ng-content></ng-content>
+</div>

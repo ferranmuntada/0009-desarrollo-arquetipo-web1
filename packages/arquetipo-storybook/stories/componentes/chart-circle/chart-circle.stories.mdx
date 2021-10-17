@@ -1,0 +1,118 @@
+import { Meta, Story, Canvas } from "@storybook/addon-docs/blocks";
+import {
+  ChartCircleComponent,
+  ChartCircleModule,
+  testObserver,
+} from "./chart-circle";
+
+<Meta title="Componentes/Miscellaneous/Chart" />
+
+# COMPONENTE CHART
+
+export const Default = () => ({
+  component: ChartCircleComponent,
+  props: {
+    title: "Patrimonio Mediolanum",
+    subText: "Los filtros se aplicarán al análisis de las 5Ds",
+    settingsChart: {
+      callBack: testObserver,
+      colors: [
+        "#85e3d1",
+        "#3bcaaf",
+        "#1ea78d",
+        "#19816d",
+        "#8471d6",
+        "#2fb8de",
+      ],
+      series: [2378, 2165, 2333, 1852, 2456, 2154],
+      labels: [
+        "Inversiones en forma de Seguro de Vida",
+        "Fondos de Inversión",
+        "Inversiones bancarias",
+        "Inversiones de Área de valores",
+        "Jubilación",
+        "Servicios Bancarios",
+      ],
+      popupText: "Dinero invertido",
+      total: 1345567.16,
+    },
+    settingsButton: {
+      text: "SIGUIENTE",
+      classButton: "secondary",
+      isDisabled: true,
+      callback: testObserver,
+      isSquare: false,
+      icon: "",
+    },
+  },
+  moduleMetadata: {
+    imports: [ChartCircleModule],
+  },
+});
+
+<Canvas>
+  <Story name="Default">{Default.bind({})}</Story>
+</Canvas>
+
+Modulo:
+
+- ChartCircleModule
+
+```js live=true
+import { ChartCircleModule } from "arquetipo-storybook/dist";
+```
+
+### Ejemplo de uso:
+
+Componente:
+
+- Para incorporar el component, el prefijo a utilizar para la etiqueta HTML es:
+
+```html live=true
+<mln-chart-circle
+  [title]="title"
+  [subText]="subText"
+  [settingsChart]="settingsChart"
+  [settingsButton]="settingsButton"
+  [settingsCheckBox]="settingsCheckBox"
+></mln-chart-circle>
+```
+
+Definición de modelo de datos del componente:
+
+- title (string): Título del chart.
+- subText (string): Texto que aparece debajo del botón 'SIGUIENTE'.
+- settingsChart (Object):
+
+```typescript live=true
+const settingsChart = {
+  colors: ["#85e3d1", "#3bcaaf", "#1ea78d", "#19816d", "#8471d6", "#2fb8de"],
+  series: [2378, 2165, 2333, 1852, 2456, 2154],
+  labels: [
+    "Inversiones en forma de Seguro de Vida",
+    "Fondos de Inversión",
+    "Inversiones bancarias",
+    "Inversiones de Área de valores",
+    "Jubilación",
+    "Servicios Bancarios",
+  ],
+  popupText: "Dinero invertido",
+  total: 1345567.16,
+};
+```
+
+- settingsButton (Object):
+
+```typescript live=true
+const callback = new Subject<any>();
+callback.subscribe((value) => console.log(value));
+
+const settingsButton = {
+  text: "SIGUIENTE",
+  classButton: "secondary",
+  isDisabled: true,
+  callback: callback,
+  isSquare: false,
+  icon: "",
+};
+```

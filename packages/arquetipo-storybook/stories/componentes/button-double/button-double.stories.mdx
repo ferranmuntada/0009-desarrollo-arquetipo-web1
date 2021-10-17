@@ -1,0 +1,99 @@
+import { Meta, Story, Canvas } from "@storybook/addon-docs/blocks";
+import { action } from "@storybook/addon-actions";
+import { MatButtonModule } from "@angular/material/button";
+import { ButtonDoubleComponent } from "../../../projects/app/src/lib/components/button-double/button-double.component";
+
+<Meta title="Componentes/Buttons/Button Double" />
+
+# COMPONENTE BOTÓN DOBLE
+
+export const Default = () => ({
+  component: ButtonDoubleComponent,
+  props: {
+    active: true,
+    leftText: "PIC",
+    rightText: "Botón",
+    actionBigButton: action("actionBigButton"),
+  },
+  moduleMetadata: {
+    imports: [MatButtonModule],
+  },
+});
+
+<Canvas>
+  <Story name="Default">{Default.bind({})}</Story>
+</Canvas>
+
+
+Modulo:
+
+- DoubleButtonModule
+
+```js live=true
+import { DoubleButtonModule } from "arquetipo-storybook/dist";
+```
+
+Todos los tipos de componentes botón aceptarán los siguientes parámetros:
+
+- active: (Boolean) Indica si el botón está activo o no.
+- leftText: (String) Texto en la zona izquierda del botón.
+- rightText: (String) Texto en la zona derecha del botón.
+- actionBigButton: (EventEmitter) Emite un evento al hacer clic al botón.
+
+## Button Double Active
+
+Botón por defecto que acepta las propiedades:
+
+### Ejemplo de uso:
+
+Definición de modelo de datos del componente:
+
+```typescript live=true
+const active = true; 
+const leftText = 'PIC'; 
+const rightText = 'Botón';
+
+const actionBigButton = (event: Event) => {};
+```
+
+- Para incorporar el component, el prefijo a utilizar para la etiqueta HTML es:
+
+```html live=true
+<mln-button-double
+  [active]="active"
+  [leftText]="leftText"
+  [rightText]="rightText"
+  (actionBigButton)="actionBigButton($event)"
+></mln-button-double>
+```
+
+## Button Double Disabled
+
+export const Disabled = () => ({
+  component: ButtonDoubleComponent,
+  props: {
+    active: false,
+    leftText: "PIC",
+    rightText: "Big Chance",
+    actionBigButton: action("actionBigButton"),
+  },
+  moduleMetadata: {
+    imports: [MatButtonModule],
+  },
+});
+
+<Canvas>
+  <Story name="Disabled">{Disabled.bind({})}</Story>
+</Canvas>
+
+Botón deshabilitado que acepta las propiedades:
+
+### Ejemplo de uso:
+
+Definición de modelo de datos del componente:
+
+```js live=true
+const active = false; 
+const leftText = 'PIC'; 
+const rightText = 'Big Chance'; 
+```

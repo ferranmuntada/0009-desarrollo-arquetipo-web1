@@ -1,0 +1,32 @@
+@import "../../../../assets/theme/variables.scss";
+.bg {
+    background-color: #f8fafd;
+    height: 100vh;
+}
+
+.header-proposal {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin: 30px;
+    border-bottom: 1px solid;
+    padding-bottom: 20px;
+    color: #afbfc6;
+    padding-top: 20px;
+    .title {
+        color: #202967;
+        font-family: "GillSansBold";
+        font-size: 20px;
+    }
+    .text {
+        font-size: 14px;
+        color: #4e5c63;
+    }
+    @media only screen and (max-width: 720px) {
+        flex-wrap: wrap;
+        justify-content: center;
+        .title {
+            margin: 10px 0;
+        }
+    }
+}

@@ -1,0 +1,6 @@
+<button class="mln-icon-button primary" (click)="onClick($event)" [class.active]="active" [attr.disabled]="!active ? true : null">
+    <div class="initial">{{ leftText }}</div>
+    <div class="text">
+        <div>{{ rightText }}</div>
+    </div>
+</button>

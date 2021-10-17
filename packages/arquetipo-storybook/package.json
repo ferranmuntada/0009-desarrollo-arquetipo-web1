@@ -1,0 +1,135 @@
+{
+  "name": "arquetipo-storybook",
+  "version": "1.0.0",
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng-packagr -p ./projects/app/package.json",
+    "test": "ng test",
+    "test-coverage": "ng test --code-coverage",
+    "lint": "ng lint",
+    "e2e": "ng e2e",
+    "docs:json": "compodoc -p ./tsconfig.json -e json -d .",
+    "storybook": "npm run docs:json && start-storybook -p 6006",
+    "build-storybook": "npm run docs:json && build-storybook",
+    "jest": "jest --watch"
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/animations": "~12.2.10",
+    "@angular/cdk": "^12.2.9",
+    "@angular/common": "~12.2.10",
+    "@angular/compiler": "~12.2.10",
+    "@angular/core": "~12.2.10",
+    "@angular/forms": "~12.2.10",
+    "@angular/material": "^12.2.9",
+    "@angular/platform-browser": "~12.2.10",
+    "@angular/platform-browser-dynamic": "~12.2.10",
+    "@angular/router": "~12.2.10",
+    "@storybook/addon-docs": "^6.0.0-rc.30",
+    "@storybook/addon-knobs": "^6.0.15",
+    "apexcharts": "^3.20.0",
+    "material-icons": "^0.3.1",
+    "ng-apexcharts": "^1.5.12",
+    "react": "^16.13.1",
+    "rxjs": "~6.5.5",
+    "tslib": "^2.0.0",
+    "zone.js": "~0.11.4"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "^12.2.10",
+    "@angular/cli": "~12.2.10",
+    "@angular/compiler-cli": "~12.2.10",
+    "@babel/core": "^7.11.4",
+    "@compodoc/compodoc": "^1.1.11",
+    "@linnenschmidt/build-ng-packagr": "^9.0.0",
+    "@storybook/addon-actions": "^6.0.17",
+    "@storybook/addon-essentials": "^6.0.17",
+    "@storybook/addon-links": "^6.0.17",
+    "@storybook/addon-notes": "^5.3.19",
+    "@storybook/addon-storysource": "^6.0.17",
+    "@storybook/addons": "^5.3.19",
+    "@storybook/angular": "^6.3.12",
+    "@storybook/builder-webpack5": "^6.4.0-beta.12",
+    "@storybook/manager-webpack5": "^6.3.12",
+    "@testing-library/jest-dom": "^5.11.2",
+    "@types/jasmine": "~3.5.0",
+    "@types/jasminewd2": "~2.0.3",
+    "@types/jest": "^26.0.9",
+    "@types/node": "^12.11.1",
+    "babel-loader": "^8.1.0",
+    "codelyzer": "^6.0.0",
+    "css-loader": "^4.2.2",
+    "jasmine-core": "~3.5.0",
+    "jasmine-spec-reporter": "~5.0.0",
+    "jest": "^26.2.2",
+    "jest-preset-angular": "^8.3.1",
+    "karma": "~6.3.4",
+    "karma-chrome-launcher": "~3.1.0",
+    "karma-coverage-istanbul-reporter": "~3.0.2",
+    "karma-jasmine": "~3.3.0",
+    "karma-jasmine-html-reporter": "^1.5.0",
+    "ng-packagr": "^12.2.3",
+    "protractor": "~7.0.0",
+    "react-is": "^16.13.1",
+    "scss-bundle": "^3.1.2",
+    "to-string-loader": "^1.1.6",
+    "ts-node": "~8.3.0",
+    "tslint": "~6.1.0",
+    "typescript": "~4.3.5"
+  },
+  "jest": {
+    "preset": "jest-preset-angular",
+    "setupFilesAfterEnv": [
+      "<rootDir>/src/jest-config/setup.ts"
+    ],
+    "transformIgnorePatterns": [
+      "node_modules/(?!@storybook/*)"
+    ],
+    "testPathIgnorePatterns": [
+      "<rootDir>/node_modules/",
+      "<rootDir>/dist/",
+      "<rootDir>/storybook-static/",
+      "<rootDir>/src/test.ts"
+    ],
+    "coveragePathIgnorePatterns": [
+      "/jest-config/",
+      "/node_modules/"
+    ],
+    "snapshotSerializers": [
+      "<rootDir>/node_modules/jest-preset-angular/AngularSnapshotSerializer.js",
+      "<rootDir>/node_modules/jest-preset-angular/HTMLCommentSerializer.js"
+    ],
+    "globals": {
+      "ts-jest": {
+        "tsConfig": "<rootDir>/tsconfig.spec.json",
+        "stringifyContentPathRegex": "\\.html$",
+        "diagnostics": false,
+        "isolatedModules": true,
+        "astTransformers": [
+          "<rootDir>/node_modules/jest-preset-angular/InlineHtmlStripStylesTransformer"
+        ]
+      }
+    },
+    "moduleNameMapper": {
+      "\\.(css|less)$": "<rootDir>/src/jest-config/styleMock.js",
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/src/jest-config/fileMock.js"
+    },
+    "transform": {
+      "^.+\\.(ts|html)$": "ts-jest",
+      "^.+\\.js$": "babel-jest"
+    },
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node",
+      ".html"
+    ],
+    "collectCoverageFrom": [
+      "src/**/{!(ignore-me),}.js"
+    ]
+  }
+}

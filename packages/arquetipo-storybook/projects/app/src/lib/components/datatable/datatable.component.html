@@ -1,0 +1,50 @@
+<!-- table proposals -->
+<div *ngIf="dataSources?.data?.length" class="overflow-table">
+    <mat-table [dataSource]="dataSources" class="c-proposal-table table-wrapper" multiTemplateDataRows>
+        <ng-container *ngFor="let column of datacolumns; let i = index" [matColumnDef]="column.key">
+            <mat-header-cell class="" *matHeaderCellDef>{{ column.name }}</mat-header-cell>
+            <mat-cell class="flex-wrap pr-2" *matCellDef="let datasource" [ngSwitch]="column.types.type">
+                <ng-container>
+                    <img *ngIf="i === 0 && isAccordion" class="img-accordion" [class.img-accordion--up]="expandedElement === datasource" src="/assets/img/chevron-bottom.svg" alt="accordion" (click)="expandedElement = expandedElement === datasource ? null : datasource" />
+                </ng-container>
+                <span *ngSwitchCase="'text'" [class]="column.class">
+                    {{ datasource[column.key] }}
+                </span>
+                <span *ngSwitchCase="'money'" [class]="column.class">
+                    {{ currency.format(datasource[column.key]) }}
+                </span>
+                <span *ngSwitchCase="'date'" [class]="column.class">
+                    {{ datasource[column.key] | date:column.types.settings.format }}
+                </span>
+                <mln-select #customSelect *ngSwitchCase="'select'" [settings]="column.types.settings.select" [listItem]="column.types.settings.listItem" (actionSelected)="onActionChange(datasource, $event)"></mln-select>
+                <a *ngSwitchCase="'link'" [class]="column.class" [href]="datasource.url" target="__blank">
+                    {{ datasource[column.key] }}
+                </a>
+                <mln-button #customButton *ngSwitchCase="'button'" [callback]="column.types.settings.callback" [classButton]="column.types.settings.classButton" [icon]='column.types.settings.icon' [isSquare]="column.types.settings.isSquare" [isDisabled]="column.types.settings.isDisabled"></mln-button>
+                <mln-slider-toggle #customToggle *ngSwitchCase="'toggle'" [label]="column.types.settings.label" [statusText]="column.types.settings.statusText" (changeToggleAction)="column.types.settings.callback"></mln-slider-toggle>
+                <span *ngSwitchDefault [class]="column?.class">
+                    {{ datasource[column.key] }}
+                </span>
+            </mat-cell>
+        </ng-container>
+
+        <!-- Expanded Content Column - The detail row is made up of this one column that spans across all columns -->
+        <ng-container matColumnDef="expandedDetail" *ngIf="isAccordion">
+            <mat-cell class="flex-wrap pr-2" *matCellDef="let element" [attr.colspan]="datacolumns.length">
+                <ng-container *ngIf="element.accordion">
+                    <div class="element-detail" [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
+                        <mln-datatable class="table-child" [datasources]="element.accordion.datasources" [datacolumns]="element.accordion.datacolumns"></mln-datatable>
+                    </div>
+                </ng-container>
+            </mat-cell>
+        </ng-container>
+
+
+        <mat-header-row *matHeaderRowDef="datasourcesColumns"></mat-header-row>
+        <mat-row *matRowDef="let datasource; columns: datasourcesColumns" class="element-row {{ isAccordion ? 'expandable-element' : '' }}" [class.expanded-row]="expandedElement === datasource"></mat-row>
+        <ng-container *ngIf="isAccordion">
+            <mat-row *matRowDef="let datasource; columns: ['expandedDetail']" class="detail-row" [ngStyle]="{'min-height': expandedElement === datasource ? '48px' : '0px', 'display': expandedElement === datasource ? 'block' : 'flex', 'height': expandedElement === datasource ? 'auto' : '0'}"></mat-row>
+        </ng-container>
+    </mat-table>
+    <mat-paginator #MatPaginator [pageSize]="paginatorSettings?.items" [pageSizeOptions]="paginatorSettings?.perPage" [class.hidden-paginator]="!paginatorSettings?.items"></mat-paginator>
+</div>

@@ -1,0 +1,21 @@
+import { Meta, Story, Canvas } from "@storybook/addon-docs/blocks";
+import { AnalyticsComponent, AnalyticsModule } from "./analytics";
+
+<Meta title="Páginas/Página Análisis 5D" />
+
+# PÁGINA DE HOME
+
+Está página se ha construido haciendo uso de los componentes de [Search Input](?path=/docs/componentes-search-input--default-story) y [Customer Information](?path=/docs/componentes-customer-information--default-story).
+
+export const Default = () => ({
+  component: AnalyticsComponent,
+  props: {},
+  moduleMetadata: {
+    imports: [AnalyticsModule],
+    declarations: [],
+  },
+});
+
+<Canvas>
+  <Story name="Default">{Default.bind({})}</Story>
+</Canvas>

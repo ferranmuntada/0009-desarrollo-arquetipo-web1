@@ -1,0 +1,70 @@
+{
+    "app_title": "POC",
+    "view_login_title": "Bienvenid@",
+    "view_about_content": "Esto es una prueba de concepto.",
+    "view_about_author": "@BMED",
+    "table_list_title": "Lista de clientes",
+    "form_login_user": "Usuario",
+    "form_login_password": "Contraseña",
+    "form_client_name": "Nombre",
+    "form_client_email": "Correo electrónico",
+    "form_client_phone": "Teléfono",
+    "form_client_date": "Fecha de alta",
+    "form_error_required": "Campo obligatorio",
+    "form_error_minlength": "Mínimo 4 caracteres",
+    "modal_addclient_title": "Añade un cliente",
+    "route_link_list": "Listado",
+    "route_link_about": "Información",
+    "button_login": "Acceder",
+    "button_add": "Añadir",
+    "button_load": "Cargar",
+    "button_delete": "Eliminar",
+    "button_cancel": "Cancelar",
+    "login": "¿Ya tienes cuenta?",
+    "register": {
+        "title": "Crear una cuenta",
+        "form": {
+            "title": "registro de usuario",
+            "name": "Nombre",
+            "email": "Correo",
+            "password": "Contraseña",
+            "create": "Crear"
+        }
+    },
+    "proposal": {
+        "header": {
+            "title": "Propuestas de Inversión",
+            "prefix": "propuestas",
+            "button_create": "CREAR PROPUESTA"
+        },
+        "table": {
+            "id": "ID propuesta",
+            "description": "Descripción",
+            "type": "Tipo",
+            "amount": "Importe",
+            "date": "Fecha",
+            "options": "Estado",
+            "menu": {
+                "options": "Opciones",
+                "label": "Ver opciones",
+                "nothing": "Ninguna",
+                "edit": "Editar",
+                "consult": "Consultar",
+                "copy": "Copiar",
+                "delete": "Anular",
+                "pdf_proposal": "PDF Propuesta",
+                "pdf_records": "PDF Fichas"
+            }
+        },
+        "modal_forms": {
+            "id": "ID propuesta",
+            "description": "Descripción",
+            "type": "Tipo",
+            "amount": "Importe",
+            "date": "Fecha",
+            "options": "Estado",
+            "update": "Actualizar",
+            "create": "Crear"
+        }
+    }
+}

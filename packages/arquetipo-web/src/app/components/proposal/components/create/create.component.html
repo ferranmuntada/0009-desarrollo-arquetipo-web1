@@ -1,0 +1,26 @@
+<mln-stepper class="" (selectAction)="onSelect($event)" (closeAction)="closeActionEmit()" (saveAction)="saveActionEmit()" [linkAmount]="linkAmount" [linkHiring]="linkHiring">
+    <!-- STEP 1 -->
+    <mln-step class="" title="Titulares">
+        <app-step1></app-step1>
+    </mln-step>
+    <!-- STEP 2 -->
+    <mln-step class="" title="Características">
+        <app-step2></app-step2>
+    </mln-step>
+    <!-- STEP 3 -->
+    <mln-step class="" title="Orígen fondos">
+        <app-step3></app-step3>
+    </mln-step>
+    <!-- STEP 4 -->
+    <mln-step class="" title="Selección productos">
+        <app-step4></app-step4>
+    </mln-step>
+    <!-- STEP 5 -->
+    <mln-step class="" title="Configuración productos">
+        <app-step5></app-step5>
+    </mln-step>
+    <!-- STEP 6 -->
+    <mln-step class="" title="Presentación">
+        <app-step6 [linkAmount]="linkAmount" [linkHiring]="linkHiring" [showTemplateStep6]="showTemplateStep6"></app-step6>
+    </mln-step>
+</mln-stepper>

@@ -1,0 +1,4 @@
+<button mat-stroked-button [class.mln-button--icon]="icon && !text" class="mln-button {{ classButton }}" [ngClass]="{ square: isSquare == true, disabled: isDisabled == true }" [disabled]="isDisabled" [type]="type" (click)="clickButton($event)">
+  {{ text }}
+  <mat-icon *ngIf="icon" [ngClass]="outline ? 'material-icons-outlined' : ''">{{ icon }}</mat-icon>
+</button>

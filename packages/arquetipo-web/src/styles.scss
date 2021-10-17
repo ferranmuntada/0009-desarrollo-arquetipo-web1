@@ -1,0 +1,43 @@
+@import './node_modules/arquetipo-storybook/dist/assets/styles.scss';
+@import './theme/component/login';
+html {
+    font-family: 'GillSans';
+    font-weight: normal;
+    font-style: normal;
+}
+
+ul {
+    list-style-type: none;
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+}
+
+ul li a {
+    text-decoration: none;
+}
+
+body {
+    background-color: map-get($colors, semiWhite);
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    .container {
+        .container-md {
+            max-width: 80%;
+            margin: 0 auto;
+            @media only screen and (max-width: 980px) {
+                max-width: 100%;
+            }
+        }
+    }
+}

@@ -1,0 +1,7 @@
+{
+    "/api/*": {
+        "target": "https://apipropuestasppa.bmed.test",
+        "secure": false,
+        "changeOrigin": true
+    }
+}

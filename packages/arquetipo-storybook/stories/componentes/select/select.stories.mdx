@@ -1,0 +1,150 @@
+import { Meta, Story, Canvas } from "@storybook/addon-docs/blocks";
+import { action } from "@storybook/addon-actions";
+import { CommonModule } from "@angular/common";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { SelectComponent, SelectModule } from "./select";
+import { datatableActionsMock } from "./select";
+
+<Meta title="Componentes/Select Menu" />
+
+# COMPONENTE SELECT MENU
+
+Modulo:
+
+- SelectModule
+
+```js live=true
+import { SelectModule } from "arquetipo-storybook/dist";
+```
+
+Componente:
+
+- Para incorporar el component, el prefijo a utilizar para la etiqueta HTML es:
+
+```html live=true
+<mln-select [settings]="settings" [listItem]="listItem" (actionSelected)="actionSelected($event)"></mln-select>
+```
+
+Componente custom selector. Acepta los siguiente parámetros:
+
+- listItem: (Array) Vector con los elementos que contendrá el custom selector. Se especifica en formato JSON y contiene los siguientes parámetros:
+```typescript live=true
+const listItem = [
+    {
+      name: 'nombre 1',
+      icon: 'edit',
+      id: 1,
+      disabled: true
+    },
+    {
+      name: 'nombre 2',
+      icon: '',
+      id: 2
+    },
+    {
+      name: 'nombre 3',
+      icon: '',
+      id: 3
+    },
+    {
+      name: 'nombre 4',
+      icon: '',
+      id: 4
+    }
+];
+```
+- settings: (Object) Datos a enviar para las propiedad del select.
+```typescript live=true
+const settings = {
+      firstOption: "Ninguna",
+      title: "Ver todos",
+};
+```
+- actionSelected: (EventEmitter) Valor que devolverá al seleccionar un elemento.
+```typescript live=true
+const actionSelected = (event: Event) => {};
+```
+
+export const Select = () => ({
+  component: SelectComponent,
+  props: {
+    listItem: [
+      {
+        name: "nombre 1",
+        icon: "",
+        id: 1,
+      },
+      {
+        name: "nombre 2",
+        icon: "",
+        id: 2,
+      },
+      {
+        name: "nombre 3",
+        icon: "",
+        id: 3,
+      },
+      {
+        name: "nombre 4",
+        icon: "",
+        id: 4,
+      },
+    ],
+    settings: {
+      firstOption: "Ninguna",
+      title: "Ver todos",
+    },
+    actionSelected: action("actionSelected"),
+  },
+  moduleMetadata: {
+    imports: [CommonModule, BrowserAnimationsModule, SelectModule],
+  },
+});
+
+<Canvas>
+  <Story name="Select">{Select.bind({})}</Story>
+</Canvas>
+
+## CON ICONOS
+
+- Los iconos se incorporan desde Material Icons https://material.io/resources/icons/?style=baseline
+
+export const SelectIcons = () => ({
+  component: SelectComponent,
+  props: {
+    listItem: [
+      {
+        name: "nombre 1",
+        icon: "edit",
+        id: 1,
+      },
+      {
+        name: "nombre 2",
+        icon: "search",
+        id: 2,
+      },
+      {
+        name: "nombre 3",
+        icon: "content_copy",
+        id: 3,
+      },
+      {
+        name: "nombre 4",
+        icon: "delete",
+        id: 4,
+      },
+    ],
+    settings: {
+      firstOption: "Ninguna",
+      title: "Ver todos",
+    },
+    actionSelected: action("actionSelected"),
+  },
+  moduleMetadata: {
+    imports: [CommonModule, BrowserAnimationsModule, SelectModule],
+  },
+});
+
+<Canvas>
+  <Story name="SelectIcons">{SelectIcons.bind({})}</Story>
+</Canvas>

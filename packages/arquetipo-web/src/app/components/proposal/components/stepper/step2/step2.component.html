@@ -1,0 +1,85 @@
+<div class="container-table">
+  <mln-sub-header
+    [settingsSubHeader]="{  title: 'Carácteristicas generales de la propuesta' }"
+  ></mln-sub-header>
+  <div class="content-step2">
+    <div class="content-step2-row">
+      <div class="content-step2_block">
+        <mln-button-big
+          text="Propuesta ESTÁNDAR"
+          [callback]="buttonBigStandardCallback"
+          icon="work_outline"
+        ></mln-button-big>
+      </div>
+      <div class="content-step2_block">
+        <mln-button-big
+          text="Propuesta MY WORLD"
+          [callback]="buttonBigStandardCallback"
+          [active]="false"
+          icon="public"
+        ></mln-button-big>
+      </div>
+      <div class="content-step2_block content-step2_block--hidden">
+        <mln-button-big
+          text="Propuesta MY WORLD"
+          [callback]="buttonBigStandardCallback"
+          [active]="false"
+          icon="public"
+        ></mln-button-big>
+      </div>
+    </div>
+    <div class="content-step2-row content-step2-row-selects">
+      <div class="content-step2_lg--md">
+        <div class="content-step2_block">
+          <span class="content-step2_block--text">Contrato Marco</span>
+          <mln-select [settings]="settings" [listItem]="listItem"></mln-select>
+        </div>
+        <div class="content-step2_block">
+          <mln-radio-button-list
+            [list]="listRadioButton"
+            (actionRadioButton)="actionRadioButton($event)"
+            textLabel="Productos a incluir"
+            [vertical]="true"
+          ></mln-radio-button-list>
+        </div>
+      </div>
+      <div class="content-step2_lg--md">
+        <div class="content-step2_block">
+          <span class="content-step2_block--text"
+            >Objetivo de la inversión</span
+          >
+          <mln-select
+            [settings]="settingsInversion"
+            [listItem]="listItem"
+          ></mln-select>
+        </div>
+        <div class="content-step2_block">
+          <mln-radio-button-list
+            [list]="listRadioButtonInversion"
+            (actionRadioButton)="actionRadioButton($event)"
+            textLabel="Ojetivo de la inversión"
+            [vertical]="true"
+          ></mln-radio-button-list>
+        </div>
+      </div>
+      <div class="content-step2_lg--md">
+   
+        <div class="content-step2_block">
+          <span class="content-step2_block--text">Tipo de propuesta</span>
+          <mln-select
+            [settings]="settingsProposal"
+            [listItem]="listItem"
+          ></mln-select>
+        </div>
+        <div class="content-step2_block content-step2_block--hidden">
+          <mln-radio-button-list
+            [list]="listRadioButton"
+            (actionRadioButton)="actionRadioButton($event)"
+            textLabel="Ojetivo de la inversión"
+            [vertical]="true"
+          ></mln-radio-button-list>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

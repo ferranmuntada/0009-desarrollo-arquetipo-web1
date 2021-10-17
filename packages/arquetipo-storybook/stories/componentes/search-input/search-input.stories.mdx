@@ -1,0 +1,87 @@
+import { Meta, Story, Canvas } from "@storybook/addon-docs/blocks";
+import { SearchInputComponent } from "../../../projects/app/src/lib/components/search-input";
+import { MatInputModule } from "@angular/material/input";
+import { MatIconModule } from "@angular/material/icon";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { CommonModule } from "@angular/common";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { action } from "@storybook/addon-actions";
+
+<Meta title="Componentes/Search Input" />
+
+# COMPONENTE SEARCH INPUT
+
+Modulo:
+
+- SearchInputModule
+
+```js live=true
+import { SearchInputModule } from "arquetipo-storybook/dist";
+```
+
+Componente:
+
+- Para incorporar el component, el prefijo a utilizar para la etiqueta HTML es:
+
+```html live=true
+<mln-search-input></mln-search-input>
+```
+
+Componente input para realizar búsquedas sobre una tabla. Acepta los siguiente parámetros:
+
+- settings:
+  - textInputDefault: (String) Texto que se quiere añadir por defecto, en caso de viajar vacío se pondrá el placeholder.
+  - icon: (String) Acepta cualquiera de los inconos de la librería de material. https://material.io/resources/icons/
+- amount: (String) Número de elementos encontrados para el cliente.
+- placeholder: (String) Texto que figurará en el placeholder
+- changes: (Action) Funcion a la que se quiere llamar una vez se introduzca el texto.
+
+## Ejemplo de uso
+
+Definición de modelo de datos del componente:
+
+```js live=true
+const settings = {
+      textInputDefault: "Search",
+      icon: "search",
+    };
+const amount = 5;
+const placeholder =  "PlaceHolderText";
+const changes = action("changes");
+}
+```
+
+Declaración HTML:
+
+```html live=true
+<mln-search-input [settings]="settings" [amount]="amount" [placeholder]="placeholder" (changes)="changes"></mln-search-input>
+```
+
+Resultado:
+
+export const Default = () => ({
+  component: SearchInputComponent,
+  props: {
+    settings: {
+      textInputDefault: "Search",
+      icon: "search",
+    },
+    amount: 5,
+    placeholder: "PlaceHolderText",
+    changes: action("changes"),
+  },
+  moduleMetadata: {
+    imports: [
+      CommonModule,
+      BrowserAnimationsModule,
+      FormsModule,
+      ReactiveFormsModule,
+      MatInputModule,
+      MatIconModule,
+    ],
+  },
+});
+
+<Canvas>
+  <Story name="Default">{Default.bind({})}</Story>
+</Canvas>

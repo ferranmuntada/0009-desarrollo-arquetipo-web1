@@ -1,0 +1,27 @@
+<div class="container-table">
+    <mln-sub-header [settingsSubHeader]="{  title: 'Titulares de la propuesta' }"></mln-sub-header>
+    <div class="content">
+        <div>
+            <h5>Titular principal de la propuesta</h5>
+            <mln-datatable [datasources]="datasourcesPrincipal" [datacolumns]="datacolumnsPrincipal"></mln-datatable>
+        </div>
+        <div>
+            <h5>Otros titulares</h5>
+            <mln-datatable [datasources]="datasourcesPrincipal" [datacolumns]="datacolumnsOthers"></mln-datatable>
+        </div>
+    </div>
+</div>
+<div class="container-table">
+    <mln-sub-header [settingsSubHeader]="{  title: 'Añadir otros titulares' }"></mln-sub-header>
+    <div class="content-others">
+        <mln-search-input [settings]="{textInputDefault: 'Search', icon: ' search' }" [amount]="5" [user]="{ name: 'Juan', lastname: 'Miguel Ordoñez' }" (changes)="textSearch = $event"></mln-search-input>
+        <div>
+            <div *ngIf="!loading; else loadTemplate">
+                <mln-customer-info *ngFor="let user of clients | filterSearch: textSearch" textRow="Patrimonio" [settingsSelect]="settingsSelect" [user]="user" [rightButtonSettings]="{ text: 'Añadir' }"></mln-customer-info>
+            </div>
+            <ng-template #loadTemplate>
+                <mat-spinner></mat-spinner>
+            </ng-template>
+        </div>
+    </div>
+</div>

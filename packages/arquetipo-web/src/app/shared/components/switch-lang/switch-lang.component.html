@@ -1,0 +1,9 @@
+<div>
+    <ul>
+        <li *ngFor="let lang of langs">
+            <a (click)="changeLang(lang)">
+                <button>{{ lang }}</button>
+            </a>
+        </li>
+    </ul>
+</div>

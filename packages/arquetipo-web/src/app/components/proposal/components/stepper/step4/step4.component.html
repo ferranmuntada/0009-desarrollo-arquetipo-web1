@@ -1,0 +1,131 @@
+<div class="container-step">
+    <div class="container-table">
+        <mln-sub-header [settingsSubHeader]="{  title: 'Productos seleccionados' }"></mln-sub-header>
+        <div class="content">
+            <div>
+                <h5>Jubilación</h5>
+                <mln-datatable [datasources]="datasourceStepProducts" [datacolumns]="datacolumnsStepProducts"></mln-datatable>
+            </div>
+            <div>
+                <h5>Fondos de Inversión</h5>
+                <mln-datatable [datasources]="datasourceStepProductsInversion" [datacolumns]="datacolumnsStepProductsInversion"></mln-datatable>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-step-4">
+        <mln-sub-header [settingsSubHeader]="{  title: 'Selección de productos' }"></mln-sub-header>
+        <div class="content">
+            <div class="content--block">
+                <div class="big-button">
+                    <mln-button-big text="Propuesta ESTÁNDAR" [callback]="buttonBigStandardCallback" icon="business"></mln-button-big>
+                </div>
+                <div class="big-button">
+                    <mln-button-big text="Propuesta ESTÁNDAR" [callback]="buttonBigStandardCallback" icon="security" [active]="false"></mln-button-big>
+                </div>
+                <div class="big-button">
+                    <mln-button-big text="Propuesta ESTÁNDAR" [callback]="buttonBigStandardCallback" icon="home_work" [active]="false"></mln-button-big>
+                </div>
+                <div class="big-button">
+                    <mln-button-big text="Propuesta ESTÁNDAR" [callback]="buttonBigStandardCallback" icon="accessible" [active]="false"></mln-button-big>
+                </div>
+            </div>
+        </div>
+        <div class="content">
+            <h5>Modaliad de inversión</h5>
+            <div class="content--block">
+                <div class="big-button">
+                    <mln-button-double [active]="false" leftText="PIC" rightText="Plan de inversión de Capital" (actionBigButton)="actionBigButton($event)"></mln-button-double>
+                </div>
+                <div class="big-button">
+                    <mln-button-double [active]="false" leftText="PAC" rightText="Plan de acumulación de Capital" (actionBigButton)="actionBigButton($event)"></mln-button-double>
+                </div>
+                <div class="big-button">
+                    <mln-button-double [active]="false" leftText="DC" rightText="Double chance" (actionBigButton)="actionBigButton($event)"></mln-button-double>
+                </div>
+                <div class="big-button">
+                    <mln-button-double [active]="true" leftText="BC" rightText="Big Chance" (actionBigButton)="actionBigButton($event)"></mln-button-double>
+                </div>
+                <div class="big-button">
+                    <mln-button-double [active]="false" leftText="IIS" rightText="Estrategia de Inversión Inteligente InBest" (actionBigButton)="actionBigButton($event)"></mln-button-double>
+                </div>
+                <div class="big-button">
+                    <mln-button-double [active]="false" leftText="CR" rightText="Consolidación de rendimientos" (actionBigButton)="actionBigButton($event)"></mln-button-double>
+                </div>
+                <div class="big-button">
+                    <mln-button-double [active]="false" leftText="DI" rightText="Declaración de intenciones" (actionBigButton)="actionBigButton($event)"></mln-button-double>
+                </div>
+            </div>
+        </div>
+        <div class="content">
+            <div class="search">
+                <mln-search-input [settings]="settingsSearch" (changes)="changesActionSearch($event)"></mln-search-input>
+            </div>
+            <div class="box">
+                <div class="box--title">
+                    <span class="">Búsqueda avanzada</span>
+                </div>
+                <div class="box--filter">
+                    <div class="selector">
+                        <div class="selector__container">
+                            <span>Tipo de producto</span>
+                            <mln-select [settings]="settings" [listItem]="listItem"></mln-select>
+                        </div>
+                    </div>
+                    <div class="selector">
+                        <div class="selector__container">
+                            <span>Tipo de fondo</span>
+                            <mln-select [settings]="settings" [listItem]="listItem"></mln-select>
+                        </div>
+                    </div>
+                    <div class="selector">
+                        <div class="selector__container">
+                            <span>Tipo de Categoría Mediolanum</span>
+                            <mln-select [settings]="settings" [listItem]="listItem"></mln-select>
+                        </div>
+                    </div>
+                    <div class="selector">
+                        <div class="selector__container">
+                            <span>Reparto de dividendo</span>
+                            <mln-select [settings]="settings" [listItem]="listItem"></mln-select>
+                        </div>
+                    </div>
+                    <div class="selector">
+                        <div class="selector__container">
+                            <span>Horizonte temporal</span>
+                            <mln-select [settings]="settings" [listItem]="listItem"></mln-select>
+                        </div>
+                    </div>
+                    <div class="selector">
+                        <div class="selector__container">
+                            <span>Composición fondo</span>
+                            <mln-select [settings]="settings" [listItem]="listItem"></mln-select>
+                        </div>
+                    </div>
+                    <div class="selector">
+                        <div class="selector__container">
+                            <span>Apertura de cambio</span>
+                            <mln-select [settings]="settings" [listItem]="listItem"></mln-select>
+                        </div>
+                    </div>
+                    <div class="selector">
+                        <div class="selector__container">
+                            <span>Área geográfica</span>
+                            <mln-select [settings]="settings" [listItem]="listItem"></mln-select>
+                        </div>
+                    </div>
+
+                    <div class="search-button">
+                        <mln-button text="BUSCAR" classButton="primary"></mln-button>
+                    </div>
+                </div>
+            </div>
+            <div class="table">
+                <mln-datatable [datasources]="datasourceStepProductsSearch" [datacolumns]="datacolumnsStepProductsSerach"></mln-datatable>
+                <div class="button-add">
+                    <mln-button text="AÑADIR" classButton="primary"></mln-button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

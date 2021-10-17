@@ -1,0 +1,79 @@
+<div class="container-step-6">
+    <ng-container *ngIf="showTemplateStep6; else templateExternal">
+        <div class="container-step-6--lg">
+            <mln-sub-header [settingsSubHeader]="{  title: 'Titulares' }"></mln-sub-header>
+            <div class="">
+                <mln-alert [message]="messageAlertSettings"></mln-alert>
+            </div>
+        </div>
+        <div class="container-step-6--lg">
+            <mln-sub-header [settingsSubHeader]="{  title: 'Supervisores' }"></mln-sub-header>
+            <div class="content">
+                <span class="">Supervisor de la propuesta</span>
+                <p>Alberto García</p>
+                <mln-button text="Cambiar" classButton="primary"></mln-button>
+            </div>
+        </div>
+        <div class="container-step-6--lg">
+            <mln-sub-header [settingsSubHeader]="{  title: 'Información a presentar al cliente' }"></mln-sub-header>
+            <div class="content">
+                <div class="content--block">
+                    <p>Fecha de presentación</p>
+                    <mln-select [settings]="settings" [listItem]="listItem"></mln-select>
+                </div>
+                <div class="content--block">
+                    <p>Generar PDF borrador</p>
+                    <mln-radio-button-list [list]="listRadioButtonStep6" (actionRadioButton)="actionRadioButton($event)" [vertical]="false"></mln-radio-button-list>
+                    <mln-check-box [settings]="{ title: 'Adjuntar PDF de propuesta por e-mail', checked: true }"></mln-check-box>
+                </div>
+                <div class="content--block">
+                    <p>Seleccione las fichas comerciales a adjuntar a la propuesta</p>
+                    <ul>
+                        <li *ngFor="let item of settingsCheckBox">
+                            <mln-check-box [settings]="item"></mln-check-box>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="container-step-6--lg">
+            <mln-sub-header [settingsSubHeader]="{  title: 'Citas relativas a los productos recomendados' }"></mln-sub-header>
+            <div class="content">
+                <p>Escoger cita</p>
+                <ul>
+                    <li *ngFor="let item of settingsCheckBoxDates">
+                        <mln-check-box [settings]="item"></mln-check-box>
+                    </li>
+                </ul>
+                <mln-button text="BUSCAR CITA" classButton="primary"></mln-button>
+            </div>
+        </div>
+    </ng-container>
+    <ng-template #templateExternal>
+        <div class="container-step-6--lg" *ngIf="(!showTemplateStep6 && linkHiring.disabled);">
+            <mln-sub-header [settingsSubHeader]="{  title: 'Contratación' }"></mln-sub-header>
+            <div class="content">
+                <mln-datatable [datasources]="datasourceStep6Hiring" [datacolumns]="datacolumnsStep6Hiring"></mln-datatable>
+                <mln-button class="content--button" text="CONTRATAR TODO" classButton="secondary"></mln-button>
+            </div>
+        </div>
+
+        <div class="container-step-6--lg" *ngIf="(!showTemplateStep6 && linkAmount.disabled)">
+            <mln-sub-header [settingsSubHeader]="{  title: 'Costes' }"></mln-sub-header>sfsdf
+            <div class="content content-costs">
+                <mln-datatable [datasources]="datasourcesCosts" [datacolumns]="datacolumnsCosts"></mln-datatable>
+                <div class="bottom-text">
+                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex
+                    ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum
+                    zzril delenit augue duis dolore te feugait nulla facilisi. Expetenda tincidunt in sed, ex partem placerat sea, porro commodo ex eam. His putant aeterno interesset at. Usu ea mundi tincidunt, omnium virtute aliquando ius ex. Ea aperiri
+                    sententiae duo. Usu nullam dolorum quaestio ei, sit vidit facilisis ea. Per ne impedit iracundia neglegentur. Consetetur neglegentur eum ut, vis animal legimus inimicus id. Has maiorum habemus detraxit at. Timeam fabulas splendide
+                    et his. Facilisi aliquando sea ad, vel ne consetetur adversarium. Integre admodum et his, nominavi urbanitas et per, alii reprehendunt et qui. His ei meis legere nostro, eu kasd fabellas definiebas mei, in sea augue iriure. An vim
+                    commodo dolorem volutpat, cu expetendis voluptatum usu, et mutat consul adversarium his. His natum numquam legimus an, diam fabulas mei ut. Melius fabellas sadipscing vel id. Partem diceret mandamus mea ne, has te tempor nostrud. Aeque
+                    nostro eum no. Meis vocent signiferumque pri et. Facilis corpora recusabo ne quo, eum ne eruditi blandit suscipiantur. Mazim sapientem sed id, sea debet commune iracundia in. Eius falli propriae te usu. In usu nonummy volumus expetenda,
+                    sint quando facilisis ei per, delectus constituto sea te. His audiam deserunt in, eum ubique voluptatibus te. In reque dicta usu. Ne rebum dissentiet eam, vim omnis deseruisse id. Ullum deleniti vituperata at quo, insolens complectitur
+                    te eos, ea pri dico munere propriae. Vel ferri facilis ut, qui paulo ridens praesent ad. Possim alterum qui cu. Accusamus consulatu ius te, cu decore soleat appareat usu.
+                </div>
+            </div>
+        </div>
+    </ng-template>
+</div>

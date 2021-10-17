@@ -1,0 +1,65 @@
+@import '../variables.scss';
+.mat-progress-bar {
+    border-radius: 25px !important;
+    height: 10px !important;
+}
+
+.mat-progress-bar-fill::after {
+    border-radius: 25px !important;
+}
+
+.pb-bar-info-item:first-child:not(:only-child) {
+    .mat-progress-bar-fill::after {
+        background-color: #11578c !important;
+        border-radius: 25px !important;
+    }
+    .pb-info {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .pb-amount {
+            color: #11578c;
+            white-space: nowrap;
+            font-size: 18px;
+        }
+        >* {
+            width: 70px;
+        }
+    }
+}
+
+.pb-bar-info-item:last-child:not(:only-child) {
+    .mat-progress-bar-fill::after {
+        background-color: #91acb8 !important;
+        border-radius: 25px !important;
+    }
+    .pb-info {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        white-space: nowrap;
+        .pb-amount {
+            color: #91acb8;
+            font-size: 18px;
+        }
+        >* {
+            width: 70px;
+        }
+    }
+}
+
+.pb-bar-info-item:only-child {
+    .mat-progress-bar-fill::after {
+        background-color: map-get($colors, blueIcon) !important;
+        border-radius: 25px !important;
+    }
+    .pb-info {
+        .pb-amount {
+            color: map-get($colors, blueIcon);
+        }
+    }
+}
+
+.mat-progress-bar-buffer {
+    background-color: #e9f0fa !important;
+}
