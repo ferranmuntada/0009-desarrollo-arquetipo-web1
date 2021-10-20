@@ -19,6 +19,8 @@ import { LoginNgrxService } from '../../../ngrx/login/services/login-ngrx.servic
 export class FormLoginComponent implements OnInit, OnDestroy {
     public formLoginFg: FormGroup;
 
+    session$ = this.loginService.getSessionData$();
+
     /**
      * @ignore
      */
@@ -31,8 +33,8 @@ export class FormLoginComponent implements OnInit, OnDestroy {
 
     ngOnInit(): void {
         this.initForm();
-        const session$ = this.loginService.getSessionData$();
-        session$.pipe(takeUntil(this.unsubscribeService.getUnsubscribe())).subscribe((session: ISession) => {
+        // const session$ = this.loginService.getSessionData$();
+        this.session$.pipe(takeUntil(this.unsubscribeService.getUnsubscribe())).subscribe((session: ISession) => {
             if (session && session.isValid) {
                 this.router.navigate([`/${AppConfig.APP_ROUTE_HOME}`]);
             }

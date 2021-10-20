@@ -13,7 +13,9 @@
     "module": "es2020",
     "lib": ["es2018", "dom"],
     "paths": {
-      "app": ["dist/app/app", "dist/app"]
-    }
+      "app": ["dist/app/app", "dist/app"],
+      "@angular/*": [ "../arquetipo-web/node_modules/@angular/*" ]
+    },
+    "preserveSymlinks": true
   }
 }

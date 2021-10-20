@@ -64,7 +64,7 @@ export class MifidModalComponent implements OnInit {
                 bar: {
                     horizontal: false,
                     columnWidth: '55%',
-                    endingShape: 'rounded',
+                    // endingShape: 'rounded',
                 },
             },
             dataLabels: {

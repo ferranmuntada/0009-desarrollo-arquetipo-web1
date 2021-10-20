@@ -17,7 +17,8 @@
             "@environments/*": ["src/environments/*"],
             "@shared/*": ["src/app/shared/*"],
             "@core/*": ["src/app/core/*"],
-            "@ngrx-app/*": ["src/app/ngrx/*"]
+            "@ngrx-app/*": ["src/app/ngrx/*"],
+            "@angular/*": [ "../arquetipo-storybook/node_modules/@angular/*" ]
         },
         "typeRoots": ["node_modules/@types"],
         "lib": ["es2018", "dom"]

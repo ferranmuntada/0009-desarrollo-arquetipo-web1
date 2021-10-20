@@ -16,20 +16,19 @@
     "scripts": {
         "build": "lerna run build --parallel",
         "deploy": "lerna run deploy",
-        "build-bmed": "npm i && lerna bootstrap && cd packages && cd arquetipo-storybook && npm run build",
+        "build-bmed-lerna":"lerna run build --scope=arquetipo-storybook",
         "postinstall": "lerna bootstrap",
         "storybook": "lerna run storybook",
-        "start-angular": "cd packages && cd arquetipo-web && npm run start",
+        "start-angular-lerna":"lerna run start --scope=arquetipo-web",
         "start-angular-proxy": "cd packages && cd arquetipo-web && npm run start-proxy",
         "build-storybook": "lerna run build-storybook"
     },
     "devDependencies": {
         "@babel/core": "^7.10.3",
         "@sanity/cli": "^1.149.13",
-        "@storybook/addon-actions": "^5.3.19",
-        "@storybook/addon-links": "^5.3.19",
-        "@storybook/addons": "^5.3.19",
-        "@storybook/react": "^5.3.19",
+        "@storybook/addon-actions": "^6.4.0-beta.13",
+        "@storybook/addon-links": "^6.4.0-beta.13",
+        "@storybook/addons": "^6.4.0-beta.13",
         "babel-loader": "^8.1.0",
         "lerna": "^3.13.1"
     }

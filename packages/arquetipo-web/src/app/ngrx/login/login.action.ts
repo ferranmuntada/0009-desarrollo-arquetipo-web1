@@ -10,7 +10,21 @@ const LOGIN_TYPE_SUCCESS = `${KEY_LOGIN} ${AppConfig.STORE_STATE_SUCCESS}`;
 const LOGIN_TYPE_ERROR = `${KEY_LOGIN} ${AppConfig.STORE_STATE_ERROR}`;
 const LOGOUT_SUCCESS_TYPE = `${KEY_LOGOUT} ${AppConfig.STORE_STATE_SUCCESS}`;
 
-export const login = createAction(LOGIN_TYPE_ADD, props<{ data: ILoginData }>());
-export const onSuccessLogin = createAction(LOGIN_TYPE_SUCCESS, props<{ data: ISession }>());
-export const logout = createAction(LOGOUT_SUCCESS_TYPE);
-export const loadErrorLogin = createAction(LOGIN_TYPE_ERROR, props<{ error: any }>());
+export const login = createAction(
+  LOGIN_TYPE_ADD,
+  props<{ data: ILoginData }>()
+);
+
+export const onSuccessLogin = createAction(
+  LOGIN_TYPE_SUCCESS,
+  props<{ data: ISession }>()
+);
+
+export const logout = createAction(
+  LOGOUT_SUCCESS_TYPE
+);
+
+export const loadErrorLogin = createAction(
+  LOGIN_TYPE_ERROR,
+  props<{ error: any }>()
+);

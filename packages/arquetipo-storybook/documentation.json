@@ -1160,7 +1160,7 @@
         },
         {
             "name": "AccordionPanelComponent",
-            "id": "component-AccordionPanelComponent-f6c07a6da523574d5e4b60157ee64e4f",
+            "id": "component-AccordionPanelComponent-beac66536cd3e4a76fb3766aabd49046",
             "file": "projects/app/src/lib/components/accordion/accordion-panel/accordion-panel.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -1289,8 +1289,8 @@
                     "jsdoctags": [
                         {
                             "tagName": {
-                                "pos": 1507,
-                                "end": 1513,
+                                "pos": 1420,
+                                "end": 1426,
                                 "flags": 4227072,
                                 "modifierFlagsCache": 0,
                                 "transformFlags": 0,
@@ -1362,8 +1362,8 @@
                     "jsdoctags": [
                         {
                             "name": {
-                                "pos": 1822,
-                                "end": 1827,
+                                "pos": 1735,
+                                "end": 1740,
                                 "flags": 4227072,
                                 "modifierFlagsCache": 0,
                                 "transformFlags": 0,
@@ -1374,8 +1374,8 @@
                             "deprecated": false,
                             "deprecationMessage": "",
                             "tagName": {
-                                "pos": 1816,
-                                "end": 1821,
+                                "pos": 1729,
+                                "end": 1734,
                                 "flags": 4227072,
                                 "modifierFlagsCache": 0,
                                 "transformFlags": 0,
@@ -1394,7 +1394,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import {\r\n  Component,\r\n  forwardRef,\r\n  Inject,\r\n  Input,\r\n  OnInit,\r\n  OnDestroy,\r\n} from '@angular/core';\r\nimport { AccordionComponent } from '../accordion.component';\r\nimport {\r\n  trigger,\r\n  state,\r\n  style,\r\n  transition,\r\n  animate,\r\n} from '@angular/animations';\r\n\r\n@Component({\r\n  selector: 'mln-accordion-tab',\r\n  templateUrl: './accordion-panel.component.html',\r\n  styleUrls: ['./accordion-panel.component.scss'],\r\n  animations: [\r\n    trigger('accordionTabContent', [\r\n      state(\r\n        'hidden',\r\n        style({\r\n          height: '0',\r\n        })\r\n      ),\r\n      state(\r\n        'visible',\r\n        style({\r\n          height: '*',\r\n        })\r\n      ),\r\n      transition(\r\n        'visible <=> hidden',\r\n        animate('400ms cubic-bezier(0.86, 0, 0.07, 1)')\r\n      ),\r\n    ]),\r\n  ],\r\n})\r\nexport class AccordionPanelComponent implements OnInit, OnDestroy {\r\n  @Input() public imageIconUrl: string;\r\n  @Input() public hideToggle!: boolean;\r\n  @Input() public title!: string;\r\n\r\n  public iconToggle!: boolean;\r\n\r\n  public animate: boolean;\r\n  @Input() public active: boolean;\r\n  @Input() public disabled: boolean;\r\n  @Input() public hide: boolean;\r\n\r\n  public id: number;\r\n  private accordion$: AccordionComponent;\r\n\r\n  constructor(@Inject(forwardRef(() => AccordionComponent)) accordion: any) {\r\n    this.accordion$ = accordion as AccordionComponent;\r\n  }\r\n\r\n  ngOnInit(): void {\r\n    this.iconToggle = this.active;\r\n  }\r\n\r\n  /**\r\n   * @description Find the index of actual tab.\r\n   *  @return index of active tab\r\n   */\r\n  public findTabIndex(): number {\r\n    const index = this.accordion$.AccordionTabListArray.findIndex(\r\n      (accordion: AccordionPanelComponent) => accordion === this\r\n    );\r\n    return index;\r\n  }\r\n\r\n  /**\r\n   * @description Enable/disable the collapse component\r\n   *  @param event Event\r\n   */\r\n  public toggleCollapse(event: Event): void {\r\n    if (!this.disabled) {\r\n      this.animate = true;\r\n      const index = this.findTabIndex();\r\n\r\n      if (!this.accordion$.multi && !this.active) {\r\n        this.accordion$.AccordionTabListArray.forEach((accordion) => {\r\n          accordion.active = false;\r\n          accordion.iconToggle = false;\r\n        });\r\n      }\r\n\r\n      if (!this.active) {\r\n        this.accordion$.openAction.emit({ originalEvent: event, index });\r\n      } else {\r\n        this.accordion$.closeAction.emit({ originalEvent: event, index });\r\n      }\r\n      this.active = !this.active;\r\n      this.iconToggle = !this.iconToggle;\r\n    }\r\n    event.preventDefault();\r\n  }\r\n\r\n  /**\r\n   * @description Turn off the animation when the collapse ends.\r\n   */\r\n  public onCollapseDone(): void {\r\n    this.animate = false;\r\n  }\r\n\r\n  ngOnDestroy(): void {\r\n    if (this.accordion$?.AccordionTabListArray?.length) {\r\n      this.accordion$.AccordionTabListArray.splice(this.findTabIndex(), 1);\r\n    }\r\n  }\r\n}\r\n",
+            "sourceCode": "import {\r\n  Component,\r\n  forwardRef,\r\n  Inject,\r\n  Input,\r\n  OnInit,\r\n  OnDestroy,\r\n} from '@angular/core';\r\nimport { AccordionComponent } from '../accordion.component';\r\nimport {\r\n  trigger,\r\n  state,\r\n  style,\r\n  transition,\r\n  animate,\r\n} from '@angular/animations';\r\n\r\n@Component({\r\n  selector: 'mln-accordion-tab',\r\n  templateUrl: './accordion-panel.component.html',\r\n  styleUrls: ['./accordion-panel.component.scss'],\r\n  animations: [\r\n    trigger('accordionTabContent', [\r\n      state(\r\n        'hidden',\r\n        style({\r\n          height: '0',\r\n        })\r\n      ),\r\n      state(\r\n        'visible',\r\n        style({\r\n          height: '*',\r\n        })\r\n      ),\r\n      transition(\r\n        'visible <=> hidden',\r\n        animate('400ms cubic-bezier(0.86, 0, 0.07, 1)')\r\n      ),\r\n    ]),\r\n  ],\r\n})\r\nexport class AccordionPanelComponent implements OnInit, OnDestroy {\r\n  @Input() public imageIconUrl: string;\r\n  @Input() public hideToggle!: boolean;\r\n  @Input() public title!: string;\r\n\r\n  public iconToggle!: boolean;\r\n\r\n  public animate: boolean;\r\n  @Input() public active: boolean;\r\n  @Input() public disabled: boolean;\r\n  @Input() public hide: boolean;\r\n\r\n  public id: number;\r\n  private accordion$: AccordionComponent;\r\n\r\n  constructor() {\r\n    this.accordion$ = null;\r\n  }\r\n\r\n  ngOnInit(): void {\r\n    this.iconToggle = this.active;\r\n  }\r\n\r\n  /**\r\n   * @description Find the index of actual tab.\r\n   *  @return index of active tab\r\n   */\r\n  public findTabIndex(): number {\r\n    const index = this.accordion$.AccordionTabListArray.findIndex(\r\n      (accordion: AccordionPanelComponent) => accordion === this\r\n    );\r\n    return index;\r\n  }\r\n\r\n  /**\r\n   * @description Enable/disable the collapse component\r\n   *  @param event Event\r\n   */\r\n  public toggleCollapse(event: Event): void {\r\n    if (!this.disabled) {\r\n      this.animate = true;\r\n      const index = this.findTabIndex();\r\n\r\n      if (!this.accordion$.multi && !this.active) {\r\n        this.accordion$.AccordionTabListArray.forEach((accordion) => {\r\n          accordion.active = false;\r\n          accordion.iconToggle = false;\r\n        });\r\n      }\r\n\r\n      if (!this.active) {\r\n        this.accordion$.openAction.emit({ originalEvent: event, index });\r\n      } else {\r\n        this.accordion$.closeAction.emit({ originalEvent: event, index });\r\n      }\r\n      this.active = !this.active;\r\n      this.iconToggle = !this.iconToggle;\r\n    }\r\n    event.preventDefault();\r\n  }\r\n\r\n  /**\r\n   * @description Turn off the animation when the collapse ends.\r\n   */\r\n  public onCollapseDone(): void {\r\n    this.animate = false;\r\n  }\r\n\r\n  ngOnDestroy(): void {\r\n    if (this.accordion$?.AccordionTabListArray?.length) {\r\n      this.accordion$.AccordionTabListArray.splice(this.findTabIndex(), 1);\r\n    }\r\n  }\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -1408,26 +1408,8 @@
                 "description": "",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "args": [
-                    {
-                        "name": "accordion",
-                        "type": "any",
-                        "deprecated": false,
-                        "deprecationMessage": ""
-                    }
-                ],
-                "line": 56,
-                "jsdoctags": [
-                    {
-                        "name": "accordion",
-                        "type": "any",
-                        "deprecated": false,
-                        "deprecationMessage": "",
-                        "tagName": {
-                            "text": "param"
-                        }
-                    }
-                ]
+                "args": [],
+                "line": 56
             },
             "implements": [
                 "OnInit",
